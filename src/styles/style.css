@@ -223,8 +223,8 @@ Date Created: Oct 14, 2022
   --primary-font: 'Poppins', sans-serif;
   --secondary-font: 'Roboto', sans-serif;
   --font-awesome: 'Font Awesome 5 Pro';
-  --primary-color: #FF2C54;
-  --secondary-color: #FF9500;
+  --primary-color: #041f4a;
+  --secondary-color: #052962;
   --action-color: #FECC00;
   --grey-dark-key: #000;
   --grey-dark-one: #121213;
@@ -8624,6 +8624,10 @@ width: 3px;
   border-color: var(--grey-dark-one);
 }
 
-
 /* Splash Page Style  */
 
+/** my custom design **/
+
+/* the parent */
+.slick-list {margin: 0 -5px;}
+.slick-slide>div {padding: 0 5px;}

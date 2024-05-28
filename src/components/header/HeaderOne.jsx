@@ -4,8 +4,13 @@ import Image from "next/image";
 import { dateFormate } from "../../utils";
 import SocialLink from "../../data/social/SocialLink.json";
 import MenuData from "../../data/menu/HeaderMenu.json";
+import topMenu from "../../data/fake/topMenu.json";
 import FloatingMenu from "./FloatingMenu";
 import OffcanvasMenu from "./OffcanvasMenu";
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const HeaderOne = () => {
   // Main Menu Toggle
@@ -87,61 +92,51 @@ const HeaderOne = () => {
     });
   };
 
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1
+  };
+
   return (
     <>
       <OffcanvasMenu ofcshow={show} ofcHandleClose={handleClose} />
       <header className="page-header">
-        <div className="header-top bg-grey-dark-one">
+        <div className="header-top bg-primary-color">
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-md">
-                <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
-                  <li className="current-date">{dateFormate()}</li>
-                  <li>
-                    <Link href="/">
-                      <a>Advertisement</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/about-us">
-                      <a>About</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contact">
-                      <a>Contact</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
               <div className="col-md-auto">
-                <ul className="ml-auto social-share header-top__social-share">
-                  <li>
-                    <a href={SocialLink.fb.url}>
-                      <i className={SocialLink.fb.icon} />
-                    </a>
-                  </li>
-                  <li>
-                    <a href={SocialLink.twitter.url}>
-                      <i className={SocialLink.twitter.icon} />
-                    </a>
-                  </li>
-                  <li>
-                    <a href={SocialLink.instagram.url}>
-                      <i className={SocialLink.instagram.icon} />
-                    </a>
-                  </li>
-                  <li>
-                    <a href={SocialLink.linked.url}>
-                      <i className={SocialLink.linked.icon} />
-                    </a>
-                  </li>
+                <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
+                    <li className="fs-5">
+                      <Link href="/">
+                        <strong>Matches (14)</strong>
+                      </Link>
+                    </li>
+                  {topMenu.map((data, index) =>
+                    <li key={index} className="fs-5">
+                      <Link href={data.path}>
+                        {data.label}
+                      </Link>
+                    </li>
+                  )}
                 </ul>
+                <Slider {...settings} className="mb-4">
+                  {topMenu.map((data, index) =>
+                    <div className="card" key={index}>
+                      <div className="card-body p-2">
+                        <h5 className="fs-5">
+                          <strong>RESULT</strong> . 27 <sup>th</sup> Match . County DIV1 . FC
+                        </h5>
+                      </div>
+                    </div>
+                  )}
+                </Slider>
               </div>
             </div>
           </div>
         </div>
-        <nav className="navbar bg-white">
+        <nav className="navbar bg-secondary-color">
           <div className="container">
             <div className="navbar-inner">
               <div className="brand-logo-container">
