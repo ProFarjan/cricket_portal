@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { dateFormate } from "../../utils";
-import SocialLink from "../../data/social/SocialLink.json";
 import MenuData from "../../data/menu/HeaderMenu.json";
 import topMenu from "../../data/fake/topMenu.json";
 import FloatingMenu from "./FloatingMenu";
+import TopHeaderCard from "../common/TopHeaderCard";
 import OffcanvasMenu from "./OffcanvasMenu";
 import Slider from "react-slick";
 
@@ -95,7 +94,7 @@ const HeaderOne = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1
   };
 
@@ -108,11 +107,11 @@ const HeaderOne = () => {
             <div className="row align-items-center">
               <div className="col-md-auto">
                 <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
-                    <li className="fs-5">
-                      <Link href="/">
-                        <strong>Matches (14)</strong>
-                      </Link>
-                    </li>
+                  <li className="fs-5">
+                    <Link href="/">
+                      <strong>Matches (6)</strong>
+                    </Link>
+                  </li>
                   {topMenu.map((data, index) =>
                     <li key={index} className="fs-5">
                       <Link href={data.path}>
@@ -122,15 +121,15 @@ const HeaderOne = () => {
                   )}
                 </ul>
                 <Slider {...settings} className="mb-4">
-                  {topMenu.map((data, index) =>
-                    <div className="card" key={index}>
-                      <div className="card-body p-2">
-                        <h5 className="fs-5">
-                          <strong>RESULT</strong> . 27 <sup>th</sup> Match . County DIV1 . FC
-                        </h5>
-                      </div>
-                    </div>
-                  )}
+                  {topMenu.map((data, index) => {
+                    return data.child.length == 1 ? (
+                      <TopHeaderCard key={index} data={data.child[0]} />
+                    ) : (
+                      data.child.map((sub_data, indx) =>
+                        <TopHeaderCard key={indx} data={sub_data} />
+                      )
+                    )
+                  })}
                 </Slider>
               </div>
             </div>
