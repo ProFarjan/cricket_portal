@@ -4547,13 +4547,13 @@ input[type="radio"] + label::after {
 }
 .main-navigation li {
   position: relative;
-  margin-right: 2rem;
+  margin-right: 0.85rem;
   font-family: var(--primary-font);
-  font-size: 1.6rem;
-  line-height: 2.4rem;
+  font-size: 1.4rem;
+  line-height: 2.3rem;
   color: #fff;
   font-weight: var(--p-medium);
-  padding: 3.1rem 0.5rem 3rem;
+  padding: 1.5rem 0.5rem;
 }
 .main-navigation li.has-dropdown {
   margin-right: 3.4rem;
@@ -4836,7 +4836,7 @@ input[type="radio"] + label::after {
   font-size: 2rem;
   line-height: 4.2rem;
   color: #fff;
-  margin-right: 2rem;
+  margin-left: 1.8rem;
   transition: all 0.3s ease-in-out;
   background-color: transparent;
   border: none;

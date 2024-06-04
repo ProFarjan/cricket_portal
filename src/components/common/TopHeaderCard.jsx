@@ -7,12 +7,12 @@ const TopHeaderCard = ({ data }) => {
                 </h5>
                 <div className="row">
                     <div className="col-5">
-                        <div>
-                            <img src={data.party_1.flag_img} className="rounded float-start m-2" width={28} alt={data.party_1.name} />
+                        <div className="overflow-hidden">
+                            <img src={data.party_1.flag_img} className="rounded float-start m-2" width={28} height={20} alt={data.party_1.name} />
                             <strong className="fs-5">{data.party_1.short_name}</strong>
                         </div>
-                        <div>
-                            <img src={data.party_2.flag_img} className="rounded float-start m-2" width={28} alt={data.party_2.name} />
+                        <div className="overflow-hidden">
+                            <img src={data.party_2.flag_img} className="rounded float-start m-2" width={28} height={20} alt={data.party_2.name} />
                             <strong className="fs-5">{data.party_2.short_name}</strong>
                         </div>
                     </div>
@@ -33,7 +33,7 @@ const TopHeaderCard = ({ data }) => {
                 </div>
                 <strong className="fs-6">South Africa need 16 runs in 66 balls</strong>
             </div>
-            <div class="card-footer fs-5">
+            <div className="card-footer fs-5">
                 <a style={{ marginRight: "6px" }}>Schedule</a>
                 <a style={{ marginRight: "6px" }}>Report</a>
                 <a style={{ marginRight: "6px" }}>Videos</a>

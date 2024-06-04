@@ -1,0 +1,36 @@
+[
+    {
+        "label": "Edition BD",
+        "path": "#",
+        "submenu": [
+            {
+                "sublabel": "Live Scores Home",
+                "subpath": "/"
+            },
+            {
+                "sublabel": "Result",
+                "subpath": "/"
+            },
+            {
+                "sublabel": "Session View",
+                "subpath": "/home-three"
+            },
+            {
+                "sublabel": "Desktop Scoreboard",
+                "subpath": "/home-four"
+            },
+            {
+                "sublabel": "Schedule",
+                "subpath": "/home-five"
+            },
+            {
+                "sublabel": "Month View",
+                "subpath": "/home-five"
+            },
+            {
+                "sublabel": "International Calender",
+                "subpath": "/home-five"
+            }
+        ]
+    }
+]

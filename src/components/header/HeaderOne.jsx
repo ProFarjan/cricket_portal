@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import MenuData from "../../data/menu/HeaderMenu.json";
+import MenuEditionData from "../../data/fake/MenuEditionData.json";
 import topMenu from "../../data/fake/topMenu.json";
 import FloatingMenu from "./FloatingMenu";
 import TopHeaderCard from "../common/TopHeaderCard";
@@ -94,8 +95,9 @@ const HeaderOne = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1
+    slidesToShow: 3.5,
+    slidesToScroll: 1,
+    centerMode: true
   };
 
   return (
@@ -154,7 +156,7 @@ const HeaderOne = () => {
                 <ul className="main-navigation list-inline" ref={menuRef}>
                   {MenuData.map((data, index) =>
                     data.submenu ? (
-                      <li className="has-dropdown" key={index}>
+                      <li key={index}>
                         <Link href={data.path}>
                           <a>{data.label}</a>
                         </Link>
@@ -201,29 +203,49 @@ const HeaderOne = () => {
                     <i className="fal fa-times" />
                   </span>
                 </form>
-
+                
+                <ul className="main-navigation list-inline" ref={menuRef}>
+                  {MenuEditionData.map((data, index) =>
+                    data.submenu ? (
+                      <li key={index}>
+                        <Link href={data.path}>
+                          <a>{data.label}</a>
+                        </Link>
+                        <ul className="submenu">
+                          {data.submenu.map((data, index) => (
+                            <li key={index}>
+                              <Link href={data.subpath}>
+                                <a>{data.sublabel}</a>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ) : (
+                      <li key={index}>
+                        <Link href={data.path}>
+                          <a>{data.label}</a>
+                        </Link>
+                      </li>
+                    )
+                  )}
+                </ul>
+                <button className="nav-search-field-toggler">
+                  <i className="far fa-moon" />
+                </button>
+                <button className="nav-search-field-toggler">
+                  <i className="far fa-bell" />
+                </button>
+                <button className="nav-search-field-toggler">
+                  <i className="far fa-bars" />
+                </button>
                 <button
                   className="nav-search-field-toggler"
                   onClick={headerSearchShow}
                 >
                   <i className="far fa-search" />
                 </button>
-                <button className="side-nav-toggler" onClick={handleShow}>
-                  <span />
-                  <span />
-                  <span />
-                </button>
               </div>
-              {/* <div
-                className={`main-nav-toggler d-block d-lg-none ${mobileToggle ? "expanded" : ""
-                  }`}
-              >
-                <div className="toggler-inner" onClick={MobileMenuToggler}>
-                  <span />
-                  <span />
-                  <span />
-                </div>
-              </div> */}
               <div
                 className={`d-block d-lg-none ${mobileToggle ? "expanded" : ""
                   }`}
