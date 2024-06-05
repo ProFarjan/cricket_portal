@@ -6,8 +6,8 @@
         "slug": "afg_vs_uga_bridgetown_1",
         "title": "LIVE - Rain returns after Scotland blitz Powerplay",
         "score": "SCOT 51/0 (6.2/20 ov) vs ENG",
-        "featured_image": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1200,q_60/lsci/db/PICTURES/CMS/382000/382071.6.jpg",
-        "featured_video": "",
+        "featureImg": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1200,q_60/lsci/db/PICTURES/CMS/382000/382071.6.jpg",
+        "featuredVideo": null,
         "list": [
             {"lable": "Toss: Netherlands bowl under heavy overcast skies"},
             {"lable": "Scott Edwards: 'Our best is well and truly good enough'"},

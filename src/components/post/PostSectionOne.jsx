@@ -6,7 +6,7 @@ import PostLayoutTwo from "./layout/PostLayoutTwo";
 const PostSectionOne = ({ postData }) => {
   SortingByDate(postData);
   return (
-    <div className="recent-news-wrapper section-gap bg-grey-light-three p-t-xs-15 p-t-sm-60">
+    <div className="recent-news-wrapper section-gap bg-grey-light-three p-t-xs-15 p-t-sm-40">
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
