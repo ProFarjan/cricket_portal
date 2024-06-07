@@ -9,16 +9,36 @@
         "featureImg": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1200,q_60/lsci/db/PICTURES/CMS/382000/382071.6.jpg",
         "featuredVideo": null,
         "list": [
-            {"lable": "Toss: Netherlands bowl under heavy overcast skies"},
-            {"lable": "Scott Edwards: 'Our best is well and truly good enough'"},
-            {"lable": "What Nepal want to be at their second World Cup in a decade"},
-            {"lable": "Make Nepal cricket great - the Paras Khadka story"}
+            {"label": "Toss: Netherlands bowl under heavy overcast skies"},
+            {"label": "Scott Edwards: 'Our best is well and truly good enough'"},
+            {"label": "What Nepal want to be at their second World Cup in a decade"},
+            {"label": "Make Nepal cricket great - the Paras Khadka story"}
         ],
         "others": [
             {
                 "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
                 "video": "",
                 "title": "Should England be cautious with Jofra Archer?"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Do England have batters that can adapt to tricky surfaces?"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Salt: I modelled myself on Kieswetter"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Do England have batters that can adapt to tricky surfaces?"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Salt: I modelled myself on Kieswetter"
             },
             {
                 "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
@@ -39,19 +59,39 @@
         "slug": "afg_vs_uga_bridgetown",
         "title": "LIVE - Rain returns after Scotland blitz Powerplay",
         "score": "SCOT 51/0 (6.2/20 ov) vs ENG",
-        "featured_image": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1200,q_60/lsci/db/PICTURES/CMS/382000/382071.6.jpg",
+        "featureImg": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1200,q_60/lsci/db/PICTURES/CMS/382000/382071.6.jpg",
         "featured_video": "",
         "list": [
-            {"lable": "Toss: Netherlands bowl under heavy overcast skies"},
-            {"lable": "Scott Edwards: 'Our best is well and truly good enough'"},
-            {"lable": "What Nepal want to be at their second World Cup in a decade"},
-            {"lable": "Make Nepal cricket great - the Paras Khadka story"}
+            {"label": "Toss: Netherlands bowl under heavy overcast skies"},
+            {"label": "Scott Edwards: 'Our best is well and truly good enough'"},
+            {"label": "What Nepal want to be at their second World Cup in a decade"},
+            {"label": "Make Nepal cricket great - the Paras Khadka story"}
         ],
         "others": [
             {
                 "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
                 "video": "",
                 "title": "Should England be cautious with Jofra Archer?"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Do England have batters that can adapt to tricky surfaces?"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Salt: I modelled myself on Kieswetter"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Do England have batters that can adapt to tricky surfaces?"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Salt: I modelled myself on Kieswetter"
             },
             {
                 "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
@@ -72,19 +112,39 @@
         "slug": "afg_vs_uga_bridgetown_2",
         "title": "LIVE - Rain returns after Scotland blitz Powerplay",
         "score": "SCOT 51/0 (6.2/20 ov) vs ENG",
-        "featured_image": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1200,q_60/lsci/db/PICTURES/CMS/382000/382071.6.jpg",
+        "featureImg": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1200,q_60/lsci/db/PICTURES/CMS/382000/382071.6.jpg",
         "featured_video": "",
         "list": [
-            {"lable": "Toss: Netherlands bowl under heavy overcast skies"},
-            {"lable": "Scott Edwards: 'Our best is well and truly good enough'"},
-            {"lable": "What Nepal want to be at their second World Cup in a decade"},
-            {"lable": "Make Nepal cricket great - the Paras Khadka story"}
+            {"label": "Toss: Netherlands bowl under heavy overcast skies"},
+            {"label": "Scott Edwards: 'Our best is well and truly good enough'"},
+            {"label": "What Nepal want to be at their second World Cup in a decade"},
+            {"label": "Make Nepal cricket great - the Paras Khadka story"}
         ],
         "others": [
             {
                 "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
                 "video": "",
                 "title": "Should England be cautious with Jofra Archer?"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Do England have batters that can adapt to tricky surfaces?"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Salt: I modelled myself on Kieswetter"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Do England have batters that can adapt to tricky surfaces?"
+            },
+            {
+                "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",
+                "video": "",
+                "title": "Salt: I modelled myself on Kieswetter"
             },
             {
                 "img": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_480,q_50/esci/media/motion/2024/0604/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global/dm_240604_INET_CRIC_wc24_m6_archer_maruti_global.jpg",

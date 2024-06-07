@@ -7,7 +7,7 @@ const MatchCoverage = () => {
         <div className="post-widget sidebar-post-widget m-b-xs-40">
             <Tab.Container id="widget-post" defaultActiveKey="afg_vs_uga_bridgetown_1">
                 <Nav variant="underline">
-                    {matchCoverageData.map((data) =>
+                    {matchCoverageData.slice(0,6).map((data) =>
                         <Nav.Item>
                             <Nav.Link eventKey={data.slug}>
                                 <h4 className="fs-4 m-0 p-0">{data.match}</h4>

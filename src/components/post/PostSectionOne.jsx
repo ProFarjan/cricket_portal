@@ -12,12 +12,12 @@ const PostSectionOne = ({ postData }) => {
           <div className="col-lg-8">
             <div className="card">
               <div className="card-body">
-                <h5 class="card-title">Match Coverage</h5>
+                <h5 className="card-title fs-2 mb-4">Match Coverage</h5>
                 <MatchCoverage />
               </div>
             </div>
-
           </div>
+
           <div className="col-lg-4">
             <div className="card">
               <div className="card-body">
@@ -28,7 +28,7 @@ const PostSectionOne = ({ postData }) => {
                     pClass="m-b-xs-30"
                   />
                   <div className="axil-content">
-                    {postData.slice(1, 5).map((data) => (
+                    {postData.slice(1, 4).map((data) => (
                       <PostLayoutTwo data={data} key={data.slug} />
                     ))}
                   </div>
