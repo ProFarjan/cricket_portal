@@ -1,13 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useQuery } from 'react-query';
 import Link from "next/link";
 import Image from "next/image";
 import MenuData from "../../data/menu/HeaderMenu.json";
 import MenuEditionData from "../../data/fake/MenuEditionData.json";
-import topMenu from "../../data/fake/topMenu.json";
+// import topMenu from "../../data/fake/topMenu.json";
+import { getTopMetches } from "../../api/api";
+import reactQueryConfig from "../../config/reactQueryConfig";
 import FloatingMenu from "./FloatingMenu";
 import TopHeaderCard from "../common/TopHeaderCard";
 import OffcanvasMenu from "./OffcanvasMenu";
 import Slider from "react-slick";
+import { hasData } from "../../helpers/helper";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -66,6 +70,12 @@ const HeaderOne = () => {
     setSearchShow(false);
   };
 
+  const {
+    data: topMenu,
+    error,
+    isLoading
+  } = useQuery('top-metches', getTopMetches, reactQueryConfig);
+
   // Mobile Menu Toggle
   const [mobileToggle, setMobileToggle] = useState(false);
 
@@ -114,24 +124,27 @@ const HeaderOne = () => {
                       <strong>Matches (6)</strong>
                     </Link>
                   </li>
-                  {topMenu.map((data, index) =>
-                    <li key={index} className="fs-5">
-                      <Link href={data.path}>
-                        {data.label}
-                      </Link>
-                    </li>
-                  )}
+                  {hasData(topMenu) &&
+                    topMenu.map((data, index) =>
+                      <li key={index} className="fs-5">
+                        <Link href={data.path}>
+                          {data.label}
+                        </Link>
+                      </li>
+                    )
+                  }
                 </ul>
                 <Slider {...settings} className="mb-4">
-                  {topMenu.map((data, index) => {
-                    return data.child.length == 1 ? (
-                      <TopHeaderCard key={index} data={data.child[0]} />
-                    ) : (
-                      data.child.map((sub_data, indx) =>
-                        <TopHeaderCard key={indx} data={sub_data} />
+                  {hasData(topMenu) &&
+                    topMenu.map((data, index) => {
+                      return data.child.length == 1 ? (
+                        <TopHeaderCard key={index} data={data.child[0]} />
+                      ) : (
+                        data.child.map((sub_data, indx) =>
+                          <TopHeaderCard key={indx} data={sub_data} />
+                        )
                       )
-                    )
-                  })}
+                    })}
                 </Slider>
               </div>
             </div>
@@ -203,7 +216,7 @@ const HeaderOne = () => {
                     <i className="fal fa-times" />
                   </span>
                 </form>
-                
+
                 <ul className="main-navigation list-inline" ref={menuRef}>
                   {MenuEditionData.map((data, index) =>
                     data.submenu ? (
