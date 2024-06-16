@@ -6,7 +6,7 @@ import MenuData from "../../data/menu/HeaderMenu.json";
 import MenuEditionData from "../../data/fake/MenuEditionData.json";
 // import topMenu from "../../data/fake/topMenu.json";
 import { getTopMetches } from "../../api/api";
-import reactQueryConfig from "../../config/reactQueryConfig";
+import {seriesMatches} from "../../config/reactQueryConfig";
 import FloatingMenu from "./FloatingMenu";
 import TopHeaderCard from "../common/TopHeaderCard";
 import OffcanvasMenu from "./OffcanvasMenu";
@@ -74,7 +74,7 @@ const HeaderOne = () => {
     data: topMenu,
     error,
     isLoading
-  } = useQuery('top-metches', getTopMetches, reactQueryConfig);
+  } = useQuery('series-metches', getTopMetches, seriesMatches);
 
   // Mobile Menu Toggle
   const [mobileToggle, setMobileToggle] = useState(false);
@@ -121,11 +121,11 @@ const HeaderOne = () => {
                 <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
                   <li className="fs-5">
                     <Link href="/">
-                      <strong>Matches (6)</strong>
+                      <strong>Matches</strong>
                     </Link>
                   </li>
                   {hasData(topMenu) &&
-                    topMenu.map((data, index) =>
+                    topMenu.slice(0, 5).map((data, index) =>
                       <li key={index} className="fs-5">
                         <Link href={data.path}>
                           {data.label}
@@ -136,7 +136,7 @@ const HeaderOne = () => {
                 </ul>
                 <Slider {...settings} className="mb-4">
                   {hasData(topMenu) &&
-                    topMenu.map((data, index) => {
+                    topMenu.slice(0, 5).map((data, index) => {
                       return data.child.length == 1 ? (
                         <TopHeaderCard key={index} data={data.child[0]} />
                       ) : (
@@ -157,7 +157,7 @@ const HeaderOne = () => {
                 <Link href="/">
                   <a>
                     <Image
-                      src="/images/logo-black.svg"
+                      src="/images/logo.png"
                       alt="brand-logo"
                       width={102}
                       height={34}

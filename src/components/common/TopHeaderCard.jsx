@@ -8,35 +8,37 @@ const TopHeaderCard = ({ data }) => {
                 <div className="row">
                     <div className="col-5">
                         <div className="overflow-hidden">
-                            <img src={data.party_1.flag_img} className="rounded float-start m-2" width={28} height={20} alt={data.party_1.name} />
-                            <strong className="fs-5">{data.party_1.short_name}</strong>
+                            <img src={data.team_1.flag_img} className="rounded float-start m-2" width={28} height={20} alt={data.team_1.name} />
+                            <strong className="fs-5">{data.team_1.short_name}</strong>
                         </div>
                         <div className="overflow-hidden">
-                            <img src={data.party_2.flag_img} className="rounded float-start m-2" width={28} height={20} alt={data.party_2.name} />
-                            <strong className="fs-5">{data.party_2.short_name}</strong>
+                            <img src={data.team_2.flag_img} className="rounded float-start m-2" width={28} height={20} alt={data.team_2.name} />
+                            <strong className="fs-5">{data.team_2.short_name}</strong>
                         </div>
                     </div>
                     <div className="col-7 align-items-end">
                         <div>
                             <h5 className="fs-4 m-1 text-right">
-                                <span className="fs-6">{data.party_1.live_score} </span>
-                                {data.party_1.score}
+                                <span className="fs-6">{data.team_1.live_score} </span>
+                                {data.team_1.score}
                             </h5>
                         </div>
                         <div>
                             <h5 className="fs-4 m-1 text-right">
-                                <span className="fs-6">{data.party_2.live_score} </span>
-                                {data.party_2.score}
+                                <span className="fs-6">{data.team_2.live_score} </span>
+                                {data.team_2.score}
                             </h5>
                         </div>
                     </div>
                 </div>
-                <strong className="fs-6">South Africa need 16 runs in 66 balls</strong>
+                <strong className="fs-6">
+                    {data?.event_message ? data.event_message.substring(0, 50) : "NO DATA FOUND"}
+                </strong>
             </div>
             <div className="card-footer fs-5">
                 <a style={{ marginRight: "6px" }}>Schedule</a>
                 <a style={{ marginRight: "6px" }}>Report</a>
-                <a style={{ marginRight: "6px" }}>Videos</a>
+                {/* <a style={{ marginRight: "6px" }}>Videos</a> */}
                 <a style={{ marginRight: "6px" }}>Series</a>
             </div>
         </div>
