@@ -16,6 +16,7 @@ const HomeOne = ({allPosts}) => {
     <HeadMeta metaTitle="Home One"/>
     <HeaderOne />
     <PostSectionOne postData={allPosts} />
+    <PostSectionTwo postData={allPosts} />
     <PostSectionThree postData={allPosts} />
     {/* <PostSectionFour postData={allPosts} /> */}
     {/* <PostSectionFive postData={allPosts} adBanner={true} /> */}

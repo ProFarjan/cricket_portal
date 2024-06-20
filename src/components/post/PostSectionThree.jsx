@@ -10,7 +10,7 @@ const PostSectionThree = ({ postData }) => {
       <div className="container">
         <div className="card">
           <div className="card-header">
-            <SectionTitle title="Top Stories" btnText="See all" />
+            <SectionTitle title="Features Matches" btnText="See all" />
           </div>
           <div className="card-body">
             <div className="row">
