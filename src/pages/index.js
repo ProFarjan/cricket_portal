@@ -9,23 +9,35 @@ import PostSectionSix from "../components/post/PostSectionSix";
 import PostSectionThree from "../components/post/PostSectionThree";
 import PostSectionTwo from "../components/post/PostSectionTwo";
 
-const HomeOne = ({allPosts}) => {
- 
-  return ( 
+const HomeOne = ({ allPosts }) => {
+
+  return (
     <>
-    <HeadMeta metaTitle="Home One"/>
-    <HeaderOne />
-    <PostSectionOne postData={allPosts} />
-    <PostSectionTwo postData={allPosts} />
-    <PostSectionThree postData={allPosts} />
-    {/* <PostSectionFour postData={allPosts} /> */}
-    {/* <PostSectionFive postData={allPosts} adBanner={true} /> */}
-    {/* <PostSectionSix postData={allPosts}/> */}
-    <FooterOne />
+      <HeadMeta metaTitle="Home One" />
+      <HeaderOne />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-9">
+            <PostSectionOne postData={allPosts} />
+            <PostSectionTwo postData={allPosts} />
+            <PostSectionThree postData={allPosts} />
+            {/* <PostSectionFour postData={allPosts} /> */}
+            {/* <PostSectionFive postData={allPosts} adBanner={true} /> */}
+            {/* <PostSectionSix postData={allPosts}/> */}
+          </div>
+          <div className="col-md-3">
+            <br/>
+            <br/>
+            <p>side section</p>
+            <p>pending work</p>
+          </div>
+        </div>
+      </div>
+      <FooterOne />
     </>
-   );
+  );
 }
- 
+
 export default HomeOne;
 
 
@@ -46,7 +58,7 @@ export async function getStaticProps() {
     'post_views',
     'post_share',
   ])
-  
+
   return {
     props: { allPosts }
   }

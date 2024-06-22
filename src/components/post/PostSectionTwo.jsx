@@ -6,7 +6,7 @@ const PostSectionTwo = ({ postData }) => {
   const storyPost = postData.filter(post => post.story === true);
 
   return (
-    <div className="section-gap section-gap-top__with-text top-stories bg-grey-light-three">
+    <div className="section-gap section-gap-top__with-text top-stories">
       <div className="container">
         <SectionTitle title="Top Stories" btnText="All Top Stories" />
         <div className="row">

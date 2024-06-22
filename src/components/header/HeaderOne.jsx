@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import MenuData from "../../data/menu/HeaderMenu.json";
 import MenuEditionData from "../../data/fake/MenuEditionData.json";
-// import topMenu from "../../data/fake/topMenu.json";
 import { getTopMetches } from "../../api/api";
 import {seriesMatches} from "../../config/reactQueryConfig";
 import FloatingMenu from "./FloatingMenu";

@@ -6,11 +6,11 @@ const PostSectionThree = ({ postData }) => {
   const trendingPost = postData.filter(post => post.trending === true);
 
   return (
-    <div className="section-gap section-gap-top__with-text trending-stories bg-grey-light-three">
+    <div className="section-gap section-gap-top__with-text trending-stories">
       <div className="container">
         <div className="card">
           <div className="card-header">
-            <SectionTitle title="Features Matches" btnText="See all" />
+            <SectionTitle title="Top Matches" btnText="See all" />
           </div>
           <div className="card-body">
             <div className="row">
