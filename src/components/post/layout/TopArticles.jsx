@@ -10,7 +10,7 @@ const TopArticles = ({ data }) => {
                     <Link href="">
                         <a>
                             <Image
-                                src={data.image}
+                                src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
                                 alt={data.title}
                                 width={540}
                                 height={540}
@@ -19,11 +19,6 @@ const TopArticles = ({ data }) => {
                             />
                         </a>
                     </Link>
-                    <div className="post-cat-group m-b-xs-10">
-                        <Link href={`/category/${slugify(data.title)}`}>
-                            <a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>{data.title}</a>
-                        </Link>
-                    </div>
                 </figure>
                 <div className="media-body">
                     <h3 className="axil-post-title hover-line hover-line">

@@ -8,7 +8,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['img1.hscicdn.com']
+    domains: ['img1.hscicdn.com', 'authority.thecricket.co']
   }
 }
 

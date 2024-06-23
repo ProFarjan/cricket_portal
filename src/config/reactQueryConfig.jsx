@@ -6,10 +6,7 @@ export const seriesMatches = {
 };
 
 export default {
-  select: (res) => {
-    console.log(res.data)
-    return res.data;
-  },
+  select: (res) => res.data,
   retry: 1,
   refetchOnWindowFocus: false,
   cacheTime: 0,

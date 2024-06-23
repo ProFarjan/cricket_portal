@@ -1,10 +1,11 @@
 import { useQuery } from 'react-query';
 import { SortingByDate } from "../../utils";
 import SectionTitle from "../elements/SectionTitle";
-import PostLayoutOne from "./layout/PostLayoutOne";
-import PostLayoutTwo from "./layout/PostLayoutTwo";
+import TopArticles from "./layout/TopArticles";
+import ArticlesList from "./layout/ArticlesList";
 import { getTopArticles } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
+import { hasData } from "../../helpers/helper";
 
 const PostSectionOne = ({ postData }) => {
 
@@ -21,9 +22,10 @@ const PostSectionOne = ({ postData }) => {
         <div className="card">
           <div className="row">
             <div className="col-lg-8">
-              {postData.slice(0, 1).map((data) => (
-                <PostLayoutOne data={data} key={data.slug} />
-              ))}
+              {hasData(articles) &&
+                articles.slice(0, 1).map((data, index) => (
+                  <TopArticles data={data} key={index} />
+                ))}
             </div>
             <div className="col-lg-4">
               <div className="axil-recent-news">
@@ -33,9 +35,10 @@ const PostSectionOne = ({ postData }) => {
                   pClass="m-b-xs-30"
                 />
                 <div className="axil-content">
-                  {postData.slice(1, 5).map((data) => (
-                    <PostLayoutTwo data={data} key={data.slug} />
-                  ))}
+                  {hasData(articles) &&
+                    articles.slice(1, 5).map((data, index) => (
+                      <ArticlesList data={data} key={index} />
+                    ))}
                 </div>
               </div>
             </div>

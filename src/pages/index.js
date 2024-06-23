@@ -26,10 +26,7 @@ const HomeOne = ({ allPosts }) => {
             {/* <PostSectionSix postData={allPosts}/> */}
           </div>
           <div className="col-md-3">
-            <br/>
-            <br/>
-            <p>side section</p>
-            <p>pending work</p>
+            
           </div>
         </div>
       </div>
