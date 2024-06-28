@@ -4,14 +4,14 @@ import { slugify } from "../../../utils";
 
 const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
   return (
-    <div className={`media post-block m-b-xs-30 ${postSizeMd === true ? "post-block__mid" : ""} ${postBgDark === true ? "post-block__on-dark-bg" : ""}`}>
+    <div className={`media post-block m-b-xs-20 ${postSizeMd === true ? "post-block__mid" : ""} ${postBgDark === true ? "post-block__on-dark-bg" : ""}`}>
       <Link href={`/post/${data.title}`}>
         <a className="align-self-center">
           <Image
             src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
             alt={data.title}
-            width={postSizeMd === true ? 285 : 150}
-            height={postSizeMd === true ? 285 : 150}
+            width={postSizeMd === true ? 285 : 70}
+            height={postSizeMd === true ? 285 : 70}
             placeholder="blur"
             blurDataURL="/images/placeholder.png"
           />

@@ -6595,9 +6595,9 @@ input[type="radio"]+label::after {
 }
 
 .post-block .axil-post-title {
-  font-size: 1.8rem;
-  line-height: 2.8rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  margin-bottom: 1.0rem;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -6617,7 +6617,7 @@ input[type="radio"]+label::after {
 .post-block>a,
 .post-block figure>a {
   display: block;
-  margin-right: 3rem;
+  margin-right: 1.5rem;
   align-self: flex-start !important;
   overflow: hidden;
 }
@@ -10638,4 +10638,18 @@ address .tel i {
 .card-header {
   background: #ffffff;
   padding: 0 10px;
+}
+
+.slide {
+  width: 25%; /* Fixed width for each slide */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px; /* Adjust as needed */
+}
+
+.placeholder {
+  background-color: #f0f0f0; /* Light grey background for placeholders */
+  border: 1px dashed #ccc; /* Dashed border to differentiate placeholders */
 }

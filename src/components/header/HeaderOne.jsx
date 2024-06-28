@@ -5,7 +5,7 @@ import Image from "next/image";
 import MenuData from "../../data/menu/HeaderMenu.json";
 import MenuEditionData from "../../data/fake/MenuEditionData.json";
 import { getTopMetches } from "../../api/api";
-import {seriesMatches} from "../../config/reactQueryConfig";
+import reactQuery from "../../config/reactQueryConfig";
 import FloatingMenu from "./FloatingMenu";
 import TopHeaderCard from "../common/TopHeaderCard";
 import OffcanvasMenu from "./OffcanvasMenu";
@@ -73,7 +73,7 @@ const HeaderOne = () => {
     data: topMenu,
     error,
     isLoading
-  } = useQuery('series-metches', getTopMetches, seriesMatches);
+  } = useQuery('series-metches', getTopMetches, reactQuery);
 
   // Mobile Menu Toggle
   const [mobileToggle, setMobileToggle] = useState(false);
@@ -104,9 +104,10 @@ const HeaderOne = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 3.5,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    centerMode: true
+    variableWidth: false,
+    centerMode: false
   };
 
   return (
@@ -124,7 +125,7 @@ const HeaderOne = () => {
                     </Link>
                   </li>
                   {hasData(topMenu) &&
-                    topMenu.slice(0, 5).map((data, index) =>
+                    topMenu.seriesMatches.slice(0, 5).map((data, index) =>
                       <li key={index} className="fs-5">
                         <Link href={data.path}>
                           {data.label}
@@ -135,7 +136,7 @@ const HeaderOne = () => {
                 </ul>
                 <Slider {...settings} className="mb-4">
                   {hasData(topMenu) &&
-                    topMenu.slice(0, 5).map((data, index) => {
+                    topMenu.seriesMatches.slice(0, 5).map((data, index) => {
                       return data.child.length == 1 ? (
                         <TopHeaderCard key={index} data={data.child[0]} />
                       ) : (

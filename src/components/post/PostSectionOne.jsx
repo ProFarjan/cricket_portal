@@ -19,15 +19,12 @@ const PostSectionOne = ({ postData }) => {
   return (
     <div className="recent-news-wrapper mt-5 section-gap p-t-xs-15 p-t-sm-20">
       <div className="container">
-        <div className="card">
+        <div className="card p-4">
           <div className="row">
-            <div className="col-lg-8">
-              {hasData(articles) &&
-                articles.slice(0, 1).map((data, index) => (
-                  <TopArticles data={data} key={index} />
-                ))}
+            <div className="col-lg-7">
+              <TopArticles />
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-5">
               <div className="axil-recent-news">
                 <SectionTitle
                   title="Recent News"
