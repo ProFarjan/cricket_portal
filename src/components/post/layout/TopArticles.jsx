@@ -3,9 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useQuery } from 'react-query';
 import reactQuery from "../../../config/reactQueryConfig";
-import matchCoverageData from "../../../data/fake/MatchCoverage.json";
 import { getTop5stories } from "../../../api/api";
-import { slugify } from "../../../utils";
 import { hasData, shortTxt } from "../../../helpers/helper";
 
 const TopArticles = () => {
@@ -18,7 +16,8 @@ const TopArticles = () => {
 
     return (
         <div className="axil-latest-post">
-            <Tab.Container id="widget-post" defaultActiveKey="0">
+            <h3 className={`fs-2 p-0 m-0 mb-4`}>Recent Matches</h3>
+            <Tab.Container id="widget-post" className="mb-3" defaultActiveKey="0">
                 <Nav variant="underline">
                     {hasData(top_stories) &&
                         top_stories.slice(0, 3).map((data, index) =>
@@ -34,39 +33,28 @@ const TopArticles = () => {
                     {hasData(top_stories) &&
                         top_stories.map((data, index) =>
                             <Tab.Pane eventKey={index}>
-                                <div className="media post-block m-b-xs-20">
+                                <div className="media post-block m-b-xs-5 mt-4">
                                     <figure className="fig-container">
                                         <Link href="">
-                                            <a>
+                                            <a className="m-0">
                                                 <Image
                                                     src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
                                                     alt={data.title}
-                                                    width={440}
-                                                    height={440}
+                                                    width={410}
+                                                    height={410}
                                                     placeholder="blur"
                                                     blurDataURL="/images/placeholder.png"
                                                 />
                                             </a>
                                         </Link>
                                     </figure>
-                                    <div className="media-body">
-                                        <h3 className="axil-post-title hover-line hover-line">
-                                            <Link href="">
-                                                <a>{data.title}</a>
-                                            </Link>
-                                        </h3>
-                                        <div className="post-metas">
-                                            <ul className="list-inline">
-                                                <li>
-                                                    <span>By</span>
-                                                    <Link href={`/author/${slugify(data.created_by)}`}>
-                                                        <a className="post-author">{data.created_by}</a>
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <i className="dot">.</i>{data.created_at}
-                                                </li>
-                                            </ul>
+                                    <div className="media post-block position-absolute mb-0 p-4" style={{bottom: 0}}>
+                                        <div className="media-body">
+                                            <h3 className="axil-post-title hover-line hover-line color-white">
+                                                <Link href="">
+                                                    <a>{data.title}</a>
+                                                </Link>
+                                            </h3>
                                         </div>
                                     </div>
                                 </div>

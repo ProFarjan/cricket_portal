@@ -17,7 +17,7 @@ const PostSectionOne = ({ postData }) => {
 
   SortingByDate(postData);
   return (
-    <div className="recent-news-wrapper mt-5 section-gap p-t-xs-15 p-t-sm-20">
+    <div className="recent-news-wrapper mt-3 section-gap p-t-xs-15">
       <div className="container">
         <div className="card p-4">
           <div className="row">
