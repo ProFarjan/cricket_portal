@@ -3,17 +3,17 @@ import { SortingByDate } from "../../utils";
 import SectionTitle from "../elements/SectionTitle";
 import TopArticles from "./layout/TopArticles";
 import ArticlesList from "./layout/ArticlesList";
-import { getTopArticles } from "../../api/api";
+import { getTop5stories } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
 import { hasData } from "../../helpers/helper";
 
 const PostSectionOne = ({ postData }) => {
 
   const {
-    data: articles,
+    data: stories,
     error,
     isLoading
-  } = useQuery('top-articles', getTopArticles, reactQuery);
+  } = useQuery('top-five-stories', getTop5stories, reactQuery);
 
   SortingByDate(postData);
   return (
@@ -27,13 +27,13 @@ const PostSectionOne = ({ postData }) => {
             <div className="col-lg-5">
               <div className="axil-recent-news">
                 <SectionTitle
-                  title="Recent News"
+                  title="&nbsp;"
                   btnText="See All"
-                  pClass="m-b-xs-30"
+                  pClass="mb-4"
                 />
                 <div className="axil-content">
-                  {hasData(articles) &&
-                    articles.slice(1, 5).map((data, index) => (
+                  {hasData(stories) &&
+                    stories.slice(1, 6).map((data, index) => (
                       <ArticlesList data={data} key={index} />
                     ))}
                 </div>

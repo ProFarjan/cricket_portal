@@ -19,7 +19,7 @@ const PostSectionTwo = ({ postData }) => {
     <div className="section-gap section-gap-top__with-text top-stories">
       <div className="container">
         <div className="card p-4">
-          <SectionTitle title="Top Series" btnText="All Top Series" />
+          <SectionTitle title="Top Stories" btnText="All Top Stories" />
           <div className="row">
             <div className="col-lg-8">
               {hasData(top_stories) &&

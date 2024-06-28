@@ -19,7 +19,7 @@ const HomeOne = ({ allPosts }) => {
         <div className="row">
           <div className="col-md-9">
             <PostSectionOne postData={allPosts} />
-            <PostSectionTwo postData={allPosts} />
+            {/* <PostSectionTwo postData={allPosts} /> */}
             <PostSectionThree postData={allPosts} />
             {/* <PostSectionFour postData={allPosts} /> */}
             {/* <PostSectionFive postData={allPosts} adBanner={true} /> */}

@@ -279,7 +279,7 @@ const FooterOne = () => {
                 <Link href="/">
                     <a> 
                         <Image 
-                         src="/images/logo-symbol.svg"
+                         src="/images/logo.png"
                          alt="footer logo"
                          className="footer-logo"
                          width={86}
