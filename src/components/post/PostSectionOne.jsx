@@ -7,7 +7,7 @@ import { getTop5stories } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
 import { hasData } from "../../helpers/helper";
 
-const PostSectionOne = ({ postData }) => {
+const PostSectionOne = () => {
 
   const {
     data: stories,
@@ -15,7 +15,6 @@ const PostSectionOne = ({ postData }) => {
     isLoading
   } = useQuery('top-five-stories', getTop5stories, reactQuery);
 
-  SortingByDate(postData);
   return (
     <div className="recent-news-wrapper mt-3 section-gap p-t-xs-15">
       <div className="container">
