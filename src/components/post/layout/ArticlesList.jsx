@@ -4,7 +4,7 @@ import { slugify } from "../../../utils";
 
 const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
   return (
-    <div className={`media post-block m-b-xs-20 ${postSizeMd === true ? "post-block__mid" : ""} ${postBgDark === true ? "post-block__on-dark-bg" : ""}`}>
+    <div className={`media post-block m-b-xs-15 ${postSizeMd === true ? "post-block__mid" : ""} ${postBgDark === true ? "post-block__on-dark-bg" : ""}`}>
       <Link href={`/post/${data.title}`}>
         <a className="align-self-center">
           <Image

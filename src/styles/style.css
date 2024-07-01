@@ -7010,7 +7010,7 @@ input[type="radio"]+label::after {
 }
 
 .post-sidebar {
-  padding-left: 3rem;
+  padding-left: 0rem;
 }
 
 .add-block-widget a {

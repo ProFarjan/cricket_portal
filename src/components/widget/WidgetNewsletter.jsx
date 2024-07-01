@@ -4,8 +4,8 @@ import FormGroup from '../contact/FormGroup';
 const WidgetNewsletter = () => {
 
     return (
-      <div className="newsletter-widget weekly-newsletter bg-grey-light-three m-b-xs-40">
-        <div className="newsletter-content">
+      <div className="newsletter-widget weekly-newsletter p-0 m-b-xs-15">
+        <div className="newsletter-content card p-4">
           <div className="newsletter-icon">
             <i className="feather icon-send" />
           </div>

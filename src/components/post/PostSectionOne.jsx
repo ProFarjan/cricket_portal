@@ -20,17 +20,17 @@ const PostSectionOne = () => {
       <div className="container">
         <div className="card p-4">
           <div className="row">
-            <div className="col-lg-7">
+            <div className="col-lg-6">
               <TopArticles />
             </div>
-            <div className="col-lg-5">
+            <div className="col-lg-6">
               <div className="axil-recent-news">
                 <SectionTitle
                   title="&nbsp;"
                   btnText="See All"
                   pClass="mb-4"
                 />
-                <div className="axil-content">
+                <div className="axil-content m-t-xs-60">
                   {hasData(stories) &&
                     stories.slice(1, 6).map((data, index) => (
                       <ArticlesList data={data} key={index} />

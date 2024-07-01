@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const WidgetAd = ({img, height, width}) => {
     return (
-      <div className="add-block-widget m-b-xs-40">
+      <div className="add-block-widget m-b-xs-15 mt-3 section-gap p-t-xs-20">
         <a href="https://themeforest.net/item/blogar-blog-magazine-wordpress-theme/30583777">
             <Image
                 src={img ?? "/images/clientbanner/clientbanner2.jpg"}
