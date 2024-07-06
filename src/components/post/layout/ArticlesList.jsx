@@ -10,8 +10,8 @@ const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
           <Image
             src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
             alt={data.title}
-            width={postSizeMd === true ? 285 : 70}
-            height={postSizeMd === true ? 285 : 70}
+            width={postSizeMd === true ? 285 : 150}
+            height={postSizeMd === true ? 285 : 150}
             placeholder="blur"
             blurDataURL="/images/placeholder.png"
           />

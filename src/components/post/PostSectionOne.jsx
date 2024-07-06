@@ -32,7 +32,7 @@ const PostSectionOne = () => {
                 />
                 <div className="axil-content m-t-xs-60">
                   {hasData(stories) &&
-                    stories.slice(1, 6).map((data, index) => (
+                    stories.slice(1, 4).map((data, index) => (
                       <ArticlesList data={data} key={index} />
                     ))}
                 </div>
