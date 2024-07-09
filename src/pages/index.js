@@ -4,7 +4,7 @@ import FooterOne from "../components/footer/FooterOne";
 import HeaderOne from "../components/header/HeaderOne";
 import PostSectionFive from "../components/post/PostSectionFive";
 import PostSectionFour from "../components/post/PostSectionFour";
-import PostSectionOne from "../components/post/PostSectionOne";
+import MatchCoverage from "../components/post/MatchCoverage";
 import PostSectionSix from "../components/post/PostSectionSix";
 import PostSectionThree from "../components/post/PostSectionThree";
 import PostSectionTwo from "../components/post/PostSectionTwo";
@@ -24,11 +24,11 @@ const HomeOne = ({ allPosts }) => {
       <div className="container">
         <div className="row">
           <div className="col-md-9 p-2">
-            <PostSectionOne />
+            <MatchCoverage />
             <PostSectionTwo postData={allPosts} />
             <PostSectionThree postData={allPosts} />
-            {/* <PostSectionFour postData={allPosts} /> */}
-            {/* <PostSectionFive postData={allPosts} adBanner={true} /> */}
+            <PostSectionFour postData={allPosts} />
+            <PostSectionFive postData={allPosts} adBanner={true} />
             {/* <PostSectionSix postData={allPosts}/> */}
           </div>
           <div className="col-md-3 p-0">
@@ -49,7 +49,6 @@ const HomeOne = ({ allPosts }) => {
 }
 
 export default HomeOne;
-
 
 export async function getStaticProps() {
   const allPosts = getAllPosts([

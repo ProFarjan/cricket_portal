@@ -6,7 +6,7 @@ import { getTop5stories } from "../../../api/api";
 import { hasData, shortTxt } from "../../../helpers/helper";
 import PostLayoutThree from "./PostLayoutThree";
 
-const TopArticles = () => {
+const TopArticles = ({matches}) => {
 
   const {
     data: top_stories,
@@ -19,12 +19,12 @@ const TopArticles = () => {
       <div className="col-lg-12 mb-4">
         <h3 className={`fs-2 p-0 m-0 mb-4`}>Match Coverage</h3>
         <Nav variant="underline">
-          {hasData(top_stories) &&
-            top_stories.slice(0, 4).map((data, index) =>
-              <Nav.Item>
+          {hasData(matches) &&
+            matches.slice(0, 4).map((data, index) =>
+              <Nav.Item key={index}>
                 <Nav.Link eventKey={index}>
-                  <h4 className="fs-4 m-0 p-0">Ban VS Ind</h4>
-                  <p className="fs-6 m-0 p-0 lh-sm">1st Man Test</p>
+                  <h4 className="fs-4 m-0 p-0">{data.team_1.short_name} VS {data.team_2.short_name}</h4>
+                  <p className="fs-6 m-0 p-0 lh-sm">{data.title}</p>
                 </Nav.Link>
               </Nav.Item>
             )}
