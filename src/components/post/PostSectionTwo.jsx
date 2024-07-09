@@ -19,12 +19,12 @@ const PostSectionTwo = ({ postData }) => {
     <div className="section-gap section-gap-top__with-text top-stories">
       <div className="container">
         <div className="card p-4">
-          <SectionTitle title="Top Stories" btnText="All Top Stories" />
-          <div className="row">
+          <SectionTitle title="Top Series" btnText="See All" />
+          <div className="row mt-4">
             <div className="col-lg-8">
               {hasData(top_stories) &&
                 top_stories.slice(0, 1).map((data) => (
-                  <PostLayoutThree data={data} postSizeLg={true} key={data.id} />
+                  <PostLayoutThree data={data} pClass={`m-b-xs-0`} postSizeLg={true} key={data.id} />
                 ))}
             </div>
             <div className="col-lg-4">

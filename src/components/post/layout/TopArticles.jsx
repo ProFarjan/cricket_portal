@@ -1,71 +1,75 @@
 import { Tab, Nav } from "react-bootstrap";
-import Image from "next/image";
 import Link from "next/link";
 import { useQuery } from 'react-query';
 import reactQuery from "../../../config/reactQueryConfig";
 import { getTop5stories } from "../../../api/api";
 import { hasData, shortTxt } from "../../../helpers/helper";
+import PostLayoutThree from "./PostLayoutThree";
 
 const TopArticles = () => {
 
-    const {
-        data: top_stories,
-        error,
-        isLoading
-    } = useQuery('top-articles', getTop5stories, reactQuery);
+  const {
+    data: top_stories,
+    error,
+    isLoading
+  } = useQuery('top-articles', getTop5stories, reactQuery);
 
-    return (
-        <div className="axil-latest-post">
-            <h3 className={`fs-2 p-0 m-0 mb-4`}>Match Coverage</h3>
-            <Tab.Container id="widget-post" className="mb-3" defaultActiveKey="0">
-                <Nav variant="underline">
-                    {hasData(top_stories) &&
-                        top_stories.slice(0, 3).map((data, index) =>
-                            <Nav.Item>
-                                <Nav.Link eventKey={index}>
-                                    <h4 className="fs-4 m-0 p-0">{(data.title, 15)}</h4>
-                                    {/* <p className="fs-6 m-0 p-0 lh-sm">{data.venue}</p> */}
-                                </Nav.Link>
-                            </Nav.Item>
-                        )}
-                </Nav>
-                <Tab.Content>
-                    {hasData(top_stories) &&
-                        top_stories.map((data, index) =>
-                            <Tab.Pane eventKey={index}>
-                                <div className="media post-block m-b-xs-5 mt-4">
-                                    <figure className="fig-container">
-                                        <Link href="">
-                                            <a className="m-0">
-                                                <Image
-                                                    src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
-                                                    alt={data.title}
-                                                    width={410}
-                                                    height={410}
-                                                    placeholder="blur"
-                                                    blurDataURL="/images/placeholder.png"
-                                                />
-                                            </a>
-                                        </Link>
-                                    </figure>
-                                    <div className="media post-block position-absolute mb-0 p-4" style={{bottom: 0}}>
-                                        <div className="media-body">
-                                            <h3 className="axil-post-title hover-line hover-line color-white">
-                                                <Link href="">
-                                                    <a>{data.title}</a>
-                                                </Link>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </Tab.Pane>
-                        )}
-                </Tab.Content>
-            </Tab.Container>
-            {/* End of .post-block */}
-        </div>
-    );
+  return (
+    <Tab.Container id="widget-post" className="mb-3" defaultActiveKey="0">
+      <div className="col-lg-12 mb-4">
+        <h3 className={`fs-2 p-0 m-0 mb-4`}>Match Coverage</h3>
+        <Nav variant="underline">
+          {hasData(top_stories) &&
+            top_stories.slice(0, 4).map((data, index) =>
+              <Nav.Item>
+                <Nav.Link eventKey={index}>
+                  <h4 className="fs-4 m-0 p-0">Ban VS Ind</h4>
+                  <p className="fs-6 m-0 p-0 lh-sm">1st Man Test</p>
+                </Nav.Link>
+              </Nav.Item>
+            )}
+        </Nav>
+      </div>
+      <div className="col-lg-6">
+        <Tab.Content>
+          {hasData(top_stories) &&
+            top_stories.map((data, index) =>
+              <Tab.Pane eventKey={index}>
+                <PostLayoutThree data={data} postSizeLg={true} imgWidth={410} imgHeight={410} />
+                <div className="axil-media-bottom mt-auto">
+                  <h4 className="axil-post-title fs-2 hover-line hover-line">
+                    <Link href={`/post/${data.slug}`}>
+                      <a>{data.title}</a>
+                    </Link>
+                  </h4>
+                  <div className="post-metas">
+                    <ul className="list-inline">
+                      <li>
+                        <span>By</span>
+                        <Link href={`/author/`}>
+                          <a className="post-author">Korib Hossain</a>
+                        </Link>
+                      </li>
+                      <li>
+                        <i className="dot">.</i>2024-06-20
+                      </li>
+                      <li>
+                        <i className="feather icon-activity" />
+                        {data.post_views}
+                      </li>
+                      <li>
+                        <i className="feather icon-share-2" />
+                        {data.post_share}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </Tab.Pane>
+            )}
+        </Tab.Content>
+      </div>
+    </Tab.Container>
+  );
 };
 
 export default TopArticles;

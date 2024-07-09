@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import SectionTitle from "../elements/SectionTitle";
-import PostLayoutTwo from "./layout/PostLayoutTwo";
+import ArticlesList from "./layout/ArticlesList";
 import { getTopArticles } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
 import { hasData } from "../../helpers/helper";
@@ -16,16 +16,14 @@ const PostSectionThree = ({ postData }) => {
   return (
     <div className="section-gap section-gap-top__with-text trending-stories">
       <div className="container">
-        <div className="card">
-          <div className="card-header">
-            <SectionTitle title="Update News" btnText="See all" />
-          </div>
+        <div className="card p-4">
+          <SectionTitle title="Top Stories" btnText="See all" />
           <div className="card-body">
-            <div className="row">
+            <div className="row mt-4">
               {hasData(articles) &&
-                articles.slice(0, 6).map((data) => (
+                articles.slice(0, 8).map((data, index) => (
                   <div className="col-lg-6" key={data.id}>
-                    <PostLayoutTwo data={data} />
+                    <ArticlesList data={data} key={index} />
                   </div>
                 ))}
             </div>

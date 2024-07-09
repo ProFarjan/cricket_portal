@@ -1,5 +1,4 @@
 import { useQuery } from 'react-query';
-import { SortingByDate } from "../../utils";
 import SectionTitle from "../elements/SectionTitle";
 import TopArticles from "./layout/TopArticles";
 import ArticlesList from "./layout/ArticlesList";
@@ -20,19 +19,17 @@ const PostSectionOne = () => {
       <div className="container">
         <div className="card p-4">
           <div className="row">
-            <div className="col-lg-6">
-              <TopArticles />
-            </div>
+            <TopArticles />
             <div className="col-lg-6">
               <div className="axil-recent-news">
                 <SectionTitle
-                  title="&nbsp;"
+                  title="Recent Matches"
                   btnText="See All"
-                  pClass="mb-4"
+                  pClass="mb-1"
                 />
-                <div className="axil-content m-t-xs-60">
+                <div className="axil-content m-t-xs-10">
                   {hasData(stories) &&
-                    stories.slice(1, 4).map((data, index) => (
+                    stories.slice(0, 4).map((data, index) => (
                       <ArticlesList data={data} key={index} />
                     ))}
                 </div>

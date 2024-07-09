@@ -5,7 +5,7 @@ import { slugify } from "../../../utils";
 const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
   return (
     <div className={`media post-block m-b-xs-30 ${postSizeMd === true ? "post-block__mid" : ""} ${postBgDark === true ? "post-block__on-dark-bg" : ""}`}>
-      <Link href="#">
+      <Link href={`/post/${data.slug}`}>
         <a className="align-self-center">
           <Image
             src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
@@ -18,13 +18,18 @@ const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
         </a>
       </Link>
       <div className="media-body">
-        <h3 className="axil-post-title hover-line hover-line fs-4">
-          <Link href="#">
+        <div className="post-cat-group m-b-xs-10">
+          <Link href={`/category/`}>
+            <a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>Category</a>
+          </Link>
+        </div>
+        <h3 className="axil-post-title hover-line hover-line">
+          <Link href={`/post/${data.slug}`}>
             <a>{data.title}</a>
           </Link>
         </h3>
         {postSizeMd === true ?
-          <p className="mid">{data.title}</p>
+          <p className="mid">{data.excerpt}</p>
 
           : ""
         }
@@ -32,8 +37,8 @@ const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
           <ul className="list-inline">
             <li>
               <span>By</span>
-              <Link href="#">
-                <a className="post-author fw-semibold">{data.created_by_user.name}</a>
+              <Link href={`/author/`}>
+                <a className="post-author">{data.author_name}</a>
               </Link>
             </li>
           </ul>

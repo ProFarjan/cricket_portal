@@ -5,21 +5,26 @@ import { slugify } from "../../../utils";
 const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
   return (
     <div className={`media post-block m-b-xs-15 ${postSizeMd === true ? "post-block__mid" : ""} ${postBgDark === true ? "post-block__on-dark-bg" : ""}`}>
-      <Link href={`/post/${data.title}`}>
+      <Link href={`/post/`}>
         <a className="align-self-center">
           <Image
             src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
             alt={data.title}
-            width={postSizeMd === true ? 285 : 150}
-            height={postSizeMd === true ? 285 : 150}
+            width={postSizeMd === true ? 285 : 110}
+            height={postSizeMd === true ? 285 : 110}
             placeholder="blur"
             blurDataURL="/images/placeholder.png"
           />
         </a>
       </Link>
       <div className="media-body">
+        <div className="post-cat-group m-b-xs-10">
+          <Link href={`/category/}`}>
+            <a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>CATEGORY</a>
+          </Link>
+        </div>
         <h3 className="axil-post-title hover-line hover-line">
-          <Link href="#">
+          <Link href={`/post/`}>
             <a>{data.title}</a>
           </Link>
         </h3>
@@ -32,8 +37,8 @@ const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
           <ul className="list-inline">
             <li>
               <span>By</span>
-              <Link href="#">
-                <a className="post-author fw-semibold">{data.created_by_user.name}</a>
+              <Link href={`/author/`}>
+                <a className="post-author">Ariful Islam</a>
               </Link>
             </li>
           </ul>
