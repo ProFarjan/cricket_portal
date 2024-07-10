@@ -2,18 +2,19 @@ import React, { useState, useRef, useEffect } from "react";
 import { useQuery } from 'react-query';
 import Link from "next/link";
 import Image from "next/image";
-import MenuData from "../../data/menu/HeaderMenu.json";
 import MenuEditionData from "../../data/fake/MenuEditionData.json";
-import { getTopMetches } from "../../api/api";
+import { getTopMetches, getMenus } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
 import FloatingMenu from "./FloatingMenu";
 import TopHeaderCard from "../common/TopHeaderCard";
 import OffcanvasMenu from "./OffcanvasMenu";
 import Slider from "react-slick";
 import { hasData } from "../../helpers/helper";
+import { Tab, Nav } from 'react-bootstrap';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { slugify } from "../../utils";
 
 const HeaderOne = () => {
   // Main Menu Toggle
@@ -52,6 +53,9 @@ const HeaderOne = () => {
 
   useEffect(() => {
     toggleDropdownMenu();
+    if (topMenu?.seriesMatches) {
+      setSeriesData(topMenu.seriesMatches);
+    }
   }, []);
 
   // Offcanvas Menu
@@ -61,6 +65,7 @@ const HeaderOne = () => {
 
   // Header Search
   const [searchshow, setSearchShow] = useState(false);
+  const [series, setSeriesData] = useState('');
 
   const headerSearchShow = () => {
     setSearchShow(true);
@@ -74,6 +79,12 @@ const HeaderOne = () => {
     error,
     isLoading
   } = useQuery('series-metches', getTopMetches, reactQuery);
+
+  const {
+    data: menus,
+    error: menu_error,
+    isLoading: menu_isloading
+  } = useQuery('get-menus', getMenus, reactQuery);
 
   // Mobile Menu Toggle
   const [mobileToggle, setMobileToggle] = useState(false);
@@ -110,6 +121,12 @@ const HeaderOne = () => {
     centerMode: false
   };
 
+  const loadMatchData = (series_id) => (event) => {
+    event.preventDefault();
+    const mySeriesData = topMenu.seriesMatches.find((series) => series.series_id == series_id);
+    setSeriesData([mySeriesData])
+  }
+
   return (
     <>
       <OffcanvasMenu ofcshow={show} ofcHandleClose={handleClose} />
@@ -121,22 +138,24 @@ const HeaderOne = () => {
                 <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
                   <li className="fs-5">
                     <Link href="/">
-                      <strong>Matches</strong>
+                      <strong>Matches ({topMenu?.total_matches})</strong>
                     </Link>
                   </li>
                   {hasData(topMenu) &&
                     topMenu.seriesMatches.slice(0, 5).map((data, index) =>
-                      <li key={index} className="fs-5">
-                        <Link href={data.path}>
-                          {data.label}
-                        </Link>
+                      <li key={index} className="fs-5" onClick={loadMatchData(data.series_id)}>
+                        <Nav.Item key={data.series_id}>
+                          <Nav.Link>
+                            {data.label} ({data.child.length})
+                          </Nav.Link>
+                        </Nav.Item>
                       </li>
                     )
                   }
                 </ul>
                 <Slider {...settings} className="mb-4">
-                  {hasData(topMenu) &&
-                    topMenu.seriesMatches.slice(0, 5).map((data, index) => {
+                  {hasData(series) &&
+                    series.map((data, index) => {
                       return data.child.length == 1 ? (
                         <TopHeaderCard key={index} data={data.child[0]} />
                       ) : (
@@ -145,6 +164,12 @@ const HeaderOne = () => {
                         )
                       )
                     })}
+                  {hasData(series) && series.length < 4 &&
+                    Array.from({ length: (4 - series.length) }, (_, index) => (
+                      <div key={index}>
+
+                      </div>
+                    ))}
                 </Slider>
               </div>
             </div>
@@ -167,30 +192,31 @@ const HeaderOne = () => {
               </div>
               <div className="main-nav-wrapper">
                 <ul className="main-navigation list-inline" ref={menuRef}>
-                  {MenuData.map((data, index) =>
-                    data.submenu ? (
-                      <li key={index}>
-                        <Link href={data.path}>
-                          <a>{data.label}</a>
-                        </Link>
-                        <ul className="submenu">
-                          {data.submenu.map((data, index) => (
-                            <li key={index}>
-                              <Link href={data.subpath}>
-                                <a>{data.sublabel}</a>
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </li>
-                    ) : (
-                      <li key={index}>
-                        <Link href={data.path}>
-                          <a>{data.label}</a>
-                        </Link>
-                      </li>
-                    )
-                  )}
+                  {hasData(menus) &&
+                    menus.slice(0, 10).map((data, index) =>
+                      data.front_end_sub_menu ? (
+                        <li key={index}>
+                          <Link href={`/${slugify(data.menu_title)}`}>
+                            <a>{data.menu_title}</a>
+                          </Link>
+                          <ul className="submenu">
+                            {data.front_end_sub_menu.map((data, index) => (
+                              <li key={index}>
+                                <Link href={`/sub-menu/${slugify(data.menu_title)}`}>
+                                  <a>{data.menu_title}</a>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </li>
+                      ) : (
+                        <li key={index}>
+                          <Link href={data.path}>
+                            <a>{data.label}</a>
+                          </Link>
+                        </li>
+                      )
+                    )}
                 </ul>
               </div>
               <div className="navbar-extra-features ml-auto">

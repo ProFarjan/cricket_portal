@@ -17,7 +17,7 @@ const PostLayoutFour = ({ data }) => {
 				<div className="grad-overlay" />
 			</a>
 	  </Link>
-      <div className="media-caption">
+      {/* <div className="media-caption">
         <div className="caption-content">
           <h3 className="axil-post-title hover-line hover-line">
 		  		<Link href={`/post/${data.slug}`}>
@@ -31,8 +31,7 @@ const PostLayoutFour = ({ data }) => {
 				</Link>
           </div>
         </div>
-        {/* End of .content-inner */}
-      </div>
+      </div> */}
     </div>
   );
 };
