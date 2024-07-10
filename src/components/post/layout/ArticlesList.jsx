@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { slugify } from "../../../utils";
+import { shortTxt } from "../../../helpers/helper";
 
-const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
+const ArticlesList = ({ data, postSizeMd, postBgDark }) => {
   return (
     <div className={`media post-block m-b-xs-30 ${postSizeMd === true ? "post-block__mid" : ""} ${postBgDark === true ? "post-block__on-dark-bg" : ""}`}>
-      <Link href={`/post/${data.slug}`}>
+      <Link href={`/article/${slugify(data.title)}`}>
         <a className="align-self-center">
           <Image
             src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
@@ -24,12 +25,12 @@ const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
           </Link>
         </div>
         <h3 className="axil-post-title hover-line hover-line">
-          <Link href={`/post/${data.slug}`}>
+          <Link href={`/article/${slugify(data.title)}`}>
             <a>{data.title}</a>
           </Link>
         </h3>
         {postSizeMd === true ?
-          <p className="mid">{data.excerpt}</p>
+          <p className="mid">{shortTxt(data?.detail, 280)}</p>
 
           : ""
         }
@@ -38,7 +39,7 @@ const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
             <li>
               <span>By</span>
               <Link href={`/author/`}>
-                <a className="post-author">{data.author_name}</a>
+                <a className="post-author">{data.created_by_user.name}</a>
               </Link>
             </li>
           </ul>
@@ -48,4 +49,4 @@ const PostLayoutTwo = ({ data, postSizeMd, postBgDark }) => {
   );
 };
 
-export default PostLayoutTwo;
+export default ArticlesList;

@@ -27,14 +27,15 @@ const PostLayoutThree = ({ data, postSizeLg, pClass, videoPost, imgWidth = 730, 
 					<div className="axil-media-bottom">
 						<h3 className="axil-post-title hover-line hover-line">
 							<Link href={`/post/${data?.matchScore?.match?.slug}`}>
-								<a title={data?.matchScore?.match?.series.name}>{data?.matchScore?.match?.series.name}</a>
+								<a>{data?.matchScore?.match?.slug.replace('-', ' ')}</a>
 							</Link>
 						</h3>
 						<div className="post-metas">
 							<ul className="list-inline">
 								<li>
+									<span>By</span>
 									<Link href={`/author/`}>
-										<a className="post-author">{data?.matchScore?.match?.series.alternateName}</a>
+										<a className="post-author">Rakib Raihan</a>
 									</Link>
 								</li>
 								{postSizeLg === true ?

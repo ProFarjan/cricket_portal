@@ -7,6 +7,9 @@ const nextConfig = {
     config.resolve.fallback = { fs: false };
     return config;
   },
+  images: {
+    domains: ['img1.hscicdn.com', 'authority.thecricket.co']
+  }
 }
 
 module.exports = nextConfig
