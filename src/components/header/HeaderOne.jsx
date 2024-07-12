@@ -10,7 +10,7 @@ import TopHeaderCard from "../common/TopHeaderCard";
 import OffcanvasMenu from "./OffcanvasMenu";
 import Slider from "react-slick";
 import { hasData } from "../../helpers/helper";
-import { Tab, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -50,13 +50,6 @@ const HeaderOne = () => {
       });
     });
   };
-
-  useEffect(() => {
-    toggleDropdownMenu();
-    if (topMenu?.seriesMatches) {
-      setSeriesData(topMenu.seriesMatches);
-    }
-  }, []);
 
   // Offcanvas Menu
   const [show, setShow] = useState(false);
@@ -112,6 +105,14 @@ const HeaderOne = () => {
     });
   };
 
+  useEffect(() => {
+    toggleDropdownMenu();
+    if (topMenu?.seriesMatches) {
+      setSeriesData(topMenu.seriesMatches);
+    }
+  }, [topMenu]);
+
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -127,6 +128,11 @@ const HeaderOne = () => {
     setSeriesData([mySeriesData])
   }
 
+  const loadAllMatchData = () => (event) => {
+    event.preventDefault();
+    setSeriesData(topMenu.seriesMatches)
+  }
+
   return (
     <>
       <OffcanvasMenu ofcshow={show} ofcHandleClose={handleClose} />
@@ -136,10 +142,12 @@ const HeaderOne = () => {
             <div className="row align-items-center">
               <div className="col-md-auto">
                 <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
-                  <li className="fs-5">
-                    <Link href="/">
-                      <strong>Matches ({topMenu?.total_matches})</strong>
-                    </Link>
+                  <li className="fs-5" onClick={loadAllMatchData()}>
+                    <Nav.Item>
+                      <Nav.Link>
+                        <strong>Matches ({topMenu?.total_matches})</strong>
+                      </Nav.Link>
+                    </Nav.Item>
                   </li>
                   {hasData(topMenu) &&
                     topMenu.seriesMatches.slice(0, 5).map((data, index) =>

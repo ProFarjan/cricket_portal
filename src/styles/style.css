@@ -6444,6 +6444,7 @@ input[type="radio"]+label::after {
 /*--Breadcrumb--*/
 .breadcrumb-wrapper {
   padding: 2rem 0;
+  background-color: #fff;
 }
 
 .breadcrumb {
