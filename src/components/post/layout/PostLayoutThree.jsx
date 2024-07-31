@@ -5,7 +5,7 @@ import { slugify } from "../../../utils";
 const PostLayoutThree = ({ data, postSizeLg, pClass, videoPost, imgWidth = 730, imgHeight = 550 }) => {
 	return (
 		<div className={`axil-img-container ${pClass ?? "m-b-xs-20"}`}>
-			<Link href={`/post/${data?.matchScore?.match?.slug}`}>
+			<Link href={`/post/${data?.series_match?.slug}`}>
 				<a className={`d-block ${videoPost === true ? "h-100" : ""}`}>
 					<Image
 						src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
@@ -20,35 +20,27 @@ const PostLayoutThree = ({ data, postSizeLg, pClass, videoPost, imgWidth = 730, 
 			<div className="media post-block position-absolute">
 				<div className={`media-body ${postSizeLg === true ? "media-body__big" : ""}`}>
 					<div className="post-cat-group m-b-xs-10">
-						<Link href={`/category/${data?.matchScore?.match?.slug}`}>
-							<a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>{data?.matchScore?.match?.format} Series</a>
+						<Link href={`/category/${data?.series_match?.slug}`}>
+							<a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>{data?.series?.alternate_name}</a>
 						</Link>
 					</div>
 					<div className="axil-media-bottom">
 						<h3 className="axil-post-title hover-line hover-line">
-							<Link href={`/post/${data?.matchScore?.match?.slug}`}>
-								<a title={data?.matchScore?.match?.series.name}>{data?.matchScore?.match?.series.name}</a>
+							<Link href={`/post/${data?.series_match?.slug}`}>
+								<a title={data?.series?.alternate_name}>{data?.series?.long_name}</a>
 							</Link>
 						</h3>
 						<div className="post-metas">
 							<ul className="list-inline">
 								<li>
 									<Link href={`/author/`}>
-										<a className="post-author">{data?.matchScore?.match?.series.alternateName}</a>
+										<a className="post-author">{data?.series?.alternate_name}</a>
 									</Link>
 								</li>
 								{postSizeLg === true ?
 									<>
 										<li>
-											<i className="dot">.</i>{data.date}
-										</li>
-										<li>
-											<i className="feather icon-activity" />
-											{data.post_views}
-										</li>
-										<li>
-											<i className="feather icon-share-2" />
-											{data.post_share}
+											<i className="dot">.</i>{data.created_at}
 										</li>
 									</>
 									: ""}

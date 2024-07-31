@@ -20,7 +20,7 @@ const StoriesList = ({ data, postSizeMd, postBgDark }) => {
       <div className="media-body">
         <div className="post-cat-group m-b-xs-10">
           <Link href={`/category/}`}>
-            <a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>CATEGORY</a>
+            <a className={`post-cat cat-btn ${data?.cate_bg ?? "bg-color-blue-one"}`}>{data?.series_match?.title}</a>
           </Link>
         </div>
         <h3 className="axil-post-title hover-line hover-line">
@@ -38,7 +38,7 @@ const StoriesList = ({ data, postSizeMd, postBgDark }) => {
             <li>
               <span>By</span>
               <Link href={`/author/`}>
-                <a className="post-author">{data?.created_by_user.name}</a>
+                <a className="post-author">{data?.user_info?.name}</a>
               </Link>
             </li>
           </ul>
