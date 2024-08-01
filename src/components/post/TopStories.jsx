@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import SectionTitle from "../elements/SectionTitle";
-import StoriesList from "./layout/StoriesList";
+import StorieItem from "./layout/StorieItem";
 import { getTop5stories } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
 import { hasData } from "../../helpers/helper";
@@ -23,7 +23,7 @@ const TopStories = () => {
               {hasData(stories) &&
                 stories.slice(0, 8).map((data, index) => (
                   <div className="col-lg-6" key={data.id}>
-                    <StoriesList data={data} key={index} />
+                    <StorieItem data={data} key={index} />
                   </div>
                 ))}
             </div>

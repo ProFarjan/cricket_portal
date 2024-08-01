@@ -19,6 +19,7 @@ export const getVideos = async () => api.get('/last5/videos/');
 
 export const getSeriesList = async () => api.get('/news-report/series-list/');
 export const getSeriesWiseData = async ({series_id}) => api.get(`/news-report/list/${series_id}`);
+export const getExclusiveItems = async () => api.get(`/exclusive/items/`);
 
 // ALL POST METHODS
 export const getMatchData = async ({ match_data_id, series_data_id }) => api.post('match/live/score/', { matchId: match_data_id, seriesId: series_data_id });

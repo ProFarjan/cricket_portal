@@ -13,7 +13,10 @@ export const top5Matches = {
 };
 
 export default {
-  select: (res) => res.data,
+  select: (res) => {
+    console.log(res.data);
+    return res.data;
+  },
   retry: 1,
   refetchOnWindowFocus: false,
   cacheTime: 0,

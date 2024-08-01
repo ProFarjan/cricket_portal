@@ -20,9 +20,9 @@ const HomeOne = ({ allPosts }) => {
         <div className="row">
           <div className="col-md-9 p-2">
             <MatchCoverage />
-            {/* <PostSectionTwo postData={allPosts} /> */}
-            {/* <TopStories /> */}
-            {/* <VideosSection postData={allPosts} /> */}
+            <PostSectionTwo postData={allPosts} />
+            <TopStories />
+            <VideosSection postData={allPosts} />
             {/* <TopArticles /> */}
             {/* <PostSectionSix postData={allPosts} /> */}
           </div>
