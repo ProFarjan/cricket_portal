@@ -5,7 +5,7 @@ import { slugify } from "../../../utils";
 const PostLayoutThree = ({ data, postSizeLg, pClass, videoPost, imgWidth = 730, imgHeight = 550 }) => {
 	return (
 		<div className={`axil-img-container ${pClass ?? "m-b-xs-20"}`}>
-			<Link href={`/post/${data?.series_match?.slug}`}>
+			<Link href={`/new/${data?.series_match?.slug}`}>
 				<a className={`d-block ${videoPost === true ? "h-100" : ""}`}>
 					<Image
 						src={process.env.NEXT_PUBLIC_IMGPATH + data.image}

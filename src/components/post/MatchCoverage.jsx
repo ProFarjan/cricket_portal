@@ -78,14 +78,14 @@ const MatchCoverage = () => {
                             <PostLayoutThree data={seriesData[series_id][0]} postSizeLg={true} imgWidth={410} imgHeight={410} />
                             <div className="axil-media-bottom mt-auto">
                               <h4 className="axil-post-title fs-2 hover-line">
-                                <Link href={`/post/${seriesData[series_id][0].series_match.slug}`}>
+                                <Link href={`/match/${seriesData[series_id][0].series_match.slug}`}>
                                   <a>{seriesData[series_id][0].series_match.label}</a>
                                 </Link>
                               </h4>
                               <div className="post-metas">
                                 <ul className="list-inline">
                                   <li>
-                                    <Link href={`/author/`}>
+                                    <Link href={`/match/`}>
                                       <a className="post-author">{seriesData[series_id][0].series_match.title}</a>
                                     </Link>
                                   </li>

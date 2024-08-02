@@ -2,12 +2,9 @@ import { useQuery } from 'react-query';
 import SectionTitle from "../elements/SectionTitle";
 import ExclusiveItem from "./layout/ExclusiveItem";
 import { getExclusiveItems } from "../../api/api";
-import { hasData } from "../../helpers/helper";
 import reactQuery from "../../config/reactQueryConfig";
 
-const PostSectionTwo = ({ postData }) => {
-
-  const storyPost = postData.filter(post => post.story === true);
+const PostSectionTwo = () => {
 
   const {
     data: exclusives,

@@ -3,7 +3,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import ReactPlayer from 'react-player';
-import styles from '../../styles/VideoPopup.module.css'; 
+import styles from '../../styles/VideoPopup.module.css';
 
 Modal.setAppElement('#__next');
 
@@ -18,7 +18,7 @@ const VideoPopup = ({ isOpen, onClose, videoUrl }) => {
       <button onClick={onClose} className={styles.closeButton}>
         &times;
       </button>
-      <ReactPlayer url={videoUrl} controls playing width="100px" height="100px" />
+      <ReactPlayer url={videoUrl} controls  />
     </Modal>
   );
 };

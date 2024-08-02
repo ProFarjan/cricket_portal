@@ -5,7 +5,7 @@ import HeaderOne from "../components/header/HeaderOne";
 import TopArticles from "../components/post/TopArticles";
 import VideosSection from "../components/post/VideosSection";
 import MatchCoverage from "../components/post/MatchCoverage";
-import PostSectionSix from "../components/post/PostSectionSix";
+import GalleryItems from "../components/post/GalleryItems";
 import TopStories from "../components/post/TopStories";
 import PostSectionTwo from "../components/post/PostSectionTwo";
 import PageSidebar from "../components/common/PageSidebar";
@@ -20,11 +20,11 @@ const HomeOne = ({ allPosts }) => {
         <div className="row">
           <div className="col-md-9 p-2">
             <MatchCoverage />
-            <PostSectionTwo postData={allPosts} />
+            <PostSectionTwo />
             <TopStories />
-            <VideosSection postData={allPosts} />
-            {/* <TopArticles /> */}
-            {/* <PostSectionSix postData={allPosts} /> */}
+            <VideosSection />
+            <TopArticles />
+            <GalleryItems />
           </div>
           <div className="col-md-3 p-0">
             <PageSidebar />

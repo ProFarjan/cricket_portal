@@ -16,8 +16,8 @@ const PostVideoOne = ({ data }) => {
   };
 
   return (
-    <div className="axil-img-container flex-height-container" style={{ cursor: 'pointer' }} onClick={handlePopupOpen}>
-      <a className="d-block h-100">
+    <div className="axil-img-container flex-height-container" style={{ cursor: 'pointer' }}>
+      <a className="d-block h-100" onClick={setIsPopupOpen}>
         <Image
           src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
           alt={data.title}
@@ -29,7 +29,7 @@ const PostVideoOne = ({ data }) => {
         <div
           className="video-popup video-play-btn video-play-btn__big" />
       </a>
-      <div className="media post-block grad-overlay__transparent position-absolute m-b-xs-30">
+      <div className="media post-block grad-overlay__transparent position-absolute m-b-xs-30" onClick={setIsPopupOpen}>
         <div className="media-body media-body__big">
           <div className="axil-media-bottom mt-auto">
             <h3 className="axil-post-title hover-line hover-line">

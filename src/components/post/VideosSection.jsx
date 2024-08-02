@@ -4,6 +4,7 @@ import PostVideoOne from "./layout/PostVideoOne";
 import { getVideos } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
 import { hasData } from "../../helpers/helper";
+import PostVideoTwo from './layout/PostVideoTwo';
 
 const VideosSection = () => {
     const {
@@ -24,11 +25,12 @@ const VideosSection = () => {
                                     <PostVideoOne data={data} key={data.id} />
                                 ))}
                         </div>
-                        {/* <div className="col-lg-4">
-                            {videos.slice(1, 5).map((data) => (
-                                <PostVideoTwo data={data} videoIcon={true} key={data.id} />
-                            ))}
-                        </div> */}
+                        <div className="col-lg-4">
+                            {hasData(videos) &&
+                                videos.slice(1, 5).map((data) => (
+                                    <PostVideoTwo data={data} videoIcon={true} key={data.id} />
+                                ))}
+                        </div>
                     </div>
                 </div>
             </div>
