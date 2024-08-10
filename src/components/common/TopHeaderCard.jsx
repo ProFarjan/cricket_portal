@@ -25,21 +25,21 @@ const TopHeaderCard = ({ data }) => {
                             </div>
                             <div className="col-7 align-items-end">
                                 <div>
-                                    <h5 className="fs-4 m-1 text-right">
-                                        <span className="fs-6">{data.team_1.live_score} </span>
+                                    <h5 className="fs-5 m-1 text-right">
+                                        <span className="fs-6">{data.team_1.live_score}</span>
                                         {data.team_1.score}
                                     </h5>
                                 </div>
                                 <div>
-                                    <h5 className="fs-4 m-1 text-right">
-                                        <span className="fs-6">{data.team_2.live_score} </span>
+                                    <h5 className="fs-5 m-1 text-right">
+                                        <span className="fs-6">{data.team_2.live_score}</span>
                                         {data.team_2.score}
                                     </h5>
                                 </div>
                             </div>
                         </div>
                         <strong className="fs-6">
-                            {data?.event_message ? data.event_message.substring(0, 50) : "NO DATA FOUND"}
+                            {data?.event_message ? data.event_message.substring(0, 46) : "NO DATA FOUND"}
                         </strong>
                     </div>
                 </a>

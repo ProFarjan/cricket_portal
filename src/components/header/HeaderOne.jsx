@@ -55,6 +55,7 @@ const HeaderOne = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   // Header Search
   const [searchshow, setSearchShow] = useState(false);
@@ -110,6 +111,10 @@ const HeaderOne = () => {
     if (topMenu?.seriesMatches) {
       setSeriesData(topMenu.seriesMatches);
     }
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [topMenu]);
 
 
@@ -132,6 +137,11 @@ const HeaderOne = () => {
     event.preventDefault();
     setSeriesData(topMenu.seriesMatches)
   }
+
+  const handleScroll = () => {
+    const position = window.scrollY;
+    setScrollPosition(position);
+  };
 
   return (
     <>
@@ -183,7 +193,7 @@ const HeaderOne = () => {
             </div>
           </div>
         </div>
-        <nav className="navbar bg-secondary-color">
+        <nav className={`navbar bg-secondary-color ${scrollPosition > 240 ? 'sticky-header' : ''}`}>
           <div className="container">
             <div className="navbar-inner">
               <div className="brand-logo-container">
@@ -192,8 +202,8 @@ const HeaderOne = () => {
                     <Image
                       src="/images/logo.png"
                       alt="brand-logo"
-                      width={102}
-                      height={34}
+                      width={160}
+                      height={41}
                     />
                   </a>
                 </Link>
@@ -207,9 +217,9 @@ const HeaderOne = () => {
                           <Link href={`/${slugify(data.menu_title)}`}>
                             <a>{data.menu_title}</a>
                           </Link>
-                          <ul className="submenu">
-                            {data.front_end_sub_menu.map((data, index) => (
-                              <li key={index}>
+                          <ul className={`submenu`}>
+                            {data.front_end_sub_menu.map((data, sub_index) => (
+                              <li key={sub_index}>
                                 <Link href={`/sub-menu/${slugify(data.menu_title)}`}>
                                   <a>{data.menu_title}</a>
                                 </Link>

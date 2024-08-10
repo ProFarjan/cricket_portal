@@ -108,7 +108,7 @@ const MatchCoverage = () => {
                   <div className="col-lg-6">
                     <div className="axil-recent-news">
                       <SectionTitle
-                        title="Recent News"
+                        title="Recent Matches"
                         btnText="See All"
                         pClass="mb-1"
                       />

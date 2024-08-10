@@ -21,7 +21,7 @@ const ExclusiveItem = ({ data, postSizeLg, pClass, videoPost, imgWidth = 730, im
 				<div className={`media-body ${postSizeLg === true ? "media-body__big" : ""}`}>
 					<div className="post-cat-group m-b-xs-10">
 						<Link href={`/category/${data?.series_match?.slug}`}>
-							<a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>{data?.story_type ?? type ?? 'NOT FOUND'}</a>
+							<a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>{type ?? 'NOT FOUND'}</a>
 						</Link>
 					</div>
 					<div className="axil-media-bottom">
