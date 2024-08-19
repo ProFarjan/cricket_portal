@@ -10,3 +10,7 @@ export const hasData = (data, loading, error) => {
 export const shortTxt = (str, length) => {
     return str.length > length ? str.slice(0, length) + '...' : str;
 };
+
+export const capitalize = (str) => {
+    return str[0].toUpperCase() + str.slice(1);
+}

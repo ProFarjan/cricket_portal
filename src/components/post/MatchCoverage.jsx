@@ -110,6 +110,7 @@ const MatchCoverage = () => {
                       <SectionTitle
                         title="Recent Matches"
                         btnText="See All"
+                        btnUrl="/category/technology"
                         pClass="mb-1"
                       />
                       <div className="axil-content m-t-xs-10">

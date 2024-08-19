@@ -14,6 +14,7 @@ const PageSidebar = () => {
             <WidgetSocialShare />
             <WidgetPost dataPost={[]} />
             <WidgetInstagram />
+            <WidgetAd img="/images/clientbanner/clientbanner3.jpg" height={492} width={320}/>
         </div>
     )
 }
