@@ -17,7 +17,7 @@ const VideosSection = () => {
         <div className="axil-video-posts section-gap section-gap-top__with-text">
             <div className="container">
                 <div className="card p-4">
-                    <SectionTitle title="Videos" btnText="All VIDEOS" pClass="m-b-xs-20" />
+                    <SectionTitle title="Videos" btnText="" pClass="m-b-xs-20" />
                     <div className="row">
                         <div className="col-lg-8">
                             {hasData(videos) &&

@@ -17,7 +17,7 @@ const TopStories = () => {
     <div className="section-gap section-gap-top__with-text trending-stories">
       <div className="container">
         <div className="card p-4">
-          <SectionTitle title="Top Stories" btnText="See all" />
+          <SectionTitle title="Top Stories" btnText="See all" btnUrl={`/category/stories`} />
           <div className="card-body">
             <div className="row">
               {hasData(stories) &&

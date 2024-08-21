@@ -1,14 +1,13 @@
-import { getAllPosts } from "../../../lib/api";
 import FooterOne from "../../components/footer/FooterOne";
 import HeaderOne from "../../components/header/HeaderOne";
 import Breadcrumb from "../../components/common/Breadcrumb";
-import { slugify } from "../../utils";
 import HeadMeta from "../../components/elements/HeadMeta";
 import AdBanner from "../../components/common/AdBanner";
 import PostLayoutTwo from "../../components/post/layout/PostLayoutTwo";
 import { useRouter } from "next/router";
 import PageSidebar from "../../components/common/PageSidebar";
 import { capitalize } from "../../helpers/helper";
+import { getAllstories, getSeriesWiseData, getTopArticles } from "../../api/api";
 
 
 const category = ({ postData }) => {
@@ -17,7 +16,7 @@ const category = ({ postData }) => {
 
     return (
         <>
-            <HeadMeta metaTitle="The Cricket Co" />
+            <HeadMeta metaTitle={`The Cricket Co ${slug} Category`} />
             <HeaderOne />
             <Breadcrumb aPage={slug} />
             {/* Banner Start here  */}
@@ -41,7 +40,7 @@ const category = ({ postData }) => {
                             <AdBanner />
                             <div className="axil-content">
                                 {postData.map((data) => (
-                                    <PostLayoutTwo data={data} postSizeMd={true} key={data.slug} />
+                                    <PostLayoutTwo data={data} postSizeMd={true} key={data.slug} slug={slug} />
                                 ))}
                             </div>
                         </div>
@@ -61,32 +60,43 @@ const category = ({ postData }) => {
 export default category;
 
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params, query }) {
 
-    const postParams = params.slug;
-    
-    const allPosts = getAllPosts([
-        'slug',
-        'cate',
-        'cate_img',
-        'title',
-        'excerpt',
-        'featureImg',
-        'date',
-        'post_views',
-        'read_time',
-        'author_name',
-        'author_social'
-    ]);
+    const slug = params.slug;
 
-    
-
-    const getCategoryData = allPosts.filter(post => slugify(post.cate) === postParams);
-    const postData = getCategoryData;
-
-    return {
-        props: {
-            postData
-        }
+    let postData = [];
+    switch (slug) {
+        case 'matches':
+            const series_id = query.series_id;
+            postData = await getSeriesWiseData({ series_id }).then(res => res.data);
+            return {
+                props: {
+                    postData
+                }
+            }
+            break;
+        case 'stories':
+            postData = await getAllstories().then(res => res.data);
+            return {
+                props: {
+                    postData
+                }
+            }
+            break;
+        case 'articles':
+            postData = await getTopArticles().then(res => res.data);
+            return {
+                props: {
+                    postData
+                }
+            }
+            break;
+        default:
+            return {
+                props: {
+                    postData
+                }
+            }
     }
+
 }

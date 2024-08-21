@@ -78,14 +78,14 @@ const MatchCoverage = () => {
                             <PostLayoutThree data={seriesData[series_id][0]} postSizeLg={true} imgWidth={410} imgHeight={410} />
                             <div className="axil-media-bottom mt-auto">
                               <h4 className="axil-post-title fs-2 hover-line">
-                                <Link href={`/match/${seriesData[series_id][0].series_match.slug}`}>
+                                <Link href="#">
                                   <a>{seriesData[series_id][0].series_match.label}</a>
                                 </Link>
                               </h4>
                               <div className="post-metas">
                                 <ul className="list-inline">
                                   <li>
-                                    <Link href={`/match/`}>
+                                    <Link href="#">
                                       <a className="post-author">{seriesData[series_id][0].series_match.title}</a>
                                     </Link>
                                   </li>
@@ -110,7 +110,7 @@ const MatchCoverage = () => {
                       <SectionTitle
                         title="Recent Matches"
                         btnText="See All"
-                        btnUrl="/category/technology"
+                        btnUrl={`/category/matches?series_id=${key}`}
                         pClass="mb-1"
                       />
                       <div className="axil-content m-t-xs-10">

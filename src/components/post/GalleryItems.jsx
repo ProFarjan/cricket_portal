@@ -18,7 +18,7 @@ const GalleryItems = () => {
         <div className="related-post mt-3 section-gap p-b-xs-15">
             <div className="container">
                 <div className="card p-4">
-                    <SectionTitle title="Photos" btnText="See All" />
+                    <SectionTitle title="Photos" btnText="" />
                     <div className="grid-wrapper">
                         <div className="row">
                             {hasData(galleries) &&

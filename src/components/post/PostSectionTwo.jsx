@@ -16,7 +16,7 @@ const PostSectionTwo = () => {
     <div className="section-gap section-gap-top__with-text top-stories">
       <div className="container">
         <div className="card p-4">
-          <SectionTitle title="Exclusive" btnText="See All" />
+          <SectionTitle title="Exclusive" btnText="" />
           <div className="row mt-4">
             <div className="col-lg-8">
               {exclusives?.exclusive_story && (

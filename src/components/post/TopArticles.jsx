@@ -17,7 +17,7 @@ const TopArticles = ({ postData, pClass }) => {
         <div className={`random-posts ${pClass ?? "section-gap"}`}>
             <div className="container">
                 <div className="card p-4">
-                    <SectionTitle title="Top Articles" btnText="See all" />
+                    <SectionTitle title="Top Articles" btnText="See all" btnUrl={`/category/articles`} />
                     <div className="card-body">
                         <div className="row">
                             <div className="col-lg-12">

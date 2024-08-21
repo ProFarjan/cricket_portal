@@ -13,7 +13,7 @@ import Masonry from "react-responsive-masonry"
 
 const PostFormatGallery = ({ postData, allData }) => {
   const basePathLink = process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_BASEPATH ?? "" : "";
-  
+
   const postContent = postData.content.replaceAll('/images/', basePathLink + '/images/');
 
   return (
@@ -28,20 +28,20 @@ const PostFormatGallery = ({ postData, allData }) => {
                   <div className="single-blog-wrapper">
                     <SocialShareSide />
                     <ul className="masonry-grid gallery">
-						<Masonry columnsCount={3} gutter="0 10px">
-							{postData.gallery.slice(0, 4).map((data, index) => (
-							<li className="grid-item" key={index}>
-								<figure>
-									<Image 
-									src={data}
-									alt="Image"
-									width={237}
-									height={index == 0 || index == 3 ? 139 : 287 }
-									/>
-								</figure>
-							</li>
-							))}
-						</Masonry>
+                      <Masonry columnsCount={3} gutter="0 10px">
+                        {postData.gallery.slice(0, 4).map((data, index) => (
+                          <li className="grid-item" key={index}>
+                            <figure>
+                              <Image
+                                src={data}
+                                alt="Image"
+                                width={237}
+                                height={index == 0 || index == 3 ? 139 : 287}
+                              />
+                            </figure>
+                          </li>
+                        ))}
+                      </Masonry>
                     </ul>
                     <div
                       dangerouslySetInnerHTML={{ __html: postContent }}

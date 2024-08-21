@@ -6,7 +6,7 @@ import { shortTxt } from "../../../helpers/helper";
 const ArticlesList = ({ data, postSizeMd, postBgDark }) => {
   return (
     <div className={`media post-block m-b-xs-30 ${postSizeMd === true ? "post-block__mid" : ""} ${postBgDark === true ? "post-block__on-dark-bg" : ""}`}>
-      <Link href={`/article/${slugify(data.title)}`}>
+      <Link href={`/post/${slugify(data.title)}?id=${data.id}&type=Articles`}>
         <a className="align-self-center">
           <Image
             src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
@@ -20,12 +20,12 @@ const ArticlesList = ({ data, postSizeMd, postBgDark }) => {
       </Link>
       <div className="media-body">
         <div className="post-cat-group m-b-xs-10">
-          <Link href={`/category/`}>
+          <Link href={`/post/${slugify(data.title)}?id=${data.id}&type=Articles`}>
             <a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>Category</a>
           </Link>
         </div>
         <h3 className="axil-post-title hover-line hover-line">
-          <Link href={`/article/${slugify(data.title)}`}>
+          <Link href={`/post/${slugify(data.title)}?id=${data.id}&type=Articles`}>
             <a>{data.title}</a>
           </Link>
         </h3>
@@ -38,8 +38,8 @@ const ArticlesList = ({ data, postSizeMd, postBgDark }) => {
           <ul className="list-inline">
             <li>
               <span>By</span>
-              <Link href={`/author/`}>
-                <a className="post-author">{data.created_by_user.name}</a>
+              <Link href={`/post/${slugify(data.title)}?id=${data.id}&type=Articles`}>
+                <a className="post-author">{data?.created_by_user?.name}</a>
               </Link>
             </li>
           </ul>
