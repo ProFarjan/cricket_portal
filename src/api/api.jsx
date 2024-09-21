@@ -25,6 +25,14 @@ export const getSeriesWiseData = async ({ series_id }) => api.get(`/news-report/
 export const getExclusiveItems = async () => api.get(`/exclusive/items/`);
 export const getGalleryItems = async () => api.get(`/photo-gallery/last5/list/`);
 
+export const signUpRequest = async ({name, email, phone, password, confirm_password}) => api.post(`/user/registration/process`, {
+    name: name,
+    email: email,
+    phone: phone,
+    password: password,
+    confirm_password: confirm_password
+});
+
 // ALL POST METHODS
 export const getMatchData = async ({ match_data_id, series_data_id }) => api.post('match/live/score/', { matchId: match_data_id, seriesId: series_data_id });
 

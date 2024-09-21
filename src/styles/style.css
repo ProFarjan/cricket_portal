@@ -5587,7 +5587,7 @@ input[type="radio"]+label::after {
   left: 1.2rem;
   pointer-events: none;
   z-index: 9;
-  background: #fff;
+  background: #f5f5f5;
 }
 
 .form-group.focused input,
@@ -9914,7 +9914,7 @@ address .tel i {
 }
 
 .under-construction-inner-content .btn {
-  margin-left: 2rem;
+  margin-left: 0;
 }
 
 @media (max-width: 1199px) {
@@ -10681,4 +10681,16 @@ address .tel i {
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+.width100 {
+  width: 100% !important;
+}
+
+.policy-txt {
+  font-size: 1.4rem;
+  color: #052962;
+  line-height: 24px;
+  padding: 0;
+  font-weight: lighter;
 }
