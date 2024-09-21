@@ -5881,7 +5881,7 @@ input[type="radio"]+label::after {
 }
 
 .navbar {
-  padding: 0;
+  padding: 4px 0;
   z-index: 999;
 }
 
