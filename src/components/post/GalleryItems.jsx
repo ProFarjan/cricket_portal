@@ -19,7 +19,7 @@ const GalleryItems = () => {
             <div className="container">
                 <div className="card p-4">
                     <SectionTitle title="Photos" btnText="" />
-                    <div className="grid-wrapper">
+                    <div className="grid-wrapper mt-2">
                         <div className="row">
                             {hasData(galleries) &&
                                 galleries.slice(0, 4).map((data) => (

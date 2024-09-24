@@ -49,19 +49,28 @@ const MatchCoverage = () => {
   return (
     <div className="recent-news-wrapper mt-3 section-gap p-t-xs-15">
       <div className="container">
+        <div className="mb-5">
+          <img
+            src="/images/clientbanner/fontbanner.jpg"
+            alt="font banner"
+            height={194}
+            placeholder="blur"
+            blurDataURL="/images/placeholder.png"
+          />
+        </div>
         <div className="card p-4">
           <Tab.Container id="widget-post" className="mb-3" activeKey={key} onSelect={handleSelect}>
             <div className="row">
 
               <div className="col-lg-12 mb-4">
-                <h3 className="fs-2 p-0 m-0 mb-4">Update News</h3>
+                <h3 className="fs-2 p-0 m-0 mb-4">Recent Matches</h3>
                 <Nav variant="underline">
                   {hasData(series_list) &&
                     series_list.slice(0, 5).map((data) =>
                       <Nav.Item key={data.series_id}>
                         <Nav.Link eventKey={data.series_id}>
                           <h4 className="fs-4 m-0 p-0">{data.name}</h4>
-                          <p className="fs-6 m-0 p-0 lh-sm">{'NOT DATA FOUDN'}</p>
+                          <p className="fs-6 m-0 p-0 lh-sm">{data.start_date}</p>
                         </Nav.Link>
                       </Nav.Item>
                     )}
@@ -79,18 +88,18 @@ const MatchCoverage = () => {
                             <div className="axil-media-bottom mt-auto">
                               <h4 className="axil-post-title fs-2 hover-line">
                                 <Link href="#">
-                                  <a>{seriesData[series_id][0].series_match.label}</a>
+                                  <a>{seriesData[series_id][0].title}</a>
                                 </Link>
                               </h4>
                               <div className="post-metas">
                                 <ul className="list-inline">
                                   <li>
                                     <Link href="#">
-                                      <a className="post-author">{seriesData[series_id][0].series_match.title}</a>
+                                      <a className="post-author">{seriesData[series_id][0].user_info.name}</a>
                                     </Link>
                                   </li>
                                   <li>
-                                    <i className="dot">.</i>{seriesData[series_id][0].series_match.event_message}
+                                    <i className="dot">.</i>{seriesData[series_id][0].created_at}
                                   </li>
                                 </ul>
                               </div>
@@ -108,7 +117,7 @@ const MatchCoverage = () => {
                   <div className="col-lg-6">
                     <div className="axil-recent-news">
                       <SectionTitle
-                        title="Recent Matches"
+                        title="Update News"
                         btnText="See All"
                         btnUrl={`/category/matches?series_id=${key}`}
                         pClass="mb-1"

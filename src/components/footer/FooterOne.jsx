@@ -1,8 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useQuery } from 'react-query';
 import SocialLink from "../../data/social/SocialLink.json";
+import { getMenus } from "../../api/api";
+import reactQuery from "../../config/reactQueryConfig";
+import { hasData } from "../../helpers/helper";
 
 const FooterOne = () => {
+
+
+  const {
+    data: menus,
+    error: menu_error,
+    isLoading: menu_isloading
+  } = useQuery('get-menus', getMenus, reactQuery);
+
   return (
     <footer className="page-footer bg-grey-dark-key">
       <div className="container">
@@ -14,122 +26,94 @@ const FooterOne = () => {
                 <ul className="footer-nav">
                   <li>
                     <Link href="/">
-                      <a>U.N.</a>
+                      <a>Recent Matches</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Conflicts</a>
+                      <a>Update News</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Terrorism</a>
+                      <a>Exclusive News</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Disasters</a>
+                      <a>Interview</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Global Economy</a>
+                      <a>Expert Opinion</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Global Economy</a>
+                      <a>Top Stories</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Environment</a>
+                      <a>Videos</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Religion</a>
+                      <a>Top Articles</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Scandals</a>
+                      <a>Photos</a>
                     </Link>
                   </li>
                 </ul>
-                {/* End of .footer-nav */}
               </div>
-              {/* End of .footer-widget */}
             </div>
-            {/* End of .col-lg-2 */}
             <div className="col-lg-2 col-md-4 col-6">
               <div className="footer-widget">
                 <h2 className="footer-widget-title">Pages</h2>
                 <ul className="footer-nav">
-                  <li>
-                    <Link href="/">
-                      <a>Celebrity News</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>Movies</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>TV News</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>Music News</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>Style News</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>Entertainment Video</a>
-                    </Link>
-                  </li>
+                  {hasData(menus) &&
+                    menus.map((data, index) =>
+                      <li key={index}>
+                        <Link href="/">
+                          <a>{data.menu_title}</a>
+                        </Link>
+                      </li>
+                    )}
                 </ul>
-                {/* End of .footer-nav */}
               </div>
-              {/* End of .footer-widget */}
             </div>
-            {/* End of .col-lg-2 */}
             <div className="col-lg-2 col-md-4 col-6">
               <div className="footer-widget">
                 <h2 className="footer-widget-title">Category List</h2>
                 <ul className="footer-nav">
                   <li>
                     <Link href="/">
-                      <a>Celebrity News</a>
+                      <a>Matches</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Movies</a>
+                      <a>Exclusive</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>TV News</a>
+                      <a>Stories</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Music News</a>
+                      <a>Articles</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/">
-                      <a>Style News</a>
+                      <a>Training</a>
                     </Link>
                   </li>
                   <li>
@@ -138,14 +122,11 @@ const FooterOne = () => {
                     </Link>
                   </li>
                 </ul>
-                {/* End of .footer-nav */}
               </div>
-              {/* End of .footer-widget */}
             </div>
-            {/* End of .col-lg-2 */}
             <div className="col-lg-2 col-md-4 col-6">
               <div className="footer-widget">
-                <h2 className="footer-widget-title">Recent Score</h2>
+                <h2 className="footer-widget-title">Recent Matches Score</h2>
                 <ul className="footer-nav">
                   <li>
                     <Link href="/">
@@ -183,63 +164,28 @@ const FooterOne = () => {
                     </Link>
                   </li>
                 </ul>
-                {/* End of .footer-nav */}
               </div>
-              {/* End of .footer-widget */}
             </div>
-            {/* End of .col-lg-2 */}
             <div className="col-lg-2 col-md-4 col-6">
               <div className="footer-widget">
                 <h2 className="footer-widget-title">Teams</h2>
                 <ul className="footer-nav">
-                  <li>
-                    <Link href="/">
-                      <a>Markets</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>Politics</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>Technology</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>Features</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>Business Leaders</a>
-                    </Link>
-                  </li>
+
                 </ul>
-                {/* End of .footer-nav */}
               </div>
-              {/* End of .footer-widget */}
             </div>
-            {/* End of .col-lg-2 */}
             <div className="col-lg-2 col-md-4 col-6">
               <div className="footer-widget">
                 <h2 className="footer-widget-title">About</h2>
                 <ul className="footer-nav">
                   <li>
                     <Link href="/">
+                      <a>About Us</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/">
                       <a>Contact Us</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>Careers</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/">
-                      <a>Fox Around the World</a>
                     </Link>
                   </li>
                   <li>
@@ -257,19 +203,10 @@ const FooterOne = () => {
                       <a>Media Relations</a>
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/">
-                      <a>Compliance</a>
-                    </Link>
-                  </li>
                 </ul>
-                {/* End of .footer-nav */}
               </div>
-              {/* End of .footer-widget */}
             </div>
-            {/* End of .col-lg-2 */}
           </div>
-          {/* End of .row */}
         </div>
         {/* End of .footer-top */}
         <div className="footer-mid">
@@ -367,7 +304,7 @@ const FooterOne = () => {
         {/* End of .footer-bottom */}
       </div>
       {/* End of .container */}
-    </footer>
+    </footer >
   );
 };
 
