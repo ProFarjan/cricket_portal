@@ -21,7 +21,7 @@ const HeaderOne = () => {
   var menuRef = useRef();
 
   const toggleDropdownMenu = () => {
-    const dropdownSelect = menuRef.current.childNodes;
+    const dropdownSelect = menuRef?.current?.childNodes ?? [];
     let dropdownList = [];
 
     for (let i = 0; i < dropdownSelect.length; i++) {
@@ -146,53 +146,56 @@ const HeaderOne = () => {
   return (
     <>
       <OffcanvasMenu ofcshow={show} ofcHandleClose={handleClose} />
-      <header className="page-header">
-        <div className="header-top bg-primary-color">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-md-auto">
-                <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
-                  <li className="fs-5" onClick={loadAllMatchData()}>
-                    <Nav.Item>
-                      <Nav.Link>
-                        <strong>Matches ({topMenu?.total_matches})</strong>
-                      </Nav.Link>
-                    </Nav.Item>
-                  </li>
-                  {hasData(topMenu) &&
-                    topMenu.seriesMatches.slice(0, 5).map((data, index) =>
-                      <li key={index} className="fs-5" onClick={loadMatchData(data.series_id)}>
-                        <Nav.Item key={data.series_id}>
-                          <Nav.Link>
-                            {data.label} ({data.child.length})
-                          </Nav.Link>
-                        </Nav.Item>
-                      </li>
-                    )
-                  }
-                </ul>
-                <Slider {...settings} className="mb-4">
-                  {hasData(series) &&
-                    series.map((data, index) => {
-                      return data.child.length == 1 ? (
-                        <TopHeaderCard key={index} data={data.child[0]} />
-                      ) : (
-                        data.child.map((sub_data, indx) =>
-                          <TopHeaderCard key={indx} data={sub_data} />
-                        )
-                      )
-                    })}
-                  {hasData(series) && series.length < 4 &&
-                    Array.from({ length: (4 - series.length) }, (_, index) => (
-                      <div key={index}>
 
-                      </div>
-                    ))}
-                </Slider>
+      <header className="page-header">
+        {hasData(topMenu) && topMenu.length > 0 &&
+          <div className="header-top bg-primary-color">
+            <div className="container">
+              <div className="row align-items-center">
+                <div className="col-md-auto">
+                  <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
+                    <li className="fs-5" onClick={loadAllMatchData()}>
+                      <Nav.Item>
+                        <Nav.Link>
+                          <strong>Matches ({topMenu?.total_matches ?? 0})</strong>
+                        </Nav.Link>
+                      </Nav.Item>
+                    </li>
+                    {hasData(topMenu) &&
+                      topMenu?.seriesMatches?.slice(0, 5).map((data, index) =>
+                        <li key={index} className="fs-5" onClick={loadMatchData(data.series_id)}>
+                          <Nav.Item key={data.series_id}>
+                            <Nav.Link>
+                              {data.label} ({data.child.length})
+                            </Nav.Link>
+                          </Nav.Item>
+                        </li>
+                      )
+                    }
+                  </ul>
+                  <Slider {...settings} className="mb-4">
+                    {hasData(series) &&
+                      series.map((data, index) => {
+                        return data.child.length == 1 ? (
+                          <TopHeaderCard key={index} data={data.child[0]} />
+                        ) : (
+                          data.child.map((sub_data, indx) =>
+                            <TopHeaderCard key={indx} data={sub_data} />
+                          )
+                        )
+                      })}
+                    {hasData(series) && series.length < 4 &&
+                      Array.from({ length: (4 - series.length) }, (_, index) => (
+                        <div key={index}>
+
+                        </div>
+                      ))}
+                  </Slider>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        }
         <nav className={`navbar bg-secondary-color ${scrollPosition > 240 ? 'sticky-header' : ''}`}>
           <div className="container">
             <div className="navbar-inner">
@@ -313,6 +316,7 @@ const HeaderOne = () => {
           </div>
         </nav>
       </header>
+
     </>
   );
 };

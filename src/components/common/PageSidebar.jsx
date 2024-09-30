@@ -10,9 +10,9 @@ const PageSidebar = () => {
         <div className="post-sidebar">
             <WidgetAd />
             <WidgetNewsletter />
-            <WidgetCategory cateData={[]} />
+            {/* <WidgetCategory cateData={[]} /> */}
             <WidgetSocialShare />
-            <WidgetPost dataPost={[]} />
+            {/* <WidgetPost dataPost={[]} /> */}
             <WidgetInstagram />
             <WidgetAd img="/images/clientbanner/endbanner.jpg" height={492} width={320}/>
         </div>

@@ -7,8 +7,6 @@ import reactQuery from "../../config/reactQueryConfig";
 import { hasData } from "../../helpers/helper";
 
 const FooterOne = () => {
-
-
   const {
     data: menus,
     error: menu_error,
@@ -166,14 +164,14 @@ const FooterOne = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-2 col-md-4 col-6">
+            {/* <div className="col-lg-2 col-md-4 col-6">
               <div className="footer-widget">
                 <h2 className="footer-widget-title">Teams</h2>
                 <ul className="footer-nav">
 
                 </ul>
               </div>
-            </div>
+            </div> */}
             <div className="col-lg-2 col-md-4 col-6">
               <div className="footer-widget">
                 <h2 className="footer-widget-title">About</h2>
