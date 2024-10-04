@@ -14,3 +14,16 @@ export const shortTxt = (str, length) => {
 export const capitalize = (str) => {
     return str[0].toUpperCase() + str.slice(1);
 }
+
+export const dateFormat = (dateStr) => {
+    const dateObj = new Date(dateStr.replace(" ", "T"));
+    const formattedDate = dateObj.toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+    });
+    return formattedDate;
+}

@@ -86,7 +86,7 @@ const MatchCoverage = () => {
                             <PostLayoutThree data={seriesData[series_id][0]} postSizeLg={true} imgWidth={410} imgHeight={410} />
                             <div className="axil-media-bottom mt-auto">
                               <h4 className="axil-post-title fs-2 hover-line">
-                                <Link href="#">
+                                <Link href={`/match/${seriesData[series_id][0].series_match.slug}/${seriesData[series_id][0].id}`}>
                                   <a>{seriesData[series_id][0].title}</a>
                                 </Link>
                               </h4>
