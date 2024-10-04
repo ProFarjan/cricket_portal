@@ -148,7 +148,7 @@ const HeaderOne = () => {
       <OffcanvasMenu ofcshow={show} ofcHandleClose={handleClose} />
 
       <header className="page-header">
-        {hasData(topMenu) && topMenu.length > 0 &&
+        {hasData(topMenu) && topMenu.length > 0 ?
           <div className="header-top bg-primary-color">
             <div className="container">
               <div className="row align-items-center">
@@ -195,27 +195,58 @@ const HeaderOne = () => {
               </div>
             </div>
           </div>
+          :
+          <div className="header-top bg-primary-color">
+            <div className="container">
+              <div className="row align-items-center p-4">
+                <div className="col-3 text-right">
+                  <Link href='/coaching'><span className="btn btn-warning btn-small rounded" style={{
+                    fontSize: '1.6rem'
+                  }}>Coaching</span></Link>
+                </div>
+                <div className="col-6 text-center">
+                  <Image
+                    src="/images/logo.png"
+                    alt="brand-logo"
+                    width={240}
+                    height={62}
+                  />
+                </div>
+                <div className="col-3 text-left">
+                  <Link href='/coaching'><span className="btn btn-warning btn-small rounded" style={{
+                    fontSize: '1.6rem'
+                  }}>Training</span></Link>
+                </div>
+              </div>
+            </div>
+          </div>
         }
         <nav className={`navbar bg-secondary-color ${scrollPosition > 240 ? 'sticky-header' : ''}`}>
           <div className="container">
             <div className="navbar-inner">
-              <div className="brand-logo-container">
-                <Link href="/">
-                  <a>
-                    <Image
-                      src="/images/logo.png"
-                      alt="brand-logo"
-                      width={160}
-                      height={41}
-                    />
-                  </a>
-                </Link>
-              </div>
+              {hasData(topMenu) && topMenu.length == 0 ?
+                <div className="brand-logo-container">
+                  <Link href="/">
+                    <a>
+                      <Image
+                        src="/images/logo.png"
+                        alt="brand-logo"
+                        width={160}
+                        height={41}
+                      />
+                    </a>
+                  </Link>
+                </div>
+                :
+                <></>
+              }
               <div className="main-nav-wrapper">
-                <ul className="main-navigation list-inline" ref={menuRef}>
+                <ul className="main-navigation list-inline" ref={menuRef} style={{
+                  padding: (hasData(topMenu) && topMenu.length > 0) ? '0 0 0 4.4rem' : '0'
+                }}>
                   {hasData(menus) &&
                     menus.slice(0, 10).map((data, index) =>
-                      data.front_end_sub_menu ? (
+                      data.front_end_sub_menu && data.front_end_sub_menu.length > 0 ? (
                         <li key={index}>
                           <Link href={`/${slugify(data.menu_title)}`}>
                             <a>{data.menu_title}</a>
@@ -232,8 +263,8 @@ const HeaderOne = () => {
                         </li>
                       ) : (
                         <li key={index}>
-                          <Link href={data.path}>
-                            <a>{data.label}</a>
+                          <Link href={data?.menu_url ?? '#'}>
+                            <a>{data?.menu_title}</a>
                           </Link>
                         </li>
                       )

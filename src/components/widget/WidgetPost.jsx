@@ -5,7 +5,7 @@ import PostVideoTwo from "../post/layout/PostVideoTwo";
 const WidgetPost = ({dataPost}) => {
     
   return (
-    <div className="post-widget sidebar-post-widget m-b-xs-20">
+    <div className="post-widget sidebar-post-widget m-b-xs-20 mt-3 p-t-xs-20">
         <div className="card p-4">
             <Tab.Container id="widget-post" defaultActiveKey="recent">
                 <Nav variant="pills" className="row no-gutters">

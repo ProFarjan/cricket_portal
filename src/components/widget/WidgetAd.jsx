@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const WidgetAd = ({img, height, width}) => {
     return (
-      <div className="add-block-widget m-b-xs-15 mt-3 section-gap p-t-xs-20">
+      <div className="add-block-widget m-b-xs-15">
         <a href="/">
             <Image
                 src={img ?? "/images/clientbanner/cricketco.jpg"}

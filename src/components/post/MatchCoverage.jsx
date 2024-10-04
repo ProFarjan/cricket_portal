@@ -53,7 +53,6 @@ const MatchCoverage = () => {
           <img
             src="/images/clientbanner/fontbanner.jpg"
             alt="font banner"
-            height={194}
             placeholder="blur"
             blurDataURL="/images/placeholder.png"
           />
