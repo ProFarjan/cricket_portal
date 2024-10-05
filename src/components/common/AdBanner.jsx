@@ -7,8 +7,8 @@ const AdBanner = () => {
             <Image
                 src="/images/clientbanner/clientbanner.jpg"
                 alt="Ad Banner"
-                width={728}
-                height={90}
+                width={640}
+                height={236}
                 className="w-100"
             />
         </a>

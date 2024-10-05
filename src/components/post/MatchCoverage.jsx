@@ -6,7 +6,7 @@ import SectionTitle from "../elements/SectionTitle";
 import ArticlesList from "./layout/StoriesList";
 import { getSeriesList, getSeriesWiseData } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
-import { hasData } from "../../helpers/helper";
+import { hasData, shortTxt } from "../../helpers/helper";
 import PostLayoutThree from './layout/PostLayoutThree';
 
 const MatchCoverage = () => {
@@ -86,8 +86,8 @@ const MatchCoverage = () => {
                             <PostLayoutThree data={seriesData[series_id][0]} postSizeLg={true} imgWidth={410} imgHeight={410} />
                             <div className="axil-media-bottom mt-auto">
                               <h4 className="axil-post-title fs-2 hover-line">
-                                <Link href={`/match/${seriesData[series_id][0].series_match.slug}/${seriesData[series_id][0].id}`}>
-                                  <a>{seriesData[series_id][0].title}</a>
+                                <Link href={`/post/${seriesData[series_id][0].series_match.slug}?id=${seriesData[series_id][0].series_id}&type=match`}>
+                                  <a>{shortTxt(seriesData[series_id][0]?.detail ?? '', 130)}</a>
                                 </Link>
                               </h4>
                               <div className="post-metas">
@@ -118,10 +118,10 @@ const MatchCoverage = () => {
                       <SectionTitle
                         title="Update News"
                         btnText="See All"
-                        btnUrl={`/category/matches?series_id=${key}`}
+                        btnUrl={`/category/match?series_id=${key}`}
                         pClass="mb-1"
                       />
-                      <div className="axil-content m-t-xs-10">
+                      <div className="axil-content m-t-xs-20">
                         {hasData(seriesData[key]) && (seriesData[key].length > 1) &&
                           seriesData[key].slice(1, 5).map((data, index) => (
                             <ArticlesList data={data} key={index} />

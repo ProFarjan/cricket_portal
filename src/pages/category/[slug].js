@@ -14,6 +14,14 @@ const category = ({ postData }) => {
     const router = useRouter();
     const slug = capitalize(router.query.slug);
 
+    const getData = (data) => {
+        if (slug == 'Match') {
+            data.id = data.series_id;
+            return data;
+        }
+        return data;
+    }
+
     return (
         <>
             <HeadMeta metaTitle={`The Cricket Co ${slug} Category`} />
@@ -31,7 +39,6 @@ const category = ({ postData }) => {
                     </div>
                 </div>
             </div>
-
             {/* Banner End here  */}
             <div className="random-posts section-gap">
                 <div className="container">
@@ -40,7 +47,7 @@ const category = ({ postData }) => {
                             <AdBanner />
                             <div className="axil-content">
                                 {postData.map((data) => (
-                                    <PostLayoutTwo data={data} postSizeMd={true} key={data.slug} slug={slug} />
+                                    <PostLayoutTwo data={getData(data)} postSizeMd={true} key={data.slug} slug={router.query.slug} />
                                 ))}
                             </div>
                         </div>
@@ -66,7 +73,7 @@ export async function getServerSideProps({ params, query }) {
 
     let postData = [];
     switch (slug) {
-        case 'matches':
+        case 'match':
             const series_id = query.series_id;
             postData = await getSeriesWiseData({ series_id }).then(res => res.data);
             return {

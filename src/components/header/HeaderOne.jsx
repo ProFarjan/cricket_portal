@@ -199,23 +199,13 @@ const HeaderOne = () => {
           <div className="header-top bg-primary-color">
             <div className="container">
               <div className="row align-items-center p-4">
-                <div className="col-3 text-right">
-                  <Link href='/coaching'><span className="btn btn-warning btn-small rounded" style={{
-                    fontSize: '1.6rem'
-                  }}>Coaching</span></Link>
-                </div>
-                <div className="col-6 text-center">
+                <div className="col-12 text-left">
                   <Image
                     src="/images/logo.png"
                     alt="brand-logo"
                     width={240}
                     height={62}
                   />
-                </div>
-                <div className="col-3 text-left">
-                  <Link href='/coaching'><span className="btn btn-warning btn-small rounded" style={{
-                    fontSize: '1.6rem'
-                  }}>Training</span></Link>
                 </div>
               </div>
             </div>
@@ -224,7 +214,7 @@ const HeaderOne = () => {
         <nav className={`navbar bg-secondary-color ${scrollPosition > 240 ? 'sticky-header' : ''}`}>
           <div className="container">
             <div className="navbar-inner">
-              {hasData(topMenu) && topMenu.length == 0 ?
+              {(hasData(topMenu) && topMenu.length == 0 || scrollPosition > 240) ?
                 <div className="brand-logo-container">
                   <Link href="/">
                     <a>

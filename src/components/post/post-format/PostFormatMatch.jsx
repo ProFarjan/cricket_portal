@@ -11,7 +11,7 @@ import SocialShareBottom from "./elements/SocialShareBottom";
 import SocialShareSide from "./elements/SocialShareSide";
 import Image from "next/image";
 
-const PostFormatStandard = ({ postData }) => {
+const PostFormatMatch = ({ postData }) => {
 
   return (
     <>
@@ -26,15 +26,14 @@ const PostFormatStandard = ({ postData }) => {
                     <SocialShareSide />
                     <figure>
                       <Image
-                        src={process.env.NEXT_PUBLIC_IMGPATH + postData?.image}
+                        src={process.env.NEXT_PUBLIC_IMGPATH + postData[0]?.image}
                         alt="Image"
-                        width={0}
-                        height={0}
-                        sizes="100vw"
+                        width={1140}
+                        height={480}
                       />
                     </figure>
-                    <h3>{postData?.title}</h3>
-                    <div dangerouslySetInnerHTML={{ __html: postData?.detail }}></div>
+                    <h3>{postData[0]?.title}</h3>
+                    <div dangerouslySetInnerHTML={{ __html: postData[0]?.detail }}></div>
                   </div>
                 </article>
                 <SocialShareBottom />
@@ -53,4 +52,4 @@ const PostFormatStandard = ({ postData }) => {
   );
 }
 
-export default PostFormatStandard;
+export default PostFormatMatch;

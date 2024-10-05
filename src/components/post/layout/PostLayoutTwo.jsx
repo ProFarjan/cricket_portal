@@ -20,7 +20,7 @@ const PostLayoutTwo = ({ data, postSizeMd, postBgDark, slug }) => {
       <div className="media-body">
         <div className="post-cat-group m-b-xs-10">
           <Link href={`/post/${slugify(data.title)}?id=${data.id}&type=${slug}`}>
-            <a className={`post-cat cat-btn ${data?.cate_bg ?? "bg-color-blue-one"}`}>Category</a>
+            <a className={`post-cat cat-btn ${data?.cate_bg ?? "bg-color-blue-one"}`}>{data?.article_type || 'Category'}</a>
           </Link>
         </div>
         <h3 className="axil-post-title hover-line hover-line">
