@@ -6640,7 +6640,7 @@ input[type="radio"]+label::after {
 .post-block>a,
 .post-block figure>a {
   display: block;
-  margin-right: 1.5rem;
+  margin-right: 2.5rem;
   align-self: flex-start !important;
   overflow: hidden;
 }
@@ -10609,6 +10609,7 @@ address .tel i {
 
 .axil-img-container a span {
   display: block !important;
+  height: 100% !important;
 }
 
 .about-author a img {

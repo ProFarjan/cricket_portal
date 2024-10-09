@@ -24,10 +24,14 @@ const HomeOne = ({ allPosts }) => {
             <TopStories />
             <VideosSection />
             <TopArticles />
-            <GalleryItems />
           </div>
           <div className="col-md-3 p-0">
             <PageSidebar />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12 p-2">
+            <GalleryItems />
           </div>
         </div>
       </div>

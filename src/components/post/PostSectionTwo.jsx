@@ -20,7 +20,7 @@ const PostSectionTwo = () => {
           <div className="row mt-4">
             <div className="col-lg-8">
               {exclusives?.exclusive_story && (
-                <ExclusiveItem data={exclusives?.exclusive_story} pClass={`m-b-xs-0`} postSizeLg={true} type="NEW" />
+                <ExclusiveItem data={exclusives?.exclusive_story} pClass={`m-b-xs-0`} postSizeLg={true} type="NEWS" />
               )}
             </div>
             <div className="col-lg-4">

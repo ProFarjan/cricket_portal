@@ -13,7 +13,7 @@ const GalleryItem = ({ data }) => {
 					width={255}
 					height={255}
 					className="img-fluid"
-					style={{ width: '100%', height: 'auto' }}
+					style={{ width: 'auto', height: 'auto' }}
 				/>
 				<div className="grad-overlay" />
 			</a>

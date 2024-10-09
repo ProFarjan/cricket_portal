@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { slugify } from "../../../utils";
+import { dateFormat } from "../../../helpers/helper";
 
 const ExclusiveItem = ({ data, postSizeLg, pClass, videoPost, imgWidth = 730, imgHeight = 550, type }) => {
 	return (
-		<div className={`axil-img-container ${pClass ?? "m-b-xs-20"}`}>
+		<div className={`axil-img-container ${pClass ?? "m-b-xs-25"}`}>
 			<Link href={`/post/${data?.title}`}>
 				<a className={`d-block ${videoPost === true ? "h-100" : ""}`}>
 					<Image
@@ -40,7 +41,7 @@ const ExclusiveItem = ({ data, postSizeLg, pClass, videoPost, imgWidth = 730, im
 								{postSizeLg === true ?
 									<>
 										<li>
-											<i className="dot">.</i>{data?.created_at}
+											<i className="dot">.</i>{dateFormat(data?.created_at)}
 										</li>
 									</>
 									: ""}

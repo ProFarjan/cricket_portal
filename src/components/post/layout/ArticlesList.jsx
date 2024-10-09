@@ -24,13 +24,13 @@ const ArticlesList = ({ data, postSizeMd, postBgDark }) => {
             <a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>Category</a>
           </Link>
         </div>
-        <h3 className="axil-post-title hover-line hover-line">
+        <h2 className="axil-post-title hover-line hover-line">
           <Link href={`/post/${slugify(data.title)}?id=${data.id}&type=Articles`}>
             <a>{data.title}</a>
           </Link>
-        </h3>
+        </h2>
         {postSizeMd === true ?
-          <p className="mid">{shortTxt(data?.detail, 280)}</p>
+          <p className="mid">{shortTxt(data?.detail, 150)}</p>
 
           : ""
         }

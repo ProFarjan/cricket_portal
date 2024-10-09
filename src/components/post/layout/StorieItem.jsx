@@ -4,14 +4,14 @@ import { slugify } from "../../../utils";
 
 const StoriesList = ({ data, postSizeMd, postBgDark }) => {
   return (
-    <div className={`media post-block m-b-xs-15 ${postSizeMd === true ? "post-block__mid" : ""} ${postBgDark === true ? "post-block__on-dark-bg" : ""}`}>
+    <div className={`media post-block m-b-xs-25 ${postSizeMd === true ? "post-block__mid" : ""} ${postBgDark === true ? "post-block__on-dark-bg" : ""}`}>
       <Link href={`/post/${slugify(data.title)}?id=${data.id}&type=Stories`}>
         <a className="align-self-center">
           <Image
             src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
             alt={data.title}
-            width={postSizeMd === true ? 285 : 110}
-            height={postSizeMd === true ? 285 : 110}
+            width={postSizeMd === true ? 285 : 120}
+            height={postSizeMd === true ? 285 : 120}
             placeholder="blur"
             blurDataURL="/images/placeholder.png"
           />

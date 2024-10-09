@@ -57,7 +57,7 @@ const MatchCoverage = () => {
             blurDataURL="/images/placeholder.png"
           />
         </div>
-        <div className="card p-4">
+        <div className="card p-4" style={{padding: `2.5rem !important`}}>
           <Tab.Container id="widget-post" className="mb-3" activeKey={key} onSelect={handleSelect}>
             <div className="row">
 
@@ -85,9 +85,9 @@ const MatchCoverage = () => {
                           <div>
                             <PostLayoutThree data={seriesData[series_id][0]} postSizeLg={true} imgWidth={410} imgHeight={410} />
                             <div className="axil-media-bottom mt-auto">
-                              <h4 className="axil-post-title fs-2 hover-line">
+                              <h4 className="axil-post-title fs-1 hover-line">
                                 <Link href={`/post/${seriesData[series_id][0].series_match.slug}?id=${seriesData[series_id][0].series_id}&type=match`}>
-                                  <a>{shortTxt(seriesData[series_id][0]?.detail ?? '', 130)}</a>
+                                  <a>{seriesData[series_id][0]?.title}</a>
                                 </Link>
                               </h4>
                               <div className="post-metas">

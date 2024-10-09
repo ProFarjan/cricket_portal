@@ -19,7 +19,7 @@ const PostFormatMatch = ({ postData }) => {
       <div className="post-single-wrapper p-t-xs-60">
         <div className="container">
           <div className="row">
-            <div className="col-lg-8">
+            <div className="col-lg-9">
               <main className="site-main">
                 <article className="post-details">
                   <div className="single-blog-wrapper">
@@ -42,7 +42,7 @@ const PostFormatMatch = ({ postData }) => {
                 <PostComment />
               </main>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-3">
               <PageSidebar />
             </div>
           </div>

@@ -15,23 +15,23 @@ const PostLayoutThree = ({ data, postSizeLg, pClass, videoPost, imgWidth = 730, 
 						height={postSizeLg === true ? imgHeight : 310}
 						className="w-100"
 					/>
-					<div className={`grad-overlay ${videoPost === true ? "grad-overlay__transparent" : ""}`} />
+					{/* <div className={`grad-overlay ${videoPost === true ? "grad-overlay__transparent" : ""}`} /> */}
 				</a>
 			</Link>
 			<div className="media post-block position-absolute">
-				<div className={`media-body ${postSizeLg === true ? "media-body__big" : ""}`}>
+				<div className={`media-body ${postSizeLg === true ? "media-body__big" : ""}`} style={{padding: `2rem 0`}}>
 					<div className="post-cat-group m-b-xs-10">
 						<Link href={`/post/${data?.series_match?.slug}?id=${data.series_id}&type=match`}>
 							<a className={`post-cat cat-btn ${data.cate_bg ?? "bg-color-blue-one"}`}>{data?.series_match?.title}</a>
 						</Link>
 					</div>
 					<div className="axil-media-bottom">
-						<h3 className="axil-post-title hover-line hover-line">
+						{/* <h3 className="axil-post-title hover-line hover-line">
 							<Link href={`/post/${data?.series_match?.slug}?id=${data.series_id}&type=match`}>
 								<a title={data?.series?.alternate_name}>{data?.title}</a>
 							</Link>
-						</h3>
-						<div className="post-metas">
+						</h3> */}
+						{/* <div className="post-metas">
 							<ul className="list-inline">
 								<li>
 									<Link href='#'>
@@ -46,7 +46,7 @@ const PostLayoutThree = ({ data, postSizeLg, pClass, videoPost, imgWidth = 730, 
 									</>
 									: ""}
 							</ul>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>
