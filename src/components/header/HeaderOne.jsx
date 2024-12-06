@@ -79,6 +79,7 @@ const HeaderOne = () => {
     error: menu_error,
     isLoading: menu_isloading
   } = useQuery('get-menus', getMenus, reactQuery);
+  
 
   // Mobile Menu Toggle
   const [mobileToggle, setMobileToggle] = useState(false);
@@ -240,6 +241,7 @@ const HeaderOne = () => {
                         <li key={index}>
                           <Link href={`/${slugify(data.menu_title)}`}>
                             <a>{data.menu_title}</a>
+                              
                           </Link>
                           <ul className={`submenu`}>
                             {data.front_end_sub_menu.map((data, sub_index) => (

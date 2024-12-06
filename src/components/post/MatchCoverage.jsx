@@ -51,7 +51,7 @@ const MatchCoverage = () => {
       <div className="container">
         <div className="mb-5">
           <img
-            src="/images/clientbanner/fontbanner.jpg"
+            src="/images/clientbanner/cricket5.jpg"
             alt="font banner"
             placeholder="blur"
             blurDataURL="/images/placeholder.png"

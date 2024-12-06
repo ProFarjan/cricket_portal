@@ -5,19 +5,19 @@ import { slugify } from "../../../utils";
 const GalleryItem = ({ data }) => {
   return (
     <div className="content-block m-b-xs-30">
-		<Link href={`/post/${data.slug}`}>
-			<a>
-				<Image
-					src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
-					alt={data.title}
-					width={255}
-					height={255}
-					className="img-fluid"
-					style={{ width: 'auto', height: 'auto' }}
-				/>
-				<div className="grad-overlay" />
-			</a>
-	  </Link>
+      <Link href={`/post/${data.slug}`}>
+        <a>
+          <Image
+            src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
+            alt={data.title}
+            width={220}
+            height={220}
+            className="img-fluid"
+            style={{ width: "auto", height: "auto" }}
+          />
+          {/* <div className="grad-overlay" /> */}
+        </a>
+      </Link>
       {/* <div className="media-caption">
         <div className="caption-content">
           <h3 className="axil-post-title hover-line hover-line">

@@ -6,17 +6,21 @@ import WidgetPost from "../widget/WidgetPost";
 import WidgetSocialShare from "../widget/WidgetSocialShare";
 
 const PageSidebar = () => {
-    return (
-        <div className="post-sidebar">
-            <WidgetPost dataPost={[]} />
-            {/* <WidgetCategory cateData={[]} /> */}
-            <WidgetAd />
-            <WidgetNewsletter />
-            <WidgetSocialShare />
-            <WidgetInstagram />
-            <WidgetAd img="/images/clientbanner/endbanner.jpg" height={492} width={320}/>
-        </div>
-    )
-}
+  return (
+    <div className="post-sidebar">
+      <WidgetPost dataPost={[]} />
+      {/* <WidgetCategory cateData={[]} /> */}
+      <WidgetAd />
+      <WidgetNewsletter />
+      <WidgetSocialShare />
+      <WidgetInstagram />
+      <WidgetAd
+        img="/images/clientbanner/endbanner.jpg"
+        height={492}
+        width={320}
+      />
+    </div>
+  );
+};
 
 export default PageSidebar;

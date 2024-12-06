@@ -11,7 +11,6 @@ import PostSectionTwo from "../components/post/PostSectionTwo";
 import PageSidebar from "../components/common/PageSidebar";
 
 const HomeOne = ({ allPosts }) => {
-
   return (
     <>
       <HeadMeta metaTitle="The Cricket Co" />
@@ -20,6 +19,7 @@ const HomeOne = ({ allPosts }) => {
         <div className="row">
           <div className="col-md-9 p-2">
             <MatchCoverage />
+
             <PostSectionTwo />
             <TopStories />
             <VideosSection />
@@ -30,7 +30,7 @@ const HomeOne = ({ allPosts }) => {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12 p-2">
+          <div className="">
             <GalleryItems />
           </div>
         </div>
@@ -38,30 +38,29 @@ const HomeOne = ({ allPosts }) => {
       <FooterOne />
     </>
   );
-}
+};
 
 export default HomeOne;
 
 export async function getStaticProps() {
   const allPosts = getAllPosts([
-    'postFormat',
-    'trending',
-    'story',
-    'slug',
-    'title',
-    'excerpt',
-    'featureImg',
-    'cate',
-    'cate_bg',
-    'cate_img',
-    'author_name',
-    'date',
-    'post_views',
-    'post_share',
-  ])
+    "postFormat",
+    "trending",
+    "story",
+    "slug",
+    "title",
+    "excerpt",
+    "featureImg",
+    "cate",
+    "cate_bg",
+    "cate_img",
+    "author_name",
+    "date",
+    "post_views",
+    "post_share"
+  ]);
 
   return {
     props: { allPosts }
-  }
+  };
 }
-
