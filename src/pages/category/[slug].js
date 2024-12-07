@@ -29,7 +29,7 @@ const category = ({ postData }) => {
     <>
       <HeadMeta metaTitle={`The Cricket Co ${slug} Category`} />
       <HeaderOne />
-      <Bre adcrumb aPage={slug} />
+      <Breadcrumb aPage={slug} />
       {/* Banner Start here  */}
       <div className="banner banner__default bg-grey-light-three">
         <div className="container">
