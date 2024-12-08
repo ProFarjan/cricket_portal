@@ -10,6 +10,8 @@ api.interceptors.response.use(undefined, err => {
 
 // ALL GET METHODS
 
+export const getSeries = async () =>api.get("/all/series/");
+
 export const getTraining = async () => api.get("/last/ten/training/");
 
 export const getRecentNews = async () => api.get("/recent/news/");
