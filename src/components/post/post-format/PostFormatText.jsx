@@ -10,7 +10,7 @@ import SocialShareSide from "./elements/SocialShareSide";
 
 const PostFormatText = ({ postData, allData }) => {
   const basePathLink = process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_BASEPATH ?? "" : "";
-  
+
   const postContent = postData.content.replaceAll('/images/', basePathLink + '/images/');
 
   return (
@@ -20,10 +20,10 @@ const PostFormatText = ({ postData, allData }) => {
           <div className="row">
             <div className="col-lg-8">
               <main className="site-main">
-                <article className="post-details">
+                <article className="post-detail">
                   <div className="single-blog-wrapper">
                     <SocialShareSide />
-					<h2 className="axil-post-title hover-line">{postData.title}</h2>
+                    <h2 className="axil-post-title hover-line bg-red-500">{postData.title}</h2>
                     <div
                       dangerouslySetInnerHTML={{ __html: postContent }}
                     ></div>
@@ -35,7 +35,7 @@ const PostFormatText = ({ postData, allData }) => {
                 <PostComment />
               </main>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4">0
               <div className="post-sidebar">
                 <WidgetAd />
                 <WidgetNewsletter />
