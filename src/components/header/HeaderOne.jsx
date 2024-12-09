@@ -313,7 +313,7 @@ const HeaderOne = () => {
                     )
                   )}
                 </ul>
-                <button className="nav-search-field-toggler">
+                <button className="nav-search-field-toggler ">
                   <i className="far fa-moon" />
                 </button>
                 <button className="nav-search-field-toggler">

@@ -13,25 +13,16 @@ import { getTraining } from "../api/api";
 import reactQuery from "../config/reactQueryConfig";
 
 const TrainingPage = () => {
-  // Sample data for cart items
-  // const {
-  //   data: menus,
-  //   error: menu_error,
-  //   isLoading: menu_isloading
-  // } = useQuery('get-menus', getMenus, reactQuery);
-
   const {
     data: training,
     error: training_error,
     isLoading: training_isloading
   } = useQuery("get-training", getTraining, reactQuery);
 
-  console.log(training?.data?.[0]?.title);
   if (training_isloading) {
-    return <p>No Data available.</p>;
+    return <p className="text-center">Loading...</p>;
   }
 
-  // const cartItems = [
   //   {
   //     id: 1,
   //     description:
@@ -179,10 +170,10 @@ const TrainingPage = () => {
               </div>
             </div>
 
-            <PostSectionTwo />
+            {/* <PostSectionTwo />
             <TopStories />
             <VideosSection />
-            <TopArticles />
+            <TopArticles /> */}
           </div>
 
           <div className="col-md-3 p-0">
@@ -190,9 +181,7 @@ const TrainingPage = () => {
           </div>
         </div>
         <div className="row">
-          <div className="">
-            <GalleryItems />
-          </div>
+          <div className="">{/* <GalleryItems /> */}</div>
         </div>
       </div>
       <FooterOne />

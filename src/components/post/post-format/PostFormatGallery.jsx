@@ -25,13 +25,14 @@ const PostFormatGallery = ({ postData, allData }) => {
             <div className="col-lg-8">
               <main className="site-main">
                 <article className="post-details">
-                  <div className="single-blog-wrapper">
+                  <div className="single-blog-wrapper cu">
                     <SocialShareSide />
                     <ul className="masonry-grid gallery">
                       <Masonry columnsCount={3} gutter="0 10px">
                         {postData.gallery.slice(0, 4).map((data, index) => (
                           <li className="grid-item" key={index}>
                             <figure>
+                              
                               <Image
                                 src={data}
                                 alt="Image"

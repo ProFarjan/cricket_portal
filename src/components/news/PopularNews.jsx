@@ -13,10 +13,8 @@ const PopularNews = ({ news, news_isloading }) => {
             <img src={newsItem.image} alt="" />
 
             <div>
-              <p className="text-xl text-black ">
-                {newsItem.title}
-              </p>
-              <p className="text-xl mt-[-16px]">ByAshley Graham</p>
+            <h4 className="text-xl text-black "> {newsItem?.title}</h4>
+            <p className="text-xl mt-[-16px]">{ newsItem?.title_bn}</p>
             </div>
           </div>
         )}

@@ -29,7 +29,7 @@ const category = ({ postData }) => {
     <>
       <HeadMeta metaTitle={`The Cricket Co ${slug} Category`} />
       <HeaderOne />
-      <Bre adcrumb aPage={slug} />
+      <Breadcrumb aPage={slug} />
       {/* Banner Start here  */}
       <div className="banner banner__default bg-grey-light-three">
         <div className="container">
@@ -43,6 +43,7 @@ const category = ({ postData }) => {
         </div>
       </div>
       {/* Banner End here  */}
+
       <div className="random-posts section-gap">
         <div className="container">
           <div className="row">
