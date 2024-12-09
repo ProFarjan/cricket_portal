@@ -6,7 +6,7 @@ const BreadcrumbBanner = ({pageTitle}) => {
         <div className="row align-items-center">
           <div className="col-lg-12">
             <div className="post-title-wrapper">
-              <h2 className="m-b-xs-0 axil-post-title hover-line">{pageTitle}</h2>
+              <h2 className="m-b-xs-0 m-0 text-xl axil-post-title hover-line">{pageTitle}</h2>
             </div>
           </div>
         </div>
