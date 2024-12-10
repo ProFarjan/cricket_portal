@@ -12,6 +12,9 @@ import PageSidebar from "../components/common/PageSidebar";
 import { hashQueryKey, useQuery } from "react-query";
 import reactQuery from "../config/reactQueryConfig";
 import { getNews, getVideos } from "../api/api";
+import Breadcrumb from "../components/common/Breadcrumb.jsx";
+import VideoPage from '../components/post/VideoPage.jsx'
+
 
 const HomeOne = ({ allPosts }) => {
   const {
@@ -20,12 +23,14 @@ const HomeOne = ({ allPosts }) => {
     isLoading: video_isloading
   } = useQuery('get-Videos', getVideos, reactQuery);
 
-
+const type = 'videos';
+const data = 'videos'
 
   return (
     <>
       <HeadMeta metaTitle="The Cricket Co" />
       <HeaderOne />
+      <Breadcrumb bCat={type} aPage={data?.title ?? data[0]?.title} />
       <div className="container">
         <div className="row">
           <div className="col-md-9 p-2">
@@ -35,8 +40,10 @@ const HomeOne = ({ allPosts }) => {
             <VideosSection />
             <TopArticles /> */}
              <h1 className="m-b-xs-0  mt-10 axil-post-title hover-line">Videos</h1>
+                <VideoPage/>
 
-            {
+                
+            {/* {
               video?.map((item) => (
                 <div key={item.id} >
                   <div className="grid grid-cols-3">
@@ -50,17 +57,10 @@ const HomeOne = ({ allPosts }) => {
                     <div className=" col-span-2">
                     <h3 className="axil-post-title cursor-pointer hover:underline">{item.title}</h3>
                     </div>
-                  </div>
-
-
-
-
-              
+                  </div>       
                 </div>
-
-
               ))
-            }
+            } */}
 
           </div>
           <div className="col-md-3 p-0">
