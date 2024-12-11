@@ -11,8 +11,21 @@ import TopArticles from "../components/post/TopArticles";
 import { useQuery } from "react-query";
 import { getTraining } from "../api/api";
 import reactQuery from "../config/reactQueryConfig";
+import { useState } from "react";
+import VideoPopup from "../components/videos/VideoPopup";
+import Breadcrumb from "../components/common/Breadcrumb";
 
 const TrainingPage = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handlePopupOpen = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handlePopupClose = () => {
+    setIsPopupOpen(false);
+  };
+
   const {
     data: training,
     error: training_error,
@@ -23,60 +36,11 @@ const TrainingPage = () => {
     return <p className="text-center">Loading...</p>;
   }
 
-  //   {
-  //     id: 1,
-  //     description:
-  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quae mollitia ducimus voluptate",
-  //     image: "/images/cricket/cricket.jpeg"
-  //   },
-  //   {
-  //     id: 2,
-  //     description:
-  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quae mollitia ducimus voluptate",
-  //     image: "/images/cricket/cricket.jpeg"
-  //   },
-  //   {
-  //     id: 3,
-  //     description:
-  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quae mollitia ducimus voluptate",
-  //     image: "/images/cricket/cricket.jpeg"
-  //   },
-  //   {
-  //     id: 4,
-  //     description:
-  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quae mollitia ducimus voluptate",
-  //     image: "/images/cricket/cricket.jpeg"
-  //   },
-  //   {
-  //     id: 5,
-  //     description:
-  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quae mollitia ducimus voluptate",
-  //     image: "/images/cricket/cricket.jpeg"
-  //   },
-  //   {
-  //     id: 6,
-  //     description:
-  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quae mollitia ducimus voluptate",
-  //     image: "/images/cricket/cricket.jpeg"
-  //   },
-  //   {
-  //     id: 5,
-  //     description:
-  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quae mollitia ducimus voluptate",
-  //     image: "/images/cricket/cricket.jpeg"
-  //   },
-  //   {
-  //     id: 6,
-  //     description:
-  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quae mollitia ducimus voluptate",
-  //     image: "/images/cricket/cricket.jpeg"
-  //   }
-  // ];
-
   return (
     <>
-      <HeadMeta metaTitle="The Cricket Co" />
+      <HeadMeta metaTitle="Training" />
       <HeaderOne />
+      <Breadcrumb aPage="Training" />
       <div className="container">
         <div className="row">
           <div className="col-md-9 p-2">
@@ -154,16 +118,31 @@ const TrainingPage = () => {
                     <div key={item.id}>
                       <img
                         src={item.image}
-                        className="w-full  h-56 rounded-t-md"
+                        className="w-full h-56 rounded-t-md"
+                        alt={item.title}
                       />
 
                       <p className="text-gray-700 leading-9 mt-4">
                         {item.title}
                       </p>
 
-                      <button className="bg-rose-600 font-semibold mb-10 text-white  p-2 w-40 rounded-full">
+                      <button
+                        onClick={() => {
+                          handlePopupOpen(); // Open the popup
+                        }}
+                        className="bg-rose-600 font-semibold mb-10 text-white cursor-pointer p-2 w-40 rounded-full"
+                      >
                         Explore
                       </button>
+
+                      {/* Conditional VideoPopup rendering */}
+                      {isPopupOpen && (
+                        <VideoPopup
+                          isOpen={isPopupOpen}
+                          onClose={handlePopupClose}
+                          videoUrl={item.videoUrl || item.image} // Pass the correct video URL
+                        />
+                      )}
                     </div>
                   ))}
                 </div>

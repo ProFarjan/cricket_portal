@@ -10720,10 +10720,6 @@ address .tel i {
   font-weight: lighter;
 }
 
-
-
-
-
 :root {
   --background-color: #ffffff;
   --text-color: #000000;
@@ -10741,4 +10737,3 @@ body {
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
-

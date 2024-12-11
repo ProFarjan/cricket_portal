@@ -145,6 +145,7 @@ const HeaderOne = () => {
   };
 
   return (
+    
     <>
       <OffcanvasMenu ofcshow={show} ofcHandleClose={handleClose} />
 
@@ -318,7 +319,7 @@ const HeaderOne = () => {
                 </button>
                 <button className="nav-search-field-toggler">
                   <i className="far fa-bell" />
-                </button>
+              </button>
                 <button className="nav-search-field-toggler">
                   <i className="far fa-bars" />
                 </button>
