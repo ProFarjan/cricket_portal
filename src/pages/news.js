@@ -53,26 +53,35 @@ const HomeOne = ({ allPosts }) => {
                                     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
                                     return date.toLocaleString('en-US', options);
                                 };
+                                // Function to truncate the detail text to 30 or 40 words
+                                const truncateText = (text, limit) => {
+                                    const words = text.split(' ');
+                                    return words.length > limit ? words.slice(0, limit).join(' ') + '...' : text;
+                                };
 
                                 return (
                                     <div
                                         key={news.id}
                                         className={`grid ${index === 0 ? 'grid-cols-1 my-8' : 'grid-cols-3 my-5'}`}
                                     >
+                                        
+                                        
                                         <div className={index === 0 ? "col-span-1" : "col-span-1"}>
                                             <img
                                                 src={process.env.NEXT_PUBLIC_IMGPATH + news.image}
                                                 alt={news.title}
-                                                className={index === 0 ? "aspect-w-16 aspect-h-6 mx-auto" : "w-full"}
+                                                className={index === 0 ? "aspect-w-6 aspect-h-6 mx-auto" : "w-full"}
                                             />
                                         </div>
                                         <div className={index === 0 ? "col-span-1 px-4 text-center" : "col-span-2 px-4"}>
-                                            <h3
-                                                className={`axil-post-title cursor-pointer hover:underline ${index === 0 ? 'text-2xl font-bold mt-5 leading-[1.1]' : ''
+                                        <div className={index === 0 ? "hidden" : "p-2 text-center bg-[#0a1b4a] mb-2 text-xl w-24 text-white"} >{type}</div>
+                                            <h4
+                                                className={` cursor-pointer hover:underline ${index === 0 ? ' font-bold mt-5 leading-[1.1]' : ''
                                                     }`}
                                             >
                                                 {news.title}
-                                            </h3>
+                                            </h4>
+                                            <p className="text-2xl">{truncateText(news.detail, 30)}</p>
                                             <p>By {news.user_info.name} : {formatDate(news.created_at)}</p>
                                         </div>
                                     </div>

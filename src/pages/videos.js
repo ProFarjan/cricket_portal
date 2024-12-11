@@ -23,8 +23,8 @@ const HomeOne = ({ allPosts }) => {
     isLoading: video_isloading
   } = useQuery('get-Videos', getVideos, reactQuery);
 
-const type = 'videos';
-const data = 'videos'
+  const type = 'videos';
+  const data = 'videos'
 
   return (
     <>
@@ -39,28 +39,11 @@ const data = 'videos'
             <TopStories />
             <VideosSection />
             <TopArticles /> */}
-             <h1 className="m-b-xs-0  mt-10 axil-post-title hover-line">Videos</h1>
-                <VideoPage/>
+            <h1 className="m-b-xs-0  mt-10 axil-post-title hover-line">Videos</h1>
+            <VideoPage />
 
-                
-            {/* {
-              video?.map((item) => (
-                <div key={item.id} >
-                  <div className="grid grid-cols-3">
-                    <div className=""><div style={{ maxWidth: '300px', marginBottom: '10px' }}>
-                      <video controls style={{ width: '100%', height: '200px' }}>
-                        <source src={item.link} />
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                    </div>
-                    <div className=" col-span-2">
-                    <h3 className="axil-post-title cursor-pointer hover:underline">{item.title}</h3>
-                    </div>
-                  </div>       
-                </div>
-              ))
-            } */}
+
+           
 
           </div>
           <div className="col-md-3 p-0">

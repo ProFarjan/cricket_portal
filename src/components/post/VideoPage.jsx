@@ -18,7 +18,7 @@ const VideosSection = () => {
     return (
         <div className="axil-video-posts section-gap section-gap-top__with-text">
             <div className="container">
-                <div className=" p-4">
+                <div className=" ">
                     <div className="">
                         <div className="col-lg-12 my-5 ">
                             {hasData(videos) &&
@@ -27,10 +27,10 @@ const VideosSection = () => {
                                 ))}
                         </div>
                         
-                        <div className=" grid grid-cols-2 ">
+                        <div className=" grid grid-cols-3 	  ">
                             {hasData(videos) &&
                                 videos.slice(1, 5).map((data) => (
-                                    <PostVideoimage data={data} videoIcon={true} key={data.id}  />
+                                    <PostVideoimage  data={data} videoIcon={true} key={data.id}  />
                                 ))}
                         </div>
                     </div>

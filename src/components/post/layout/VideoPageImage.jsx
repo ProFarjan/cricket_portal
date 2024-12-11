@@ -15,14 +15,15 @@ const PostVideoimage = ({ data, pClass, videoIcon }) => {
     setIsPopupOpen(false);
   };
   return (
-    <div className={`media post-block post-block__small ${pClass ?? "post-block__on-dark-bg m-b-xs-30"}`}>
+    <div className={` media post-block  post-block__small ${pClass ?? "post-block__on-dark-bg "}`}>
 
-      <a className="align-self-center" onClick={setIsPopupOpen}>
+      <a className="" onClick={setIsPopupOpen}>
         <Image
+        
           src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
           alt={data.title}
-          width={450}
-          height={300}
+          width={420}
+          height={420}
         />
         {videoIcon === true ? <span className="video-play-btn video-play-btn__small" /> : ""}
       </a>
@@ -32,7 +33,7 @@ const PostVideoimage = ({ data, pClass, videoIcon }) => {
           <div className="axil-media-bottom mt-auto">
             <h3 className="axil-post-title hover-line hover-line">
               <Link href={`/post/${slugify(data.title)}`}>
-                <a className="text-2xl p-4">{data.title}</a>
+                <a className="text-2xl p-1">{data.title}</a>
               </Link>
             </h3>
            
