@@ -13,6 +13,8 @@ import { hashQueryKey, useQuery } from "react-query";
 import reactQuery from "../config/reactQueryConfig";
 import { getNews } from "../api/api";
 import Breadcrumb from "../components/common/Breadcrumb.jsx";
+import Resizer from 'react-image-file-resizer';
+
 
 
 const HomeOne = ({ allPosts }) => {
@@ -59,22 +61,26 @@ const HomeOne = ({ allPosts }) => {
                                     return words.length > limit ? words.slice(0, limit).join(' ') + '...' : text;
                                 };
 
+
+                           
+                            
+
                                 return (
                                     <div
                                         key={news.id}
                                         className={`grid ${index === 0 ? 'grid-cols-1 my-8' : 'grid-cols-3 my-5'}`}
                                     >
-                                        
-                                        
+
+
                                         <div className={index === 0 ? "col-span-1" : "col-span-1"}>
                                             <img
-                                                src={process.env.NEXT_PUBLIC_IMGPATH + news.image}
+                                                src= { process.env.NEXT_PUBLIC_IMGPATH + news.image}
                                                 alt={news.title}
-                                                className={index === 0 ? "aspect-w-6 aspect-h-6 mx-auto" : "w-full"}
+                                                className={index === 0 ? "w-full h-96 object-cover aspect-w-2 aspect-h-1 mx-auto" : "w-full"}
                                             />
                                         </div>
                                         <div className={index === 0 ? "col-span-1 px-4 text-center" : "col-span-2 px-4"}>
-                                        <div className={index === 0 ? "hidden" : "p-2 text-center bg-[#0a1b4a] mb-2 text-xl w-24 text-white"} >{type}</div>
+                                            <div className={index === 0 ? "hidden" : "p-2 text-center bg-[#0a1b4a] mb-2 text-xl w-24 text-white"} >{type}</div>
                                             <h4
                                                 className={` cursor-pointer hover:underline ${index === 0 ? ' font-bold mt-5 leading-[1.1]' : ''
                                                     }`}
