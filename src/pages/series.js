@@ -100,7 +100,7 @@ const series = () => {
                     </div>
 
                     {/* Main Content */}
-                    <div className="md:w-3/4 ">
+                    <div className="md:w-3/4 p-2 ">
                         <h1 className="text-2xl font-semibold mb-4 ml-4">International Tours</h1>
                         <div className="bg-white text-xl rounded-md shadow-md p-4">
                             {match.map((item, index) => (
@@ -108,8 +108,8 @@ const series = () => {
                                     <div className="flex gap-2">
                                         <div className="flex mt-4">
                                             {/* Placeholder for team logos */}
-                                            <img className="w-10 h-10 rounded-full" src="/images/Bangladesh.webp" alt="Team 1" />
-                                            <img className="w-10 h-10 rounded-full" src="/images/westindies.webp" alt="Team 2" />
+                                            <img className="w-10 h-10 rounded-full" src="/images/Flag/Bangladesh.webp" alt="Team 1" />
+                                            <img className="w-10 h-10 rounded-full" src="/images/Flag/SA.webp" alt="Team 2" />
                                         </div>
                                         <div className='flex gap-4'>
                                             <button className="text-xl mt-2 text-black font-semibold">{item.match}</button>
