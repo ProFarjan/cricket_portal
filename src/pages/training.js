@@ -1,29 +1,26 @@
 import HeadMeta from "../components/elements/HeadMeta";
 import HeaderOne from "../components/header/HeaderOne";
 import PageSidebar from "../components/common/PageSidebar";
-import GalleryItems from "../components/post/GalleryItems";
 import FooterOne from "../components/footer/FooterOne";
-import MatchCoverage from "../components/post/MatchCoverage";
-import PostSectionTwo from "../components/post/PostSectionTwo";
-import TopStories from "../components/post/TopStories";
-import VideosSection from "../components/post/VideosSection";
-import TopArticles from "../components/post/TopArticles";
+import Breadcrumb from "../components/common/Breadcrumb";
 import { useQuery } from "react-query";
 import { getTraining } from "../api/api";
 import reactQuery from "../config/reactQueryConfig";
 import { useState } from "react";
 import VideoPopup from "../components/videos/VideoPopup";
-import Breadcrumb from "../components/common/Breadcrumb";
 
 const TrainingPage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [currentVideoUrl, setCurrentVideoUrl] = useState("");
 
-  const handlePopupOpen = () => {
+  const handlePopupOpen = (videoUrl) => {
+    setCurrentVideoUrl(videoUrl);
     setIsPopupOpen(true);
   };
 
   const handlePopupClose = () => {
     setIsPopupOpen(false);
+    setCurrentVideoUrl("");
   };
 
   const {
@@ -44,29 +41,31 @@ const TrainingPage = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-9 p-2">
-            <div className="px-4 md:px-20 ">
-              {/* banner part */}
+            <div className="px-4 md:px-20">
+              {/* Banner Section */}
               <div className="mt-8">
-                <div className="flex flex-col md:flex-row gap-5 ">
-                  <div className="">
+                <div className="flex flex-col md:flex-row gap-5">
+                  {/* title  */}
+                  <div>
                     <h1 className="text-3xl mt-12">The Cricket Online</h1>
                     <p className="text-green-800 font-extrabold text-4xl mt-[-12px]">
                       TRAINING
                     </p>
-                    <p className=" font-extrabold text-black text-5xl">
+                    <p className="font-extrabold text-black text-5xl">
                       Coaching experienced <br /> cricket coaches through our
                       website
                     </p>
                     <p className="text-1xl leading-10 text-gray-900">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       <br /> Molestias quae mollitia ducimus voluptate,
                     </p>
                     <div>
-                      <button className="bg-green-600 font-semibold text-white  p-2 w-52 rounded-3xl">
+                      <button className="bg-green-600 font-semibold text-white p-2 w-52 rounded-3xl">
                         Explore more
                       </button>
                     </div>
                   </div>
+                  {/* image   */}
                   <div className=" md:block hidden">
                     <div className="grid grid-rows-3 grid-flow-col gap-4">
                       <div className="row-start-2 row-span-2 rounded-md">
@@ -111,58 +110,57 @@ const TrainingPage = () => {
                 </div>
               </div>
 
-              {/* cart part */}
+              {/* Cards Section */}
               <div className="mt-20">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {training?.data?.map((item) => (
-                    <div key={item.id}>
+                    <div
+                      className="shadow-md shadow-slate-500 rounded-t-md"
+                      key={item.id}
+                    >
                       <img
                         src={item.image}
-                        className="w-full h-56 rounded-t-md"
+                        className="w-full h-72 rounded-t-lg"
                         alt={item.title}
                       />
-
-                      <p className="text-gray-700 leading-9 mt-4">
-                        {item.title}
-                      </p>
-
-                      <button
-                        onClick={() => {
-                          handlePopupOpen(); // Open the popup
-                        }}
-                        className="bg-rose-600 font-semibold mb-10 text-white cursor-pointer p-2 w-40 rounded-full"
-                      >
-                        Explore
-                      </button>
-
-                      {/* Conditional VideoPopup rendering */}
-                      {isPopupOpen && (
-                        <VideoPopup
-                          isOpen={isPopupOpen}
-                          onClose={handlePopupClose}
-                          videoUrl={item.videoUrl || item.image} // Pass the correct video URL
-                        />
-                      )}
+                      <p className="text-gray-700 mt-2 p-3">{item.title}</p>
+                      <div className="p-3">
+                        <button
+                          onClick={() =>
+                            handlePopupOpen(item.videoUrl || item.image)
+                          }
+                          className="bg-rose-600 font-semibold mb-8 text-white cursor-pointer p-2 w-40 rounded-full"
+                        >
+                          Explore
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-
-            {/* <PostSectionTwo />
-            <TopStories />
-            <VideosSection />
-            <TopArticles /> */}
           </div>
-
           <div className="col-md-3 p-0">
             <PageSidebar />
           </div>
         </div>
-        <div className="row">
-          <div className="">{/* <GalleryItems /> */}</div>
-        </div>
       </div>
+
+      {/* Video Popup Modal */}
+      {isPopupOpen && (
+        <>
+          {/* Black Overlay */}
+          <div className="fixed inset-0 bg-black bg-opacity-75 z-40"></div>
+
+          {/* Video Popup */}
+          <VideoPopup
+            isOpen={isPopupOpen}
+            onClose={handlePopupClose}
+            videoUrl={currentVideoUrl}
+          />
+        </>
+      )}
+
       <FooterOne />
     </>
   );

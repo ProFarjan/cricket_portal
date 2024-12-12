@@ -2,6 +2,18 @@ const PopularNews = ({ news, news_isloading }) => {
   if (news_isloading) {
     return <p>No news available.</p>;
   }
+  const formatDate = (isoDate) => {
+    const date = new Date(isoDate);
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    };
+    return date.toLocaleString("en-US", options);
+  };
 
   return (
     <div>
@@ -13,8 +25,8 @@ const PopularNews = ({ news, news_isloading }) => {
             <img className="h-44 w-44"  src={process.env.NEXT_PUBLIC_IMGPATH + newsItem?.image}alt="" />
             <div>
               <h4 className="text-xl text-black "> {newsItem?.title}</h4>
-              <p className="text-sm mt-[-10px]">{ newsItem?.created_at}</p>
-              <p className="text-sm mt-[-22px]">{ newsItem?.updated_at}</p>
+              <p className="text-sm mt-[-10px]">{formatDate(newsItem?.created_at)}</p>
+              <p className="text-sm mt-[-22px]">{formatDate(newsItem?.updated_at)}</p>
             </div>
           </div>
         )}
