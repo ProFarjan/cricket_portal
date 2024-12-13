@@ -40,10 +40,10 @@ const PostFormatMatch = ({ postData }) => {
           {/* Banner Section */}
           <div className="flex flex-wrap items-center  overflow-hidden">
             <div className="w-full md:w-1/2 p-6">
-              <button className="text-2xl bg-blue-600 p-3 font-semibold text-white uppercase pl-1">
+              <button className="text-2xl bg-blue-600 rounded-md p-3 font-semibold text-white uppercase pl-1">
                 News
               </button>
-              <h2 className="text-4xl md:text-7xl font-medium text-gray-800 mt-4">
+              <h2 className="text-4xl md:text-6xl font-medium text-gray-800 mt-4">
                 {postData[0]?.title ||
                   "Crispy Air Fryer Parmesan And Thyme Roasted Wedge Fries"}
               </h2>
@@ -61,11 +61,11 @@ const PostFormatMatch = ({ postData }) => {
                     {postData[0]?.user_info?.name}
                   </span>{" "}
                   & <span className="font-semibold">K. Williams</span>
-                  <br />
-                  <span>{postData[0].created_at}</span>
+
+                  <span className="ml-2">{postData[0].created_at}</span>
                   <span className="ml-5">
-                    <button><i className="fal fa-share text-3xl ml-3" /></button>
-                    <button><i className="fal fa-link  text-3xl ml-3" /></button>
+                    <button><i className="fal fa-share text-2xl ml-3" /></button>
+                    <button><i className="fal fa-link  text-2xl ml-3" /></button>
                   </span>
                 </span>
               </div>
