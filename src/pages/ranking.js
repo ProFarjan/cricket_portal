@@ -100,13 +100,13 @@ const RankingsCard = ({ title, data, imageUrl }) => {
                 </div>
                 
             </div>
-            <div className="p-2 text-lg">
-                <div className="flex flex-col">
+            <div className=" text-lg">
+                <div className="flex flex-col ">
                     {/* Header Row */}
                     <div className="flex items-center justify-between  py-2 ">
                         <span className="text-center font-bold text-gray-600 w-1/6">Pos</span>
                         <span className="text-left font-bold text-gray-600 w-2/3">Team</span>
-                        <span className="text-right font-bold text-gray-600 w-1/6">Rating</span>
+                        <span className="text-center font-bold text-gray-600 w-1/6">Rating</span>
                     </div>
 
                     {sortedData.map((item) => (
@@ -131,7 +131,7 @@ const RankingsCard = ({ title, data, imageUrl }) => {
                             >
                                 {item.position}
                             </span>
-                            <div className="flex items-center w-2/3">
+                            <div className="flex  items-center w-2/3">
                                 {item.flag && (
                                     <img
                                         src={item.flag}
@@ -151,8 +151,8 @@ const RankingsCard = ({ title, data, imageUrl }) => {
                             </div>
                             <span  className={
                                         item.position === 1
-                                            ? 'text-4xl font-medium '
-                                            : 'text-xl font-semibold '
+                                            ? 'text-4xl font-medium p-1'
+                                            : 'text-xl font-semibold p-1  '
                                     }
                                     >
                                 {item.rating}
