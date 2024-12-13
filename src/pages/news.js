@@ -81,12 +81,12 @@ const HomeOne = ({ allPosts }) => {
                                         </div>
                                         <div className={index === 0 ? "col-span-1 px-4 text-center" : "col-span-2 px-4"}>
                                             <div className={index === 0 ? "hidden" : "p-2 text-center bg-[#0a1b4a] mb-2 text-xl w-24 text-white"} >{type}</div>
-                                            <h4
+                                            <h3
                                                 className={` cursor-pointer hover:underline ${index === 0 ? ' font-bold mt-5 leading-[1.1]' : ''
                                                     }`}
                                             >
                                                 {news.title}
-                                            </h4>
+                                            </h3>
                                             <p className="text-2xl">{truncateText(news.detail, 30)}</p>
                                             <p>By {news.user_info.name} : {formatDate(news.created_at)}</p>
                                         </div>
