@@ -62,8 +62,8 @@ const HomeOne = ({ allPosts }) => {
                                 };
 
 
-                           
-                            
+
+
 
                                 return (
                                     <div
@@ -72,11 +72,11 @@ const HomeOne = ({ allPosts }) => {
                                     >
 
 
-                                        <div className={index === 0 ? "col-span-1" : "col-span-1"}>
+                                        <div className={index === 0 ? "w-full h-96 overflow-hidden" : "col-span-1"}>
                                             <img
-                                                src= { process.env.NEXT_PUBLIC_IMGPATH + news.image}
+                                                src={process.env.NEXT_PUBLIC_IMGPATH + news.image}
                                                 alt={news.title}
-                                                className={index === 0 ? "w-full h-96 object-cover aspect-w-2 aspect-h-1 mx-auto" : "w-full"}
+                                                className={index === 0 ? "w-full h-full object-cover mx-auto p-2" : "w-full"}
                                             />
                                         </div>
                                         <div className={index === 0 ? "col-span-1 px-4 text-center" : "col-span-2 px-4"}>
