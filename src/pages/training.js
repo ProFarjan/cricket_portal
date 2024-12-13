@@ -38,7 +38,7 @@ const TrainingPage = () => {
       <HeadMeta metaTitle="Training" />
       <HeaderOne />
       <Breadcrumb aPage="Training" />
-      <div className="container">
+      <div className="container ">
         <div className="row">
           <div className="col-md-9 p-2">
             <div className="px-4 md:px-20">
@@ -112,7 +112,7 @@ const TrainingPage = () => {
 
               {/* Cards Section */}
               <div className="mt-20">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                   {training?.data?.map((item) => (
                     <div
                       className="shadow-md shadow-slate-500 rounded-t-md"
@@ -124,7 +124,7 @@ const TrainingPage = () => {
                         alt={item.title}
                       />
                       <p className="text-gray-700 mt-2 p-3">{item.title}</p>
-                      <div className="p-3">
+                      <div className="p-3 ">
                         <button
                           onClick={() =>
                             handlePopupOpen(item.videoUrl || item.image)
