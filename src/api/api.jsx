@@ -11,6 +11,7 @@ api.interceptors.response.use(undefined, err => {
 // ALL GET METHODS
 
 export const getTraining = async () => api.get("/last/ten/training/");
+export const getLeadNEws = async () => api.get("/lead-news/");
 
 export const getRecentNews = async () => api.get("/recent/news/");
 
