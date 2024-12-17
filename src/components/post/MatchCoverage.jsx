@@ -8,6 +8,7 @@ import { getSeriesList, getSeriesWiseData } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
 import { hasData, shortTxt } from "../../helpers/helper";
 import PostLayoutThree from './layout/PostLayoutThree';
+import LeadNews from '../news/LeadNews';
 
 const MatchCoverage = () => {
   const [key, setKey] = useState('');
@@ -50,12 +51,13 @@ const MatchCoverage = () => {
     <div className="recent-news-wrapper mt-3 section-gap p-t-xs-15">
       <div className="container">
         <div className="mb-5">
-          <img
+          {/* <img
             src="/images/clientbanner/cricket5.jpg"
             alt="font banner"
             placeholder="blur"
             blurDataURL="/images/placeholder.png"
-          />
+          /> */}
+          <LeadNews/>
         </div>
         <div className="card p-4" style={{padding: `2.5rem !important`}}>
           <Tab.Container id="widget-post" className="mb-3" activeKey={key} onSelect={handleSelect}>

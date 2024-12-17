@@ -166,6 +166,7 @@ const HeaderOne = () => {
 
 
   return (
+    
     <>
       <OffcanvasMenu ofcshow={show} ofcHandleClose={handleClose} />
 
@@ -334,10 +335,10 @@ const HeaderOne = () => {
                     )
                   )}
                 </ul>
-                {/* <button onClick={toggleTheme} className="nav-search-field-toggler">
+                <button className="nav-search-field-toggler ">
                   <i className="far fa-moon" />
                   <i className="far fa-sun" />
-                </button> */}
+                </button> 
                 <button
                   onClick={toggleTheme}
                   className="p-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded flex items-center"
@@ -350,7 +351,7 @@ const HeaderOne = () => {
 
                 <button className="nav-search-field-toggler">
                   <i className="far fa-bell" />
-                </button>
+              </button>
                 <button className="nav-search-field-toggler">
                   <i className="far fa-bars" />
                 </button>
