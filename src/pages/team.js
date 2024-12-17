@@ -9,9 +9,7 @@ import TeamOne from "../components/team/TeamOne";
 import { removeDuplicates } from "../utils";
 
 const TeamPage = ({ allPosts }) => {
-
     const AuthorList = removeDuplicates(allPosts, 'author_name');
-
     return (
         <>
             <HeadMeta metaTitle="Team" />
