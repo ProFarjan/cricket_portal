@@ -7,33 +7,32 @@ import GalleryItem from "./layout/GalleryItem";
 import { hasData } from "../../helpers/helper";
 
 const GalleryItems = () => {
+  const { data: galleries, error, isLoading } = useQuery(
+    "gallery-item",
+    getGalleryItems,
+    reactQueryConfig
+  );
 
-    const {
-        data: galleries,
-        error,
-        isLoading
-    } = useQuery('gallery-item', getGalleryItems, reactQueryConfig);
-
-    return (
-        <div className="related-post mt-3 section-gap p-b-xs-15">
-            <div className="container">
-                <div className="card p-4">
-                    <SectionTitle title="Photos" btnText="" />
-                    <div className="grid-wrapper mt-2">
-                        <div className="row">
-                            {hasData(galleries) &&
-                                galleries.slice(0, 4).map((data) => (
-                                    <div className="col-lg-3 col-md-4" key={data.slug}>
-                                        <GalleryItem data={data} />
-                                    </div>
-                                ))}
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div className="related-post">
+      <div className="container  ">
+        <div className="  p-4">
+          {/* <SectionTitle className="text-white" title="Photos" btnText="" /> */}
+          <h1 className="text-4xl  ">Photo</h1>
+          <div className="grid-wrapper  mt-2">
+            <div className="md:flex gap-4">
+              {hasData(galleries) &&
+                galleries.slice(0, 4).map(data =>
+                  <div key={data.slug}>
+                    <GalleryItem data={data} />
+                  </div>
+                )}
             </div>
+          </div>
         </div>
-
-    );
-}
+      </div>
+    </div>
+  );
+};
 
 export default GalleryItems;

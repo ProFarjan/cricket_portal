@@ -9,6 +9,7 @@ api.interceptors.response.use(undefined, (err) => {
 });
 
 // ALL GET METHODS
+export const getNews = async () => api.get('/all/news-report/')
 export const getMenus = async () => api.get('/menu/Data/');
 export const getTop5Metches = async () => api.get('/today/running/top/match/');
 export const getTopMetches = async () => api.get('/all/running/match/series/data/');
