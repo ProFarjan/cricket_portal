@@ -7,103 +7,108 @@ import PostLayoutTwo from "../../components/post/layout/PostLayoutTwo";
 import { useRouter } from "next/router";
 import PageSidebar from "../../components/common/PageSidebar";
 import { capitalize } from "../../helpers/helper";
-import { getAllstories, getSeriesWiseData, getTopArticles } from "../../api/api";
-
+import {
+  getAllstories,
+  getSeriesWiseData,
+  getTopArticles
+} from "../../api/api";
 
 const category = ({ postData }) => {
-    const router = useRouter();
-    const slug = capitalize(router.query.slug);
+  const router = useRouter();
+  const slug = capitalize(router.query.slug);
 
-    const getData = (data) => {
-        if (slug == 'Match') {
-            data.id = data.series_id;
-            return data;
-        }
-        return data;
+  const getData = (data) => {
+    if (slug == "Match") {
+      data.id = data.series_id;
+      return data;
     }
+    return data;
+  };
 
-    return (
-        <>
-            <HeadMeta metaTitle={`The Cricket Co ${slug} Category`} />
-            <HeaderOne />
-            <Breadcrumb aPage={slug} />
-            {/* Banner Start here  */}
-            <div className="banner banner__default bg-grey-light-three">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-lg-12">
-                            <div className="post-title-wrapper">
-                                <h2 className="m-b-xs-0 axil-post-title hover-line">{slug}</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <>
+      <HeadMeta metaTitle={`The Cricket Co ${slug} Category`} />
+      <HeaderOne />
+      <Breadcrumb aPage={slug} />
+      {/* Banner Start here  */}
+      <div className="banner banner__default bg-grey-light-three">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-12">
+              <div className="post-title-wrapper">
+                <h2 className="m-b-xs-0 axil-post-title hover-line">{slug}</h2>
+              </div>
             </div>
-            {/* Banner End here  */}
-            <div className="random-posts section-gap">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-8">
-                            <AdBanner />
-                            <div className="axil-content">
-                                {postData.map((data) => (
-                                    <PostLayoutTwo data={getData(data)} postSizeMd={true} key={data.slug} slug={router.query.slug} />
-                                ))}
-                            </div>
-                        </div>
-                        <div className="col-lg-4">
-                            <div className="post-sidebar">
-                                <PageSidebar />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+      </div>
+      {/* Banner End here  */}
+      <div className="random-posts section-gap">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8">
+              <AdBanner />
+              <div className="axil-content">
+                {postData.map((data) => (
+                  <PostLayoutTwo
+                    data={getData(data)}
+                    postSizeMd={true}
+                    key={data.slug}
+                    slug={router.query.slug}
+                  />
+                ))}
+              </div>
             </div>
-            <FooterOne />
-        </>
-    );
-}
+            <div className="col-lg-4">
+              <div className="post-sidebar">
+                <PageSidebar />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <FooterOne />
+    </>
+  );
+};
 
 export default category;
 
-
 export async function getServerSideProps({ params, query }) {
+  const slug = params.slug;
 
-    const slug = params.slug;
-
-    let postData = [];
-    switch (slug) {
-        case 'match':
-            const series_id = query.series_id;
-            postData = await getSeriesWiseData({ series_id }).then(res => res.data);
-            return {
-                props: {
-                    postData
-                }
-            }
-            break;
-        case 'stories':
-            postData = await getAllstories().then(res => res.data);
-            return {
-                props: {
-                    postData
-                }
-            }
-            break;
-        case 'articles':
-            postData = await getTopArticles().then(res => res.data);
-            return {
-                props: {
-                    postData
-                }
-            }
-            break;
-        default:
-            return {
-                props: {
-                    postData
-                }
-            }
-    }
-
+  let postData = [];
+  switch (slug) {
+    case "match":
+      const series_id = query.series_id;
+      postData = await getSeriesWiseData({ series_id }).then((res) => res.data);
+      return {
+        props: {
+          postData
+        }
+      };
+      break;
+    case "stories":
+      postData = await getAllstories().then((res) => res.data);
+      return {
+        props: {
+          postData
+        }
+      };
+      break;
+    case "articles":
+      postData = await getTopArticles().then((res) => res.data);
+      return {
+        props: {
+          postData
+        }
+      };
+      break;
+    default:
+      return {
+        props: {
+          postData
+        }
+      };
+  }
 }
