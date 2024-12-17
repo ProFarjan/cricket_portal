@@ -1,7 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+*{
+  margin: 0;
+  padding:0;
+}
+/* styles/globals.css */
+body {
+  @apply bg-white dark:bg-gray-900 text-black dark:text-white;
+}
 /*-- ===============================================
 
 Product: 'Papr || HTML Template for News & Magazine'

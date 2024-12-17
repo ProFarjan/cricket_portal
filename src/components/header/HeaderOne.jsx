@@ -15,6 +15,7 @@ import { Nav } from 'react-bootstrap';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { slugify } from "../../utils";
+import { useTheme } from "next-themes";
 
 const HeaderOne = () => {
   // Main Menu Toggle
@@ -79,7 +80,7 @@ const HeaderOne = () => {
     error: menu_error,
     isLoading: menu_isloading
   } = useQuery('get-menus', getMenus, reactQuery);
-  
+
 
   // Mobile Menu Toggle
   const [mobileToggle, setMobileToggle] = useState(false);
@@ -143,6 +144,26 @@ const HeaderOne = () => {
     const position = window.scrollY;
     setScrollPosition(position);
   };
+
+  //handle dark mood and light mood
+
+  const [theme, setTheme] = useState("light");
+
+  // On initial load, check and set theme from localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    document.body.classList.toggle("dark", savedTheme === "dark");
+  }, []);
+
+  // Function to toggle theme
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.body.classList.toggle("dark", newTheme === "dark");
+  };
+
 
   return (
     
@@ -242,7 +263,7 @@ const HeaderOne = () => {
                         <li key={index}>
                           <Link href={`/${slugify(data.menu_title)}`}>
                             <a>{data.menu_title}</a>
-                              
+
                           </Link>
                           <ul className={`submenu`}>
                             {data.front_end_sub_menu.map((data, sub_index) => (
@@ -316,7 +337,18 @@ const HeaderOne = () => {
                 </ul>
                 <button className="nav-search-field-toggler ">
                   <i className="far fa-moon" />
+                  <i className="far fa-sun" />
+                </button> 
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded flex items-center"
+                >
+                  {theme === "dark" ? <i className="far fa-moon" /> :  <i className="far fa-sun" />}
+                  <span className="ml-2">{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
                 </button>
+
+
+
                 <button className="nav-search-field-toggler">
                   <i className="far fa-bell" />
               </button>
