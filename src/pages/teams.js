@@ -68,63 +68,6 @@ const Teams = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-9 p-2">
-            {/* <h3 className='text-2xl'>Popular Men's International Teams</h3> */}
-            {/* <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-5 gap-4">
-              {mensTeams.map((country, index) => (
-                <div key={index} className="flex justify-center items-center h-40 gap-3">
-                  <img
-                    src={country.flag}
-                    alt={`${country.name} flag`}
-                    className="w-20 h-20 object-cover mb-2 border rounded"
-                  />
-                  <p className="text-center text-lg font-medium">{country.name}</p>
-                </div>
-              ))}
-            </div>
-
-            <h3 className="mt-5 text-2xl">Popular Women's International Teams</h3>
-            <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-5 gap-4">
-              {womensTeams.map((country, index) => (
-                <div key={index} className="flex justify-center items-center h-40 gap-3">
-                  <img
-                    src={country.flag}
-                    alt={`${country.name} flag`}
-                    className="w-20 h-20 object-cover mb-2 border rounded"
-                  />
-                  <p className="text-center text-lg font-medium">{country.name}</p>
-                </div>
-              ))}
-            </div>
-
-
-            <h3 className="mt-5 text-2xl">BBL Teams</h3>
-            <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-5 gap-4">
-              {BBLTeams.map((country, index) => (
-                <div key={index} className="flex justify-center items-center h-40 gap-3">
-                  <img
-                    src={country.flag}
-                    alt={`${country.name} flag`}
-                    className="w-20 h-20 object-cover mb-2 border rounded"
-                  />
-                  <p className="text-center text-lg font-medium">{country.name}</p>
-                </div>
-              ))}
-            </div>
-
-
-            <h3 className="mt-5 text-2xl">BPL Teams</h3>
-            <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-5 gap-4">
-              {BPLTeams.map((country, index) => (
-                <div key={index} className="flex justify-center items-center h-40 gap-3">
-                  <img
-                    src={country.flag}
-                    alt={`${country.name} flag`}
-                    className="w-20 h-20 object-cover mb-2 border rounded"
-                  />
-                  <p className="text-center text-lg font-medium">{country.name}</p>
-                </div>
-              ))}
-            </div> */}
             <div class="px-4 py-6">
               <h1 class="text-4xl font-extrabold py-4 text-center text-gray-800">
                 Cricket Teams
@@ -143,7 +86,34 @@ const Teams = () => {
                       alt={`${country.name} flag`}
                       className="mb-4 w-24 h-24 object-cover rounded-full border-2 border-gray-200"
                     />
-                    <p className="font-semibold text-gray-700 text-center text-sm">
+                    <p className="font-semibold text-gray-700 text-center text-xl">
+                      {country.name}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            
+            <div class="px-4 py-6">
+              <h1 class="text-4xl font-extrabold py-4 text-center text-gray-800">
+                Cricket Teams
+              </h1>
+              <h2 class="text-2xl font-semibold py-2 text-center text-gray-600">
+                Popular Men’s International Teams
+              </h2>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {BPLTeams.map((country, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center p-3 border rounded-lg shadow-lg bg-white hover:shadow-xl transition-shadow duration-300"
+                  >
+                    <img
+                      src={country.flag}
+                      alt={`${country.name} flag`}
+                      className="mb-4 w-24 h-24 object-cover rounded-full border-2 border-gray-200"
+                    />
+                    <p className="font-semibold text-gray-700 text-center text-xl">
                       {country.name}
                     </p>
                   </div>
@@ -151,7 +121,7 @@ const Teams = () => {
               </div>
             </div>
 
-            <div class="px-4 py-6">
+            {/* <div class="px-4 py-6">
               <h1 class="text-4xl font-extrabold py-4 text-center text-gray-800">
                 Cricket Teams
               </h1>
@@ -283,7 +253,7 @@ const Teams = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="col-md-3 p-0">
             <PageSidebar />
