@@ -43,6 +43,7 @@ const category = ({ postData }) => {
         </div>
       </div>
       {/* Banner End here  */}
+
       <div className="random-posts section-gap">
         <div className="container">
           <div className="row">
