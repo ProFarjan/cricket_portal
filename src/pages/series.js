@@ -83,7 +83,7 @@ const series = () => {
                     {/* Sidebar */}
                     <div className="md:w-1/4 p-3 bg-gray-100 rounded-md shadow-md">
                         <h1 className="ml-8 text-2xl text-black border-b font-semibold ">Filter</h1>
-                        <ul className=" rounded-md shadow-md text-2xl ">
+                        <ul className=" rounded-md shadow-md text-2xl text-black ">
                             <li className="py-2 px-4 hover:bg-gray-200 rounded cursor-pointer">Current Cricket</li>
                             <li className="py-2 px-4 hover:bg-gray-200 rounded cursor-pointer">Future Series / Tournaments</li>
                             <li className="py-2 px-4 hover:bg-gray-200 rounded cursor-pointer">Recently Concluded</li>
@@ -125,7 +125,7 @@ const series = () => {
                         </div>
                     </div>
                 </div>
-                <GalleryItems />
+                {/* <GalleryItems /> */}
             </div>
 
             <FooterOne />
