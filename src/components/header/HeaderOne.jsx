@@ -113,10 +113,10 @@ const HeaderOne = () => {
     // if (topMenu?.seriesMatches) {
     //   setSeriesData(topMenu.seriesMatches);
     // }
-    // window.addEventListener('scroll', handleScroll);
-    // return () => {
-    //   window.removeEventListener('scroll', handleScroll);
-    // };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [topMenu]);
 
 
@@ -225,7 +225,7 @@ const HeaderOne = () => {
         <nav className={`navbar bg-secondary-color ${scrollPosition > 240 ? 'sticky-header' : ''}`}>
           <div className="container">
             <div className="navbar-inner">
-              {(hasData(topMenu) && topMenu.success == 0 || scrollPosition > 240) ?
+              {(hasData(topMenu) && topMenu.success == 1 || scrollPosition > 240) ?
                 <div className="brand-logo-container">
                   <Link href="/">
                     <a>
@@ -243,7 +243,7 @@ const HeaderOne = () => {
               }
               <div className="main-nav-wrapper">
                 <ul className="main-navigation list-inline" ref={menuRef} style={{
-                  padding: (hasData(topMenu) && topMenu.length > 0) ? '0 0 0 4.4rem' : '0'
+                  padding: (hasData(topMenu) && topMenu.success == 0) ? '0 0 0 4.4rem' : '0'
                 }}>
                   {hasData(menus) &&
                     menus.slice(0, 10).map((data, index) =>
@@ -325,17 +325,8 @@ const HeaderOne = () => {
                 </ul>
                 <button className="nav-search-field-toggler ">
                   <i className="far fa-moon" />
-                  <i className="far fa-sun" />
+                  {/* <i className="far fa-sun" /> */}
                 </button> 
-                <button
-                  onClick={toggleTheme}
-                  className="p-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded flex items-center"
-                >
-                  {theme === "dark" ? <i className="far fa-moon" /> :  <i className="far fa-sun" />}
-                  <span className="ml-2">{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
-                </button>
-
-
 
                 <button className="nav-search-field-toggler">
                   <i className="far fa-bell" />
