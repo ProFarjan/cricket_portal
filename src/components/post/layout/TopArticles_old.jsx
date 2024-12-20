@@ -19,7 +19,7 @@ const TopArticles = () => {
             <h3 className={`fs-2 p-0 m-0 mb-4`}>Top Stories</h3>
             {hasData(stories) &&
                 stories.slice(0, 1).map((data, index) =>
-                    <div className="media post-block m-b-xs-5 mt-4">
+                    <div key={index} className="media post-block m-b-xs-5 mt-4">
                         <figure className="fig-container">
                             <Link href="">
                                 <a className="m-0">

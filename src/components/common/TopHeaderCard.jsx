@@ -40,7 +40,9 @@ const TopHeaderCard = ({ data }) => {
                                 </div>
                             </div>
                         </div>
-                        <strong className="fs-6">
+                        <strong className="fs-6" style={{
+                            whiteSpace: 'nowrap'
+                        }}>
                             {data?.event_status_info ? data.event_status_info : "---"}
                         </strong>
                     </div>
