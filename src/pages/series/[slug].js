@@ -18,9 +18,9 @@ const SeriesDetail = () => {
 
     return (
         <>
-            <HeadMeta metaTitle={slug.replaceAll('-', ' ')} />
+            <HeadMeta metaTitle={slug?.replaceAll('-', ' ')} />
             <HeaderOne />
-            <Breadcrumb bCat="Series" aPage={slug.replaceAll('-', ' ')} />
+            <Breadcrumb bCat="Series" aPage={slug?.replaceAll('-', ' ')} />
             <div className="container">
                 <div className="row">
                     <div className="col-md-9 p-2">

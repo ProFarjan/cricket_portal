@@ -13,7 +13,7 @@ import { hashQueryKey, useQuery } from "react-query";
 import reactQuery from "../config/reactQueryConfig";
 import { getNews } from "../api/api";
 import Breadcrumb from "../components/common/Breadcrumb.jsx";
-import Resizer from 'react-image-file-resizer';
+// import Resizer from 'react-image-file-resizer';
 
 
 

@@ -109,10 +109,10 @@ const HeaderOne = () => {
   };
 
   useEffect(() => {
-    toggleDropdownMenu();
-    if (topMenu?.seriesMatches) {
-      setSeriesData(topMenu.seriesMatches);
-    }
+    // toggleDropdownMenu();
+    // if (topMenu?.seriesMatches) {
+    //   setSeriesData(topMenu.seriesMatches);
+    // }
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -121,9 +121,9 @@ const HeaderOne = () => {
 
 
   const settings = {
-    infinite: true,
+    infinite: topMenu?.length > 4,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: Math.min(4, topMenu?.length || 0),
     slidesToScroll: 1,
     variableWidth: false,
     centerMode: false
@@ -131,13 +131,13 @@ const HeaderOne = () => {
 
   const loadMatchData = (series_id) => (event) => {
     event.preventDefault();
-    const mySeriesData = topMenu.seriesMatches.find((series) => series.series_id == series_id);
-    setSeriesData([mySeriesData])
+    // const mySeriesData = topMenu.seriesMatches.find((series) => series.series_id == series_id);
+    // setSeriesData([mySeriesData])
   }
 
   const loadAllMatchData = () => (event) => {
     event.preventDefault();
-    setSeriesData(topMenu.seriesMatches)
+    // setSeriesData(topMenu.seriesMatches)
   }
 
   const handleScroll = () => {
@@ -171,7 +171,7 @@ const HeaderOne = () => {
       <OffcanvasMenu ofcshow={show} ofcHandleClose={handleClose} />
 
       <header className="page-header">
-        {hasData(topMenu) && topMenu.length > 0 ?
+        {hasData(topMenu) && (topMenu.success == 1) ?
           <div className="header-top bg-primary-color">
             <div className="container">
               <div className="row align-items-center">
@@ -180,16 +180,16 @@ const HeaderOne = () => {
                     <li className="fs-5" onClick={loadAllMatchData()}>
                       <Nav.Item>
                         <Nav.Link>
-                          <strong>Matches ({topMenu?.total_matches ?? 0})</strong>
+                          <strong>Matches ({topMenu?.result?.length ?? 0})</strong>
                         </Nav.Link>
                       </Nav.Item>
                     </li>
-                    {hasData(topMenu) &&
-                      topMenu?.seriesMatches?.slice(0, 5).map((data, index) =>
-                        <li key={index} className="fs-5" onClick={loadMatchData(data.series_id)}>
-                          <Nav.Item key={data.series_id}>
+                    {(hasData(topMenu) && (topMenu.success == 1)) &&
+                      topMenu?.result?.slice(0, 6).map((data, index) =>
+                        <li key={index} className="fs-5" onClick={loadMatchData(data.league_key)}>
+                          <Nav.Item key={index}>
                             <Nav.Link>
-                              {data.label} ({data.child.length})
+                              {data.league_name}
                             </Nav.Link>
                           </Nav.Item>
                         </li>
@@ -197,22 +197,10 @@ const HeaderOne = () => {
                     }
                   </ul>
                   <Slider {...settings} className="mb-4">
-                    {hasData(series) &&
-                      series.map((data, index) => {
-                        return data.child.length == 1 ? (
-                          <TopHeaderCard key={index} data={data.child[0]} />
-                        ) : (
-                          data.child.map((sub_data, indx) =>
-                            <TopHeaderCard key={indx} data={sub_data} />
-                          )
-                        )
+                    {hasData(topMenu) &&
+                      topMenu?.result?.map((data) => {
+                        return <TopHeaderCard key={data.league_key} data={data} />
                       })}
-                    {hasData(series) && series.length < 4 &&
-                      Array.from({ length: (4 - series.length) }, (_, index) => (
-                        <div key={index}>
-
-                        </div>
-                      ))}
                   </Slider>
                 </div>
               </div>
@@ -237,7 +225,7 @@ const HeaderOne = () => {
         <nav className={`navbar bg-secondary-color ${scrollPosition > 240 ? 'sticky-header' : ''}`}>
           <div className="container">
             <div className="navbar-inner">
-              {(hasData(topMenu) && topMenu.length == 0 || scrollPosition > 240) ?
+              {(hasData(topMenu) && topMenu.success == 1 || scrollPosition > 240) ?
                 <div className="brand-logo-container">
                   <Link href="/">
                     <a>
@@ -255,7 +243,7 @@ const HeaderOne = () => {
               }
               <div className="main-nav-wrapper">
                 <ul className="main-navigation list-inline" ref={menuRef} style={{
-                  padding: (hasData(topMenu) && topMenu.length > 0) ? '0 0 0 4.4rem' : '0'
+                  padding: (hasData(topMenu) && topMenu.success == 0) ? '0 0 0 4.4rem' : '0'
                 }}>
                   {hasData(menus) &&
                     menus.slice(0, 10).map((data, index) =>
@@ -337,17 +325,8 @@ const HeaderOne = () => {
                 </ul>
                 <button className="nav-search-field-toggler ">
                   <i className="far fa-moon" />
-                  <i className="far fa-sun" />
+                  {/* <i className="far fa-sun" /> */}
                 </button> 
-                <button
-                  onClick={toggleTheme}
-                  className="p-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded flex items-center"
-                >
-                  {theme === "dark" ? <i className="far fa-moon" /> :  <i className="far fa-sun" />}
-                  <span className="ml-2">{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
-                </button>
-
-
 
                 <button className="nav-search-field-toggler">
                   <i className="far fa-bell" />
