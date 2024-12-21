@@ -93,7 +93,7 @@ const PostFormatMatch = ({ postData }) => {
                 {postData[1]?.title ||
                   "Crispy Air Fryer Parmesan And Thyme Roasted Wedge Fries"}
               </p>
-              <div className="flex justify-between items-center px-5">
+              {/* <div className="flex justify-between items-center px-5">
                 <div className="flex mt-2 items-center">
                   <img
                     src={`${process.env.NEXT_PUBLIC_IMGPATH}${
@@ -120,7 +120,7 @@ const PostFormatMatch = ({ postData }) => {
                     <i className="fal fa-link  text-3xl" />
                   </button>
                 </div>
-              </div>
+              </div> */}
               <img
                 src={`${process.env.NEXT_PUBLIC_IMGPATH}${
                   postData[1]?.image || "/placeholder.jpg"
@@ -137,7 +137,7 @@ const PostFormatMatch = ({ postData }) => {
                 {postData[2]?.title ||
                   "Crispy Air Fryer Parmesan And Thyme Roasted Wedge Fries"}
               </p>
-              <div className="flex justify-between items-center px-5">
+              {/* <div className="flex justify-between items-center px-5">
                 <div className="flex mt-2 items-center">
                   <img
                     src={`${process.env.NEXT_PUBLIC_IMGPATH}${
@@ -164,7 +164,7 @@ const PostFormatMatch = ({ postData }) => {
                     <i className="fal fa-link  text-3xl" />
                   </button>
                 </div>
-              </div>
+              </div> */}
               <img
                 src={`${process.env.NEXT_PUBLIC_IMGPATH}${
                   postData[2]?.image || "/placeholder.jpg"
