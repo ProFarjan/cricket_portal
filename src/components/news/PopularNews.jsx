@@ -22,11 +22,11 @@ const PopularNews = ({ news, news_isloading }) => {
           <div className="flex gap-3 my-4 " key={index}>
             {/* <img className="h-44   w-44" src="/images/recent.webp" /> */}
 
-            <img className="h-44 w-44"  src={process.env.NEXT_PUBLIC_IMGPATH + newsItem?.image}alt="" />
+            <img className="h-44 w-40"  src={process.env.NEXT_PUBLIC_IMGPATH + newsItem?.image}alt="" />
             <div>
-              <h4 className="text-xl text-black "> {newsItem?.title}</h4>
+              <h4 className="text-xl text-black hover:underline cursor-pointer"> {newsItem?.title}</h4>
               <p className="text-sm mt-[-10px]">{formatDate(newsItem?.created_at)}</p>
-              <p className="text-sm mt-[-22px]">{formatDate(newsItem?.updated_at)}</p>
+              
             </div>
           </div>
         )}

@@ -123,13 +123,13 @@ const TrainingPage = () => {
                         className="w-full h-72 rounded-t-lg"
                         alt={item.title}
                       />
-                      <p className="text-gray-700 mt-2 p-3">{item.title}</p>
-                      <div className="p-3 ">
+                      <p className="text-gray-700  p-3">{item.title}</p>
+                      <div className="p-3 mt-[-25px] ">
                         <button
                           onClick={() =>
                             handlePopupOpen(item.videoUrl || item.image)
                           }
-                          className="bg-rose-600 font-semibold mb-8 text-white cursor-pointer p-2 w-40 rounded-full"
+                          className="bg-rose-600 font-semibold mb-4 text-white cursor-pointer  p-2 w-40 rounded-full"
                         >
                           Explore
                         </button>
