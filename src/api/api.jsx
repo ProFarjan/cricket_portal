@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASEPATH
+  baseURL: process.env.NEXT_PUBLIC_IMGPATH + 'api'
 });
 
 api.interceptors.response.use(undefined, err => {
@@ -10,12 +10,13 @@ api.interceptors.response.use(undefined, err => {
 
 // ALL GET METHODS
 
-export const getSeries = async () =>api.get("/all/series/");
+export const getSeries = async () => api.get("/all/series/");
 
 export const getTraining = async () => api.get("/last/ten/training/");
 export const getLeadNEws = async () => api.get("/lead-news/");
 
 export const getRecentNews = async () => api.get("/recent/news/");
+export const getNews = async () => api.get("/all/news-report/");
 
 export const getMenus = async () => api.get("/menu/Data/");
 
