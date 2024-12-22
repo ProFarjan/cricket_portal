@@ -3,6 +3,7 @@ import HeadMeta from "../components/elements/HeadMeta";
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "../components/common/Breadcrumb";
+import playerone from "../../public/images/series-details/taskin.webp";
 
 
 
@@ -43,9 +44,9 @@ const results = [
 ];
 
 const stats = [
-  { name: "Mahedi Hasan", team: "BAN", style: "rhb", impact: 328.03, runs: 37, wickets: 8 },
-  { name: "Jaker Ali", team: "BAN", style: "rhb", impact: 180.62, runs: 120, wickets: 0 },
-  { name: "Taskin Ahmed", team: "BAN", style: "rf", impact: 148.45, runs: 0, wickets: 7 },
+  { name: "Mahedi Hasan",image:"/images/series-details/taskin.webp", team: "BAN", style: "rhb", impact: 328.03, runs: 37, wickets: 8 },
+  { name: "Jaker Ali",image:"/images/series-details/jaker-ali.webp", team: "BAN", style: "rhb", impact: 180.62, runs: 120, wickets: 0 },
+  { name: "Taskin Ahmed",image:"/images/series-details/taskin.webp", team: "BAN", style: "rf", impact: 148.45, runs: 0, wickets: 7 },
 ];
 
 const summaryResults = [
@@ -166,15 +167,16 @@ const SeriesDetails = () => {
 
 
             </div>
-            <div className="bg-white p-4 rounded-lg shadow">
+            <div className="bg-white p-4 rounded-lg h-full shadow">
               <h2 className="text-lg font-bold border-b pb-2 mb-4">Smart Stats</h2>
-              <div className="space-y-4">
+              <div className="">
+              
                 {stats.map((player, index) => (
                   <div key={index} className="flex items-center space-x-4">
-                    <div className="flex-shrink-0">
+                    <div className="">
                       <img
-                        src={`/images/players/${player.name.toLowerCase().replace(/\s/g, "_")}.jpg`}
-                        alt={player.name}
+                        src={player.image}
+                        alt={player?.name}
                         className="w-16 h-16 rounded-full border"
                       />
                     </div>
