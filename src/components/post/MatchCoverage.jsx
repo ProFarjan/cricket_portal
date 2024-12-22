@@ -13,13 +13,12 @@ import LeadNews from '../news/LeadNews';
 const MatchCoverage = () => {
   const [key, setKey] = useState('');
   const [seriesData, setSeriesData] = useState({});
-  const [series_list, setSeriesList] = useState([]);
 
-  // const {
-  //   data: series_list,
-  //   error: error_series,
-  //   isLoading: isLoading_series
-  // } = useQuery('series-list', getSeriesList, reactQuery);
+  const {
+    data: series_list,
+    error: error_series,
+    isLoading: isLoading_series
+  } = useQuery('series-list', getSeriesList, reactQuery);
 
   const handleSelect = (eventKey) => {
     setKey(eventKey);
