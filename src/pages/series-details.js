@@ -28,10 +28,11 @@ const articles = [
     image: "/images/series-details/393126.6.webp",
   },
   {
-    title: "Debutant Jangoo, Carty help West Indies sweep ODI series 3-0",
-    description: "Four Bangladesh batters also scored fifties, with Mahmudullah and Jaker adding an unbeaten 150 for the sixth wicket, but in vain",
-    image: "/images/series-details/393307.6.webp",
+    title: "West Indies, Bangladesh eye T20I improvements to close out the year",
+    description: "Neither team has had a great year in the format and will look to make amends",
+    image: "/images/series-details/393126.6.webp",
   },
+  
 ];
 
 const results = [
@@ -49,21 +50,21 @@ const stats = [
 
 const summaryResults = [
   {
-    type: "<span class='font-light'>Result</span>",
-    message: "2-match Test series drawn 1-1",
-    bgColor: "bg-blue-100",
+    type: "<span class='font-normal text-gray-400 text-lg uppercase'>Result</span>",
+    message: "<span class='text-xl text-black' >2-match <span class='font-bold' >Test</span> series drawn <span class='font-bold' >1-1</span></span> ",
+    bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
   },
   {
-    type: "<span class='font-light'>Winner</span>",
-    message: "<span class='font-bold'>West Indies</span> won the 3-match ODI series 3-0",
-    bgColor: "bg-blue-100",
+    type: "<span class='font-light text-gray-400 text-lg uppercase'>Winner</span>",
+    message: "<span class='text-xl text-black' ><span class='font-bold'>West Indies</span> won the 3-match <span class='font-bold'>ODI</span> series <span class='font-bold'>3-0</span></span>",
+    bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
   },
   {
-    type: " <span class='font-light'>Winner</span>",
-    message: "<span class='font-bold'>Bangladesh</span> won the 3-match T20I series 3-0",
-    bgColor: "bg-blue-100",
+    type: " <span class='font-light text-gray-400 text-lg uppercase'>Winner</span>",
+    message: "<span class='text-xl text-black' ><span class='font-bold'>West Indies</span> won the 3-match <span class='font-bold'>ODI</span> series <span class='font-bold'>3-0</span></span>",
+    bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
   },
 ];
@@ -77,14 +78,14 @@ const SeriesDetails = () => {
 
       <div className="bg-gray-100">
         <div className="container mx-auto p-4">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-2">
             {/* Left-Side Results Section */}
             <div className="col-span-1 space-y-2">
               <div className="bg-white p-4 rounded-lg shadow">
-                <h2 className="text-lg font-bold border-b pb-2 mb-4">Results</h2>
+                <h2 className="text-lg font-bold border-b pb-2 mb-4 uppercase">Results</h2>
                 <div className="space-y-4">
                   {results.map((item, index) => (
-                    <div key={index} className="border-b pb-2">
+                    <div key={index} className="border-b">
                       <p className="text-lg font-bold">{item.match}</p>
                       <p className="text-lg text-gray-500">{item.date}</p>
                       <p className="text-lg">{item.score}</p>
@@ -105,11 +106,11 @@ const SeriesDetails = () => {
                   {summaryResults.map((result, index) => (
                     <div
                       key={index}
-                      className={`${result.bgColor} ${result.borderColor} border p-2 rounded-md`}
-                      style={{ minHeight: "50px", width: "100%" }}
+                      className={`${result.bgColor} ${result.borderColor} border p-2 rounded-xl h-24`}
+                      style={{ width: "100%" }}
                       dangerouslySetInnerHTML={{
                         __html: `
-          <span class='block text-sm font-medium'>${result.type}</span>
+          <span class='block text-3xl font-bold'>${result.type}</span>
           <p class=' text-sm'>${result.message}</p>
         ` }}
                     />
@@ -117,37 +118,45 @@ const SeriesDetails = () => {
                 </div>
               </div>
               {/* Top Image Section */}
-              <div className="bg-white  my-6 p-4 rounded-lg shadow">
+              <div className="my-6  rounded-lg shadow">
                 {articles.slice(0, 1).map((article, index) => (
-                  <div
-                    key={index}
-                    className="relative rounded-lg overflow-hidden h-96 flex items-center justify-center bg-cover bg-center"
-                    style={{ backgroundImage: `url(${article.image})` }}
-                  >
-                    <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-                    <div className="relative z-10 text-center text-white px-4 ">
-                      <h2 className="text-2xl text-white lg:text-4xl font-bold mb-4">{article.title}</h2>
+                  <div key={index} className="rounded-lg overflow-hidden group">
+                    {/* Image Section */}
+                    <div className="h-auto overflow-hidden">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-auto object-cover transform transition-transform duration-300 group-hover:scale-110"
+                      />
+                    </div>
+
+                    {/* Article Section */}
+                    <div className="p-4 bg-black bg-opacity-80 text-center rounded-b-lg">
+                      <h2 className="text-white text-2xl lg:text-4xl font-bold">{article.title}</h2>
                       <p className="text-white text-lg lg:text-xl">{article.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
+
+
+
               {/* Latest Articles Section */}
-              <div className="bg-white mt-6 p-4 rounded-lg shadow">
+              <div className=" rounded-lg">
                 <div className="grid grid-cols-1 gap-4">
-                  {articles.map((article, index) => (
+                  {articles .slice(1,10).map((article, index) => (
                     <div
                       key={index}
-                      className="bg-gray-50 flex rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                      className="bg-gray-50 p-4 flex items-center gap-4 rounded-lg border-1  "
                     >
                       <img
                         src={article.image}
                         alt={article.title}
-                        className="w-48 max-h-32  object-cover border mt-4 ml-4 rounded-md"
+                        className=" w-66 h-44  transform transition duration-300 ease-in-out    border  rounded-md transform transition-transform duration-300 hover:scale-110"
                       />
-                      <div className="p-4">
-                        <h3 className="text-lg font-semibold mb-2">{article.title}</h3>
+                      <div className="">
+                        <h3 className="text-lg font-semibold">{article.title}</h3>
                         <p className="text-lg text-gray-600">{article.description}</p>
                       </div>
                     </div>
@@ -178,27 +187,7 @@ const SeriesDetails = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h2 className="text-lg font-bold border-b pb-2 mb-4">Smart Stats</h2>
-              <div className="space-y-4">
-                {stats.map((player, index) => (
-                  <div key={index} className="flex items-center space-x-4">
-                    <div className="flex-shrink-0">
-                      <img
-                        src={`/images/players/${player.name.toLowerCase().replace(/\s/g, "_")}.jpg`}
-                        alt={player.name}
-                        className="w-16 h-16 rounded-full border"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold">{player.name} ({player.team}, {player.style})</h3>
-                      <p className="text-gray-500">Impact: {player.impact.toFixed(2)}</p>
-                      <p className="text-sm">Runs: {player.runs} | Wickets: {player.wickets}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
