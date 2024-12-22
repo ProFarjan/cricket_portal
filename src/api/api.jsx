@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASEPATH
+  baseURL: process.env.NEXT_PUBLIC_IMGPATH + 'api'
 });
 
 api.interceptors.response.use(undefined, err => {

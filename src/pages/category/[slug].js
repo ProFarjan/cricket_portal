@@ -13,7 +13,7 @@ import {
   getTopArticles
 } from "../../api/api";
 
-const category = ({ postData }) => {
+const Category = ({ postData }) => {
   const router = useRouter();
   const slug = capitalize(router.query.slug);
 
@@ -73,7 +73,7 @@ const category = ({ postData }) => {
   );
 };
 
-export default category;
+export default Category;
 
 export async function getServerSideProps({ params, query }) {
   const slug = params.slug;

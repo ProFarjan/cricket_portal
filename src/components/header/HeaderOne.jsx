@@ -123,9 +123,8 @@ const HeaderOne = () => {
   const settings = {
     infinite: topMenu?.length > 4,
     speed: 500,
-    slidesToShow: Math.min(4, topMenu?.length || 0),
-    slidesToScroll: 1,
-    variableWidth: false,
+    slidesToShow: Math.min(4, topMenu?.length || 4),
+    slidesToScroll: 1,    variableWidth: false,
     centerMode: false
   };
 
