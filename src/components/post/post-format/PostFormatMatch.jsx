@@ -1,10 +1,4 @@
 import PageSidebar from "../../common/PageSidebar";
-import WidgetAd from "../../widget/WidgetAd";
-import WidgetInstagram from "../../widget/WidgetInstagram";
-import WidgetNewsletter from "../../widget/WidgetNewsletter";
-import WidgetPost from "../../widget/WidgetPost";
-import WidgetSocialShare from "../../widget/WidgetSocialShare";
-import MetaDataOne from "./elements/meta/MetaDataOne";
 import PostAuthor from "./elements/PostAuthor";
 import PostComment from "./elements/PostComment";
 import SocialShareBottom from "./elements/SocialShareBottom";
@@ -12,30 +6,11 @@ import SocialShareSide from "./elements/SocialShareSide";
 import Image from "next/image";
 
 const PostFormatMatch = ({ postData }) => {
-  // Fake data for left-side content
-  console.log(postData);
-  const fakeData = [
-    { id: 1, title: "Breaking News", author: "Author 1", time: "2d ago" },
-    { id: 2, title: "Tech Innovations", author: "Author 2", time: "1d ago" },
-    { id: 3, title: "Sports Update", author: "Author 3", time: "5h ago" },
-    { id: 1, title: "Breaking News", author: "Author 1", time: "2d ago" },
-    { id: 2, title: "Tech Innovations", author: "Author 2", time: "1d ago" },
-    { id: 3, title: "Sports Update", author: "Author 3", time: "5h ago" },
-    { id: 1, title: "Breaking News", author: "Author 1", time: "2d ago" },
-    { id: 2, title: "Tech Innovations", author: "Author 2", time: "1d ago" },
-    { id: 3, title: "Sports Update", author: "Author 3", time: "5h ago" },
-    { id: 1, title: "Breaking News", author: "Author 1", time: "2d ago" },
-    { id: 2, title: "Tech Innovations", author: "Author 2", time: "1d ago" },
-    { id: 3, title: "Sports Update", author: "Author 3", time: "5h ago" },
-    { id: 1, title: "Breaking News", author: "Author 1", time: "2d ago" },
-    { id: 2, title: "Tech Innovations", author: "Author 2", time: "1d ago" },
-    { id: 3, title: "Sports Update", author: "Author 3", time: "5h ago" },
-  ];
 
   return (
     <>
       {/* <MetaDataOne metaData={postData} /> */}
-      <div className="post-single-wrapper bg-gray-50 py-8">
+      <div className="post-single-wrapper py-8">
         <div className="container mx-auto px-4">
           {/* Banner Section */}
           <div className="flex flex-wrap items-center bg-white shadow-lg p-5 overflow-hidden">
@@ -121,11 +96,13 @@ const PostFormatMatch = ({ postData }) => {
                   </button>
                 </div>
               </div> */}
-              <img
+              <Image
                 src={`${process.env.NEXT_PUBLIC_IMGPATH}${
                   postData[1]?.image || "/placeholder.jpg"
                 }`}
                 alt="Example Image"
+                width={900}
+                height={400}
                 className="mt-5 w-full px-5 h-[500px]"
               />
               <p className="mt-4 px-5  text-gray-600 leading-relaxed">
