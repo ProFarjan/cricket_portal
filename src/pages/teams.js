@@ -125,7 +125,7 @@ const Teams = () => {
                 </div>
               ))}
             </div> */}
-            <div class="px-4 py-6">
+            <div class="px-4 py-4">
               <h1 class="text-4xl font-extrabold py-4 text-center text-gray-800">
                 Cricket Teams
               </h1>
@@ -136,14 +136,14 @@ const Teams = () => {
                 {BPLTeams.map((country, index) => (
                   <div
                     key={index}
-                    className="flex flex-col items-center p-3 border rounded-lg shadow-lg bg-white hover:shadow-xl transition-shadow duration-300"
+                    className="flex flex-col justify-center items-center border rounded-lg shadow-lg bg-white hover:shadow-xl transition-shadow duration-300"
                   >
                     <img
                       src={country.flag}
                       alt={`${country.name} flag`}
-                      className="mb-4 w-24 h-24 object-cover rounded-full border-2 border-gray-200"
+                      className=" w-24 h-24 object-cover mt-5 rounded-full border-2 border-gray-200"
                     />
-                    <p className="font-semibold text-gray-700 text-center text-sm">
+                    <p className="font-semibold mt-4 text-gray-700 text-center text-xl">
                       {country.name}
                     </p>
                   </div>
@@ -170,7 +170,7 @@ const Teams = () => {
                       className="w-full h-36 object-cover rounded-t-lg"
                     />
                     <div className="flex-1 flex items-center justify-center p-2">
-                      <p className="font-semibold text-gray-800 text-center text-sm">
+                      <p className="font-semibold text-gray-800 text-center text-xl">
                         {country.name}
                       </p>
                     </div>
@@ -218,7 +218,7 @@ const Teams = () => {
                       className="w-full h-28 object-contain bg-gray-100 rounded-t-md"
                     />
                     <div class="w-full p-3 flex items-center justify-center">
-                      <p className="font-medium text-gray-800 text-center text-sm">
+                      <p className="font-medium text-gray-800 text-center text-xl">
                         {country.name}
                       </p>
                     </div>
@@ -248,7 +248,7 @@ const Teams = () => {
                       />
                     </div>
                     <div className="flex items-center justify-center p-2 bg-white">
-                      <p className="font-semibold text-gray-800 text-center text-sm">
+                      <p className="font-semibold text-gray-800 text-center text-xl">
                         {country.name}
                       </p>
                     </div>
