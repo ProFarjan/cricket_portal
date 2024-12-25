@@ -78,8 +78,7 @@ const SeriesDetails = () => {
       <Breadcrumb aPage="Series-Detials" />
 
       <div className="bg-gray-100">
-        <div className="container mx-auto p-4">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-2">
+          <div className="container mx-auto p-4 grid grid-cols-1 lg:grid-cols-4 gap-4 mb-2">
             {/* Left-Side Results Section */}
             <div className="col-span-1 space-y-2">
               <div className="bg-white p-4 rounded-lg ">
@@ -173,12 +172,12 @@ const SeriesDetails = () => {
                 <h2 className="text-xl font-bold border-b p-4">Smart Stats</h2>
                 <div className="space-y-4">
                   {stats.map((player, index) => (
-                    <div key={index} className="flex space-x-2  border-b p-2">
+                    <div key={index} className="flex space-x-2  border-b p-2 pt-0 mb-0">
                       {/* Player Image */}
                       <img
                         src={player.image}
                         alt={player.name}
-                        className="w-28 h-28 rounded-full border"
+                        className="w-[64px] h-[64px] rounded-full border"
                       />
 
 
@@ -190,7 +189,7 @@ const SeriesDetails = () => {
                           </h3>
                         <div className=" flex px-2">
                           <div>
-                            <p className="text-3xl font-bold  text-gray-900">{player.impact.toFixed(2)}</p>
+                            <p className="text-4xl font-bold  text-gray-900">{player.impact.toFixed(2)}</p>
                           </div>
                           <div className="border-l ml-6">
                             <p className="text-lg font-semibold text-gray-600  pl-2">
@@ -217,12 +216,12 @@ const SeriesDetails = () => {
                 <h2 className="text-xl font-bold border-b p-4">Tournament Fan Ratings</h2>
                 <div className="space-y-4">
                   {stats.map((player, index) => (
-                    <div key={index} className="flex space-x-2  border-b p-2">
+                    <div key={index} className="flex space-x-2  border-b p-2 pt-0 mb-0">
                       {/* Player Image */}
                       <img
                         src={player.image}
                         alt={player.name}
-                        className="w-28 h-28 rounded-full border"
+                        className="w-[64px] h-[64px] rounded-full border"
                       />
 
 
@@ -236,7 +235,7 @@ const SeriesDetails = () => {
                         </div>
                         <div className=" flex px-2">
                           <div>
-                            <p className="text-3xl font-bold  text-gray-900">{player.impact.toFixed(2)}</p>
+                            <p className="text-4xl font-bold  text-gray-900">{player.impact.toFixed(2)}</p>
                           </div>
                           <div className="border-l ml-6">
                             <p className="text-lg text-gray-600  pl-2">
@@ -261,12 +260,12 @@ const SeriesDetails = () => {
                 <h2 className="text-xl font-bold border-b p-4">SA vs PAK 2024 Top Wicket Takers</h2>
                 <div className="space-y-4">
                   {stats.map((player, index) => (
-                    <div key={index} className="flex space-x-2  border-b p-2">
+                    <div key={index} className="flex space-x-2  border-b p-2 py-0 mb-0">
                       {/* Player Image */}
                       <img
                         src={player.image}
                         alt={player.name}
-                        className="w-28 h-28 rounded-full border"
+                        className="w-[64px] h-[64px] rounded-full border"
                       />
 
 
@@ -280,7 +279,7 @@ const SeriesDetails = () => {
                         </div>
                         <div className=" flex px-2">
                           <div>
-                            <p className="text-3xl font-bold  text-gray-900">{player.impact.toFixed(2)}</p>
+                            <p className="text-4xl font-bold  text-gray-900">{player.impact.toFixed(2)}</p>
                           </div>
                           <div className="border-l ml-6">
                             <p className="text-lg text-gray-600  pl-2">
@@ -305,7 +304,6 @@ const SeriesDetails = () => {
 
           </div>
         </div>
-      </div>
 
       <FooterOne />
     </>
