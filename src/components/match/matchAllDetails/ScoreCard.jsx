@@ -332,7 +332,7 @@ const ScoreCard = () => {
                 Competition
               </td>
               <td className="px-4 py-1 text-left text-[13px]">
-                ICC Women's Championship
+                ICC Women&apos;s Championship
               </td>
             </tr>
             <tr className="border-b">
