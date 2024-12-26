@@ -12,7 +12,7 @@ import SocialShareSide from "./elements/SocialShareSide";
 import Image from "next/image";
 
 const PostFormatStandard = ({ postData }) => {
-
+  console.log(postData)
   return (
     <>
       {/* <MetaDataOne metaData={postData} /> */}
@@ -33,7 +33,7 @@ const PostFormatStandard = ({ postData }) => {
                         sizes="100vw"
                       />
                     </figure>
-                    <h3>{postData?.title}</h3>
+                    <h3 className="text-red-600">{postData?.title}</h3>
                     <div dangerouslySetInnerHTML={{ __html: postData?.detail }}></div>
                   </div>
                 </article>
