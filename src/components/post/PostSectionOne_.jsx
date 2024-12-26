@@ -38,9 +38,9 @@ const PostSectionOne = ({ postData }) => {
               </div>
               <div className="card-body">
                 <Slider {...settings}>
-                  {mustWatch.map((item) =>
-                    <div>
-                      <img src={item.img} class="rounded mx-auto d-block" alt={item.title} />
+                  {mustWatch.map((item, index) =>
+                    <div key={index}>
+                      <img src={item.img} className="rounded mx-auto d-block" alt={item.title} />
                       <p className="fs-5 m-0 pl-2 pt-0 pb-0 fw-medium">{item.title}</p>
                     </div>
                   )}
@@ -57,9 +57,9 @@ const PostSectionOne = ({ postData }) => {
               </div>
               <div className="card-body">
                 <Slider {...settings}>
-                  {mustWatch.map((item) =>
-                    <div>
-                      <img src={item.img} class="rounded mx-auto d-block" alt={item.title} />
+                  {mustWatch.map((item, index) =>
+                    <div key={index}>
+                      <img src={item.img} className="rounded mx-auto d-block" alt={item.title} />
                     </div>
                   )}
                 </Slider>

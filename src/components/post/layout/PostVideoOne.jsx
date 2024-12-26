@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Link from "next/link";
 import { slugify } from "../../../utils";
 import VideoPopup from "../../videos/VideoPopup";
@@ -16,7 +16,10 @@ const PostVideoOne = ({ data }) => {
   };
 
   return (
-    <div className="axil-img-container flex-height-container" style={{ cursor: 'pointer' }}>
+    <div
+      className="axil-img-container flex-height-container"
+      style={{ cursor: "pointer" }}
+    >
       <a className="d-block h-100" onClick={setIsPopupOpen}>
         <Image
           src={process.env.NEXT_PUBLIC_IMGPATH + data.image}
@@ -26,15 +29,19 @@ const PostVideoOne = ({ data }) => {
           className="w-100"
         />
         <div className="grad-overlay grad-overlay__transparent" />
-        <div
-          className="video-popup video-play-btn video-play-btn__big" />
+        <div className="video-popup video-play-btn video-play-btn__big" />
       </a>
-      <div className="media post-block grad-overlay__transparent position-absolute m-b-xs-30" onClick={setIsPopupOpen}>
+      <div
+        className="media post-block grad-overlay__transparent position-absolute m-b-xs-30"
+        onClick={setIsPopupOpen}
+      >
         <div className="media-body media-body__big">
           <div className="axil-media-bottom mt-auto">
             <h3 className="axil-post-title hover-line hover-line">
               <Link href={`/post/${slugify(data.title)}`}>
-                <a>{data.title}</a>
+                <a>
+                  {data.title}
+                </a>
               </Link>
             </h3>
             {/* <div className="post-metas">

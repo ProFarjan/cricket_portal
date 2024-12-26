@@ -2,10 +2,10 @@ import { getAllPosts } from "../../lib/api";
 import HeadMeta from "../components/elements/HeadMeta";
 import FooterOne from "../components/footer/FooterOne";
 import HeaderTwo from "../components/header/HeaderTwo";
-import PostSectionFive from "../components/post/PostSectionFive";
+// import PostSectionFive from "../components/post/PostSectionFive";
 import PostSectionSeven from "../components/post/PostSectionSeven";
 import PostSectionSix from "../components/post/PostSectionSix";
-import PostSectionThree from "../components/post/PostSectionThree";
+// import PostSectionThree from "../components/post/PostSectionThree";
 import SliderOne from "../components/slider/SliderOne";
 
 const HomeTwo = ({allPosts}) => {
@@ -15,9 +15,9 @@ const HomeTwo = ({allPosts}) => {
     <HeadMeta metaTitle="Home Two"/>
     <HeaderTwo />
     <SliderOne slidePost={allPosts} />
-    <PostSectionThree postData={allPosts} />
+    {/* <PostSectionThree postData={allPosts} /> */}
     <PostSectionSeven postData={allPosts} />
-    <PostSectionFive postData={allPosts} />
+    {/* <PostSectionFive postData={allPosts} /> */}
     <PostSectionSix postData={allPosts} />
     <FooterOne />
     </>

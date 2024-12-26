@@ -5,6 +5,7 @@ import SocialLink from "../../data/social/SocialLink.json";
 import { getMenus } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
 import { hasData } from "../../helpers/helper";
+import { slugify } from "../../utils";
 
 const FooterOne = () => {
   const {
@@ -77,7 +78,7 @@ const FooterOne = () => {
                   {hasData(menus) &&
                     menus.map((data, index) =>
                       <li key={index}>
-                        <Link href="/">
+                        <Link href={`/${slugify(data.menu_title)}`}>
                           <a>{data.menu_title}</a>
                         </Link>
                       </li>

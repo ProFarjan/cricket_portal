@@ -53,9 +53,9 @@ const MatchCoverageView = ({ data }) => {
             {data.others.length &&
                 <div>
                     <Slider {...settings}>
-                        {data.others.map((item) =>
-                            <div>
-                                <img src={item.img} class="rounded mx-auto d-block" alt={item.title} />
+                        {data.others.map((item, index) =>
+                            <div key={index}>
+                                <img src={item.img} className="rounded mx-auto d-block" alt={item.title} />
                                 <p className="fs-6 pt-2 lh-sm fw-medium">{item.title}</p>
                             </div>
                         )}

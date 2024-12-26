@@ -13,7 +13,7 @@ import {
   getTopArticles
 } from "../../api/api";
 
-const category = ({ postData }) => {
+const Category = ({ postData }) => {
   const router = useRouter();
   const slug = capitalize(router.query.slug);
 
@@ -29,7 +29,7 @@ const category = ({ postData }) => {
     <>
       <HeadMeta metaTitle={`The Cricket Co ${slug} Category`} />
       <HeaderOne />
-      <Bre adcrumb aPage={slug} />
+      <Breadcrumb aPage={slug} />
       {/* Banner Start here  */}
       <div className="banner banner__default bg-grey-light-three">
         <div className="container">
@@ -43,6 +43,7 @@ const category = ({ postData }) => {
         </div>
       </div>
       {/* Banner End here  */}
+
       <div className="random-posts section-gap">
         <div className="container">
           <div className="row">
@@ -72,7 +73,7 @@ const category = ({ postData }) => {
   );
 };
 
-export default category;
+export default Category;
 
 export async function getServerSideProps({ params, query }) {
   const slug = params.slug;
