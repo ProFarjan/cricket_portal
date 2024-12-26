@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useQuery } from 'react-query';
+import { useQuery } from "react-query";
 import SocialLink from "../../data/social/SocialLink.json";
 import { getMenus } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
@@ -11,7 +11,7 @@ const FooterOne = () => {
     data: menus,
     error: menu_error,
     isLoading: menu_isloading
-  } = useQuery('get-menus', getMenus, reactQuery);
+  } = useQuery("get-menus", getMenus, reactQuery);
 
   return (
     <footer className="page-footer bg-grey-dark-key">
@@ -78,7 +78,9 @@ const FooterOne = () => {
                     menus.map((data, index) =>
                       <li key={index}>
                         <Link href="/">
-                          <a>{data.menu_title}</a>
+                          <a>
+                            {data.menu_title}
+                          </a>
                         </Link>
                       </li>
                     )}
@@ -296,13 +298,14 @@ const FooterOne = () => {
           </ul>
           {/* End of .footer-bottom-links */}
           <p className="axil-copyright-txt">
-            © {new Date().getFullYear()}. All rights reserved by <a>The Cricket Co</a>.
+            © {new Date().getFullYear()}. All rights reserved by{" "}
+            <a>The Cricket Co</a>.
           </p>
         </div>
         {/* End of .footer-bottom */}
       </div>
       {/* End of .container */}
-    </footer >
+    </footer>
   );
 };
 

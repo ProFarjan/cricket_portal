@@ -31,8 +31,7 @@ export const getTop5Matches = async () => api.get("/today/running/top/match/");
 export const getVideos = async () => api.get("/last5/videos/");
 
 export const getSeriesList = async () => api.get("/news-report/series-list/");
-export const getSeriesWiseData = async ({ series_id }) =>
-  api.get(`/news-report/list/${series_id}`);
+export const getSeriesWiseData = async ({ series_id }) => api.get(`/news-report/list/${series_id}`);
 export const getExclusiveItems = async () => api.get(`/exclusive/items/`);
 export const getGalleryItems = async () =>
   api.get(`/photo-gallery/last5/list/`);
