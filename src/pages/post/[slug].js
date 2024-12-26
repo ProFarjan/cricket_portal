@@ -29,7 +29,6 @@ const PostDetails = ({ data, type }) => {
 			return <PostFormatMatch postData={data} allData={data} />
 		} else {
 			return <PostFormatStandard postData={data} allData={data} />
-			// return <PostFormatMatch postData={data} allData={data} />
 		}
 	}
 
@@ -83,7 +82,7 @@ export async function getServerSideProps({ params, query }) {
 			return {
 				props: {
 					data,
-					slug
+					type
 				}
 			}
 	}
