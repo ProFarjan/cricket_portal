@@ -29,7 +29,7 @@ const SeriesDetail = () => {
                 <div className="row">
                     <div className="col-md-9 p-2">
                         <div className="recent-news-wrapper mt-3 section-gap p-t-xs-15">
-                            <div className="border rounded-t-3xl ">
+                            <div className="border rounded-t-3xl mr-4 ">
                                 <div className="card">
                                     <div className="card-header  h-28 flex justify-between items-center ">
                                         <div className="mt-5">
@@ -42,19 +42,19 @@ const SeriesDetail = () => {
                                                 <FontAwesomeIcon className="w-4 cursor-pointer hover:text-blue-500" icon={faAngleRight} />
                                          </div>
                                     </div>
-                                    <div className=" ">
+                                    <div className=" mr-4 ">
                                         <MatchCard/>                      
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div className="mr-4">
                                 <Table/>
                             </div>
                         </div>
 
                     </div>
                     <div className="col-md-3 p-0">
-                        {/* <PageSidebar /> */}
+                        <PageSidebar />
                     </div>
                 </div>
             </div>
