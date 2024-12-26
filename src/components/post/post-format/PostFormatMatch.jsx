@@ -6,7 +6,6 @@ import SocialShareSide from "./elements/SocialShareSide";
 import Image from "next/image";
 
 const PostFormatMatch = ({ postData }) => {
-
   return (
     <>
       {/* <MetaDataOne metaData={postData} /> */}
