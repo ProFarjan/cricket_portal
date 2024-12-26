@@ -110,11 +110,7 @@ const SeriesDetails = () => {
                       className={`${result.bgColor} ${result.borderColor} border p-2 rounded-xl h-24`}
                       style={{ width: "100%" }}
                       dangerouslySetInnerHTML={{
-                        __html: `
-          <span class='block text-3xl font-bold'>${result.type}</span>
-          <p class=' text-sm'>${result.message}</p>
-        ` }}
-                    />
+                        __html: `<span class='block text-3xl font-bold'>${result.type}</span><p class=' text-sm'>${result.message}</p>` }}/>
                   ))}
                 </div>
               </div>
@@ -170,10 +166,10 @@ const SeriesDetails = () => {
             {/* smart section  */}
             <div className="bg-gray-100">
               <div className="bg-white  rounded-lg shadow-md">
-                <h2 className="text-xl font-bold border-b p-4">Smart Stats</h2>
-                <div className="space-y-4">
+                <h2 className="text-xl font-bold border-b p-4 m-0">Smart Stats</h2>
+                <div className="">
                   {stats.map((player, index) => (
-                    <div key={index} className="flex space-x-2  border-b p-2">
+                    <div key={index} className="flex space-x-2  border-b">
                       {/* Player Image */}
                       <img
                         src={player.image}
@@ -181,20 +177,22 @@ const SeriesDetails = () => {
                         className="w-28 h-28 rounded-full border"
                       />
 
-
                       {/* Player Details */}
-                      <div className=" ">
-                          <h3 className="text-base font-semibold">
-                            {player.name} <span className="text-gray-500">({player.team}, {player.style})</span>
+                      <div className="h-auto ">
+                        <h3 className="text-base font-semibold">
+                          {player.name} <span className="text-gray-500">({player.team}, {player.style})</span>
 
-                          </h3>
-                        <div className=" flex px-2">
+                        </h3>
+                        <div className="cm flex">
                           <div>
                             <p className="text-3xl font-bold  text-gray-900">{player.impact.toFixed(2)}</p>
                           </div>
                           <div className="border-l ml-6">
                             <p className="text-lg font-semibold text-gray-600  pl-2">
-                              Runs: {player.runs}  Wickets: {player.wickets}
+                              Runs: {player.runs}
+                            </p>
+                            <p className="text-lg font-semibold text-gray-600  pl-2">
+                              Wickets: {player.wickets}
                             </p>
                           </div>
                         </div>
