@@ -5,6 +5,7 @@ import SocialLink from "../../data/social/SocialLink.json";
 import { getMenus } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
 import { hasData } from "../../helpers/helper";
+import { slugify } from "../../utils";
 
 const FooterOne = () => {
   const {

@@ -12,7 +12,7 @@ import SocialShareSide from "./elements/SocialShareSide";
 import Image from "next/image";
 
 const PostFormatStandard = ({ postData }) => {
-
+  console.log(postData);
   return (
     <>
       {/* <MetaDataOne metaData={postData} /> */}
@@ -25,16 +25,25 @@ const PostFormatStandard = ({ postData }) => {
                   <div className="single-blog-wrapper">
                     <SocialShareSide />
                     <figure>
-                      <Image
+                      {/* <Image
                         src={process.env.NEXT_PUBLIC_IMGPATH + postData?.image}
                         alt="Image"
                         width={0}
                         height={0}
                         sizes="100vw"
+                      /> */}
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_IMGPATH}${
+                          postData?.image || "/placeholder.jpg"
+                        }`}
+                        alt="Dish"
+                        className="w-full h-full object-cover"
                       />
                     </figure>
-                    <h3>{postData?.title}</h3>
-                    <div dangerouslySetInnerHTML={{ __html: postData?.detail }}></div>
+                    <h3 className="text-red-600">{postData?.title}</h3>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: postData?.detail }}
+                    ></div>
                   </div>
                 </article>
                 <SocialShareBottom />
@@ -51,6 +60,6 @@ const PostFormatStandard = ({ postData }) => {
       </div>
     </>
   );
-}
+};
 
 export default PostFormatStandard;

@@ -9,7 +9,7 @@ import HeaderOne from "../../components/header/HeaderOne";
 // import PostFormatText from "../../components/post/post-format/PostFormatText";
 // import PostFormatVideo from "../../components/post/post-format/PostFormatVideo";
 import PostFormatStandard from "../../components/post/post-format/PostFormatStandard";
-// import PostFormatMatch from "../../components/post/post-format/PostFormatMatch";
+import PostFormatMatch from "../../components/post/post-format/PostFormatMatch";
 
 
 const PostDetails = ({ data, type }) => {
@@ -25,8 +25,8 @@ const PostDetails = ({ data, type }) => {
 		// 	// return <PostFormatQuote postData={data} allData={data} />
 		// } else if (type === 'text') {
 		// 	// return <PostFormatText postData={data} allData={data} />
-		// } else if (type === 'match') {
-		// 	return <PostFormatMatch postData={data} allData={data} />
+		} else if (type === 'match') {
+			return <PostFormatMatch postData={data} allData={data} />
 		} else {
 			return <PostFormatStandard postData={data} allData={data} />
 		}
@@ -82,7 +82,7 @@ export async function getServerSideProps({ params, query }) {
 			return {
 				props: {
 					data,
-					slug
+					type
 				}
 			}
 	}
