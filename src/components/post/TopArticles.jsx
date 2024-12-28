@@ -12,6 +12,11 @@ const TopArticles = ({ postData, pClass }) => {
         error,
         isLoading
     } = useQuery('top-articles', getTopArticles, reactQuery);
+    console.log(articles)
+
+    // const {data: articles} = useQuery('articles' , getTopArticles , reactQuery)
+    // console.log(articles)
+
 
     return (
         <div className={`random-posts ${pClass ?? "section-gap"}`}>

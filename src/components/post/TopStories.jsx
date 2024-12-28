@@ -11,7 +11,7 @@ const TopStories = () => {
     data: stories,
     error,
     isLoading
-  } = useQuery('top-articles', getTop5stories, reactQuery);
+  } = useQuery('top-stories', getTop5stories, reactQuery);
 
   return (
     <div className="section-gap section-gap-top__with-text trending-stories">

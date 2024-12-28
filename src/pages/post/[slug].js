@@ -25,11 +25,10 @@ const PostDetails = ({ data, type }) => {
 		// 	// return <PostFormatQuote postData={data} allData={data} />
 		// } else if (type === 'text') {
 		// 	// return <PostFormatText postData={data} allData={data} />
-		// } else if (type === 'match') {
-		// 	return <PostFormatMatch postData={data} allData={data} />
-		} else {
-			// return <PostFormatStandard postData={data} allData={data} />
+		} else if (type === 'match') {
 			return <PostFormatMatch postData={data} allData={data} />
+		} else {
+			return <PostFormatStandard postData={data} allData={data} />
 		}
 	}
 
@@ -83,7 +82,7 @@ export async function getServerSideProps({ params, query }) {
 			return {
 				props: {
 					data,
-					slug
+					type
 				}
 			}
 	}

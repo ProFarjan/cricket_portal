@@ -6,7 +6,6 @@ import SocialShareSide from "./elements/SocialShareSide";
 import Image from "next/image";
 
 const PostFormatMatch = ({ postData }) => {
-
   return (
     <>
       {/* <MetaDataOne metaData={postData} /> */}
@@ -102,7 +101,7 @@ const PostFormatMatch = ({ postData }) => {
                 }`}
                 alt="Example Image"
                 width={900}
-                height={400}
+                height={500}
                 className="mt-5 w-full px-5 h-[500px]"
               />
               <p className="mt-4 px-5  text-gray-600 leading-relaxed">
