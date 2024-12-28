@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Nav, Tab } from "react-bootstrap";
 import ScoreCard from "./ScoreCard";
 import LiveScore from "./LiveScore";
+import NewsCard from "./NewsCard";
+import TableCard from "./TableCard";
 
 const Table = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -44,7 +46,7 @@ const Table = () => {
               <Nav.Link eventKey="Overs">Overs</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="Info">Info</Nav.Link>
+              <Nav.Link eventKey="Table">Table</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="News">News</Nav.Link>
@@ -77,11 +79,11 @@ const Table = () => {
           <Tab.Pane eventKey="Overs">
             <h1>Overs</h1>
           </Tab.Pane>
-          <Tab.Pane eventKey="Info">
-            <h1>Info</h1>
+          <Tab.Pane eventKey="Table">
+            <TableCard/>
           </Tab.Pane>
           <Tab.Pane eventKey="News">
-            <h1>News</h1>
+            <NewsCard />
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
