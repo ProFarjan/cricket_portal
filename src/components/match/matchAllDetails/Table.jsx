@@ -4,6 +4,7 @@ import ScoreCard from "./ScoreCard";
 import LiveScore from "./LiveScore";
 import NewsCard from "./NewsCard";
 import TableCard from "./TableCard";
+import Summary from "./Summary";
 
 const Table = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -20,7 +21,7 @@ const Table = () => {
     <div>
       <Tab.Container defaultActiveKey="Scorecard">
         <Nav className="custom-nav bg-white p-2 border-b border-r border-l">
-          <div className="flex text-2xl">
+          <div className="flex text-[13px]">
             <Nav.Item>
               <Nav.Link eventKey="Live">Live</Nav.Link>
             </Nav.Item>
@@ -59,7 +60,7 @@ const Table = () => {
             <LiveScore />
           </Tab.Pane>
           <Tab.Pane eventKey="Summary">
-            <h1>Summary</h1>
+            <Summary />
           </Tab.Pane>
           <Tab.Pane eventKey="Scorecard">
             <ScoreCard />
@@ -80,7 +81,7 @@ const Table = () => {
             <h1>Overs</h1>
           </Tab.Pane>
           <Tab.Pane eventKey="Table">
-            <TableCard/>
+            <TableCard />
           </Tab.Pane>
           <Tab.Pane eventKey="News">
             <NewsCard />
