@@ -31,6 +31,20 @@ const teams = [
     next: "vs IND, SL, SL",
   },
   {
+    name: "Australia",
+    flag: "🇦🇺",
+    matches: 15,
+    won: 9,
+    lost: 4,
+    tied: 0,
+    draw: 2,
+    nr: 0,
+    points: 106,
+    pct: "58.89",
+    form: ["W", "W", "L", "L", "D"],
+    next: "vs IND, SL, SL",
+  },
+  {
     name: "India",
     flag: "🇮🇳",
     matches: 17,
@@ -43,6 +57,20 @@ const teams = [
     pct: "55.89",
     form: ["L", "L", "W", "W", "D"],
     next: "vs AUS",
+  },
+  {
+    name: "New Zealand",
+    flag: "🇳🇿",
+    matches: 14,
+    won: 7,
+    lost: 7,
+    tied: 0,
+    draw: 0,
+    nr: 0,
+    points: 81,
+    pct: "48.21",
+    form: ["W", "L", "L", "L", "W"],
+    next: "-",
   },
   {
     name: "New Zealand",
@@ -72,6 +100,20 @@ const teams = [
     form: ["L", "W", "W", "L", "L"],
     next: "vs AUS, AUS",
   },
+  {
+    name: "Sri Lanka",
+    flag: "🇱🇰",
+    matches: 11,
+    won: 5,
+    lost: 6,
+    tied: 0,
+    draw: 0,
+    nr: 0,
+    points: 60,
+    pct: "45.45",
+    form: ["L", "W", "W", "L", "L"],
+    next: "vs AUS, AUS",
+  },
 ];
 
 const TableCard = () => {
@@ -81,7 +123,7 @@ const TableCard = () => {
         ICC World Test Championship Points Table
       </h1>
       <div className="bg-white shadow-md rounded-lg border-1 overflow-hidden">
-        <table className="w-full text-lg text-left border-collapse">
+        <table className="w-full text-xl text-left border-collapse">
           <thead>
             <tr className="bg-gray-100 text-gray-600 ">
               <th className="p-3 font-medium">Teams</th>
@@ -94,7 +136,7 @@ const TableCard = () => {
               <th className="p-3 font-medium underline">PT</th>
               <th className="p-3 font-medium underline">PCT</th>
               <th className="p-3 font-medium ">Series Form</th>
-              <th className="p-3 font-medium">Next</th>
+              <th className="p-3 font-medium ">Next</th>
             </tr>
           </thead>
           <tbody>
@@ -106,7 +148,7 @@ const TableCard = () => {
                   index % 2 === 0 ? "bg-white" : "bg-gray-50"
                 )}
               >
-                <td className="p-3 flex items-center space-x-3 text-black font-semibold text-xl uppercase">
+                <td className="p-3 flex items-center space-x-3 text-black font-semibold text-2xl uppercase">
                   <span>{team.flag}</span>
                   <span >{team.name}</span>
                 </td>

@@ -4,6 +4,7 @@ import ScoreCard from "./ScoreCard";
 import LiveScore from "./LiveScore";
 import NewsCard from "./NewsCard";
 import TableCard from "./TableCard";
+import Commentary from "./Commentary";
 
 const Table = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -65,7 +66,7 @@ const Table = () => {
             <ScoreCard />
           </Tab.Pane>
           <Tab.Pane eventKey="Commentary">
-            <h1>Commentary</h1>
+            <Commentary/>
           </Tab.Pane>
           <Tab.Pane eventKey="Performance">
             <h1>Performance</h1>
