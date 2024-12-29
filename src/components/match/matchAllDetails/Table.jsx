@@ -3,6 +3,7 @@ import { Nav, Tab } from "react-bootstrap";
 import ScoreCard from "./ScoreCard";
 import LiveScore from "./LiveScore";
 import Over from "./Over";
+import Photos from "./Photos";
 
 const Table = () => {
   return (
@@ -64,7 +65,7 @@ const Table = () => {
               <h1>Squads</h1>
             </Tab.Pane>
             <Tab.Pane eventKey="Photo">
-              <h1>Photo</h1>
+              <Photos />
             </Tab.Pane>
             <Tab.Pane eventKey="Overs">
               <Over />
