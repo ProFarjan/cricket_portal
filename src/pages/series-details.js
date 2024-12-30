@@ -3,6 +3,7 @@ import HeadMeta from "../components/elements/HeadMeta";
 import HeaderOne from "../components/header/HeaderOne";
 import FooterOne from "../components/footer/FooterOne";
 import Breadcrumb from "../components/common/Breadcrumb";
+import playerone from "../../public/images/series-details/taskin.webp";
 
 
 
@@ -32,7 +33,7 @@ const articles = [
     description: "Neither team has had a great year in the format and will look to make amends",
     image: "/images/series-details/393126.6.webp",
   },
-  
+
 ];
 
 const results = [
@@ -43,9 +44,9 @@ const results = [
 ];
 
 const stats = [
-  { name: "Mahedi Hasan", team: "BAN", style: "rhb", impact: 328.03, runs: 37, wickets: 8 },
-  { name: "Jaker Ali", team: "BAN", style: "rhb", impact: 180.62, runs: 120, wickets: 0 },
-  { name: "Taskin Ahmed", team: "BAN", style: "rf", impact: 148.45, runs: 0, wickets: 7 },
+  { name: "Mahedi Hasan", image: "/images/series-details/mahedi Hasan.webp", team: "BAN", style: "rhb", impact: 328.03, runs: 37, wickets: 8 },
+  { name: "Jaker Ali", image: "/images/series-details/jaker-ali.webp", team: "BAN", style: "rhb", impact: 180.62, runs: 120, wickets: 0 },
+  { name: "Taskin Ahmed", image: "/images/series-details/taskin.webp", team: "BAN", style: "rf", impact: 148.45, runs: 0, wickets: 7 },
 ];
 
 const summaryResults = [
@@ -77,11 +78,10 @@ const SeriesDetails = () => {
       <Breadcrumb aPage="Series-Detials" />
 
       <div className="bg-gray-100">
-        <div className="container mx-auto p-4">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-2">
+          <div className="container mx-auto p-4 grid grid-cols-1 lg:grid-cols-4 gap-4 mb-2">
             {/* Left-Side Results Section */}
             <div className="col-span-1 space-y-2">
-              <div className="bg-white p-4 rounded-lg shadow">
+              <div className="bg-white p-4 rounded-lg ">
                 <h2 className="text-lg font-bold border-b pb-2 mb-4 uppercase">Results</h2>
                 <div className="space-y-4">
                   {results.map((item, index) => (
@@ -89,7 +89,7 @@ const SeriesDetails = () => {
                       <p className="text-lg font-bold">{item.match}</p>
                       <p className="text-lg text-gray-500">{item.date}</p>
                       <p className="text-lg">{item.score}</p>
-                      <p className="text-lg font-medium text-green-600">{item.result}</p>
+                      <p className="text-lg font-medium text-blue-600">{item.result}</p>
                     </div>
                   ))}
                 </div>
@@ -109,11 +109,7 @@ const SeriesDetails = () => {
                       className={`${result.bgColor} ${result.borderColor} border p-2 rounded-xl h-24`}
                       style={{ width: "100%" }}
                       dangerouslySetInnerHTML={{
-                        __html: `
-          <span class='block text-3xl font-bold'>${result.type}</span>
-          <p class=' text-sm'>${result.message}</p>
-        ` }}
-                    />
+                        __html: `<span class='block text-3xl font-bold'>${result.type}</span><p class=' text-sm'>${result.message}</p>` }}/>
                   ))}
                 </div>
               </div>
@@ -145,7 +141,7 @@ const SeriesDetails = () => {
               {/* Latest Articles Section */}
               <div className=" rounded-lg">
                 <div className="grid grid-cols-1 gap-4">
-                  {articles .slice(1,10).map((article, index) => (
+                  {articles.slice(1, 10).map((article, index) => (
                     <div
                       key={index}
                       className="bg-gray-50 p-4 flex items-center gap-4 rounded-lg border-1  "
@@ -163,34 +159,149 @@ const SeriesDetails = () => {
                   ))}
                 </div>
               </div>
-
-
             </div>
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h2 className="text-lg font-bold border-b pb-2 mb-4">Smart Stats</h2>
-              <div className="space-y-4">
-                {stats.map((player, index) => (
-                  <div key={index} className="flex items-center space-x-4">
-                    <div className="flex-shrink-0">
+
+
+            {/* smart section  */}
+            <div className="bg-gray-100">
+              <div className="bg-white  rounded-lg shadow-md">
+                <h2 className="text-xl font-bold border-b p-4 m-0">Smart Stats</h2>
+                <div className="">
+                  {stats.map((player, index) => (
+                    <div key={index} className="flex space-x-2  border-b">
+                      {/* Player Image */}
                       <img
-                        src={`/images/players/${player.name.toLowerCase().replace(/\s/g, "_")}.jpg`}
+                        src={player.image}
                         alt={player.name}
-                        className="w-16 h-16 rounded-full border"
+                        className="w-[64px] h-[64px] rounded-full border"
                       />
+
+                      {/* Player Details */}
+                      <div className="h-auto ">
+                        <h3 className="text-base font-semibold">
+                          {player.name} <span className="text-gray-500">({player.team}, {player.style})</span>
+
+                        </h3>
+                        <div className="cm flex">
+                          <div>
+                            <p className="text-4xl font-bold  text-gray-900">{player.impact.toFixed(2)}</p>
+                          </div>
+                          <div className="border-l ml-6">
+                            <p className="text-lg font-semibold text-gray-600  pl-2">
+                              Runs: {player.runs}
+                            </p>
+                            <p className="text-lg font-semibold text-gray-600  pl-2">
+                              Wickets: {player.wickets}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold">{player.name} ({player.team}, {player.style})</h3>
-                      <p className="text-gray-500">Impact: {player.impact.toFixed(2)}</p>
-                      <p className="text-sm">Runs: {player.runs} | Wickets: {player.wickets}</p>
+                  ))}
+                </div>
+                <div className=" p-3 flex justify-center items-center">
+                  <a
+                    href="#"
+                    className=" text-blue-600 text-xl font-bold bg-white hover:underline"
+                  >
+                    View full list
+                  </a>
+                </div>
+              </div>
+
+
+              <div className="bg-white  rounded-lg shadow-md mt-4">
+                <h2 className="text-xl font-bold border-b p-4">Tournament Fan Ratings</h2>
+                <div className="space-y-4">
+                  {stats.map((player, index) => (
+                    <div key={index} className="flex space-x-2  border-b p-2 pt-0 mb-0">
+                      {/* Player Image */}
+                      <img
+                        src={player.image}
+                        alt={player.name}
+                        className="w-[64px] h-[64px] rounded-full border"
+                      />
+
+
+                      {/* Player Details */}
+                      <div className=" ">
+                        <div>
+                          <h3 className="text-base font-bold">
+                            {player.name} <span className="text-gray-500">({player.team}, {player.style})</span>
+
+                          </h3>
+                        </div>
+                        <div className=" flex px-2">
+                          <div>
+                            <p className="text-4xl font-bold  text-gray-900">{player.impact.toFixed(2)}</p>
+                          </div>
+                          <div className="border-l ml-6">
+                            <p className="text-lg text-gray-600  pl-2">
+                              Runs: {player.runs}  Wickets: {player.wickets}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div className=" p-3 flex justify-center items-center">
+                  <a
+                    href="#"
+                    className=" text-blue-600 text-xl font-bold bg-white hover:underline"
+                  >
+                    View full list
+                  </a>
+                </div>
+              </div>
+              <div className="bg-white  rounded-lg shadow-md mt-4">
+                <h2 className="text-xl font-bold border-b p-4">SA vs PAK 2024 Top Wicket Takers</h2>
+                <div className="space-y-4">
+                  {stats.map((player, index) => (
+                    <div key={index} className="flex space-x-2  border-b p-2 py-0 mb-0">
+                      {/* Player Image */}
+                      <img
+                        src={player.image}
+                        alt={player.name}
+                        className="w-[64px] h-[64px] rounded-full border"
+                      />
+
+
+                      {/* Player Details */}
+                      <div className=" ">
+                        <div>
+                          <h3 className="text-base font-bold">
+                            {player.name} <span className="text-gray-500">({player.team}, {player.style})</span>
+
+                          </h3>
+                        </div>
+                        <div className=" flex px-2">
+                          <div>
+                            <p className="text-4xl font-bold  text-gray-900">{player.impact.toFixed(2)}</p>
+                          </div>
+                          <div className="border-l ml-6">
+                            <p className="text-lg text-gray-600  pl-2">
+                              Runs: {player.runs}  Wickets: {player.wickets}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className=" p-3 flex justify-center items-center">
+                  <a
+                    href="#"
+                    className=" text-blue-600 text-xl font-bold bg-white hover:underline"
+                  >
+                    View full list
+                  </a>
+                </div>
               </div>
             </div>
 
           </div>
         </div>
-      </div>
 
       <FooterOne />
     </>
