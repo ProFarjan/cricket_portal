@@ -14,7 +14,7 @@ const SummaryTable = ({ data }) => {
       </div>
       <div className="mt-[-24px] ">
         {[data.scorecard.team1, data.scorecard.team2].map((team, index) =>
-          <div key={index} className="py-2">
+          <div key={index} className="py-2 text-black">
             <div className="flex gap-2  border-b h-10   ">
               <h2 className=" text-2xl ml-6 mt-[-3px]  ">
                 {team.name}
