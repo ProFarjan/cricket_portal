@@ -7,6 +7,8 @@ import Photos from "./Photos";
 import NewsCard from "./NewsCard";
 import TableCard from "./TableCard";
 import Commentary from "./Commentary";
+import Summary from "./Summary";
+
 
 const Table = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -36,9 +38,9 @@ const Table = () => {
             <Nav.Item>
               <Nav.Link eventKey="Commentary">Commentary</Nav.Link>
             </Nav.Item>
-            <Nav.Item>
+            {/* <Nav.Item>
               <Nav.Link eventKey="Performance">Performance</Nav.Link>
-            </Nav.Item>
+            </Nav.Item> */}
             <Nav.Item>
               <Nav.Link eventKey="Squads">Squads</Nav.Link>
             </Nav.Item>
@@ -69,9 +71,9 @@ const Table = () => {
           <Tab.Pane eventKey="Commentary">
             <Commentary />
           </Tab.Pane>
-          <Tab.Pane eventKey="Performance">
+          {/* <Tab.Pane eventKey="Performance">
             <h1>Performance</h1>
-          </Tab.Pane>
+          </Tab.Pane> */}
           <Tab.Pane eventKey="Squads">
             <h1>Squads</h1>
           </Tab.Pane>
