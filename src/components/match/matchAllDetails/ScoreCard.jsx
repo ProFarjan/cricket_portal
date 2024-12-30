@@ -174,7 +174,7 @@ const ScoreCard = () => {
   };
 
   return (
-    <div className=" mt-10 bg-gray-100 min-h-screen">
+    <div className=" mt-10  min-h-screen">
       <h1 className="text-2xl font-bold mb-4">
         {data.team} - {data.total} ({data.overs} overs maximum)
       </h1>
@@ -182,7 +182,7 @@ const ScoreCard = () => {
       {/* Batting Table */}
 
       <table className="table-auto w-full border-collapse bg-white mb-6 ">
-        <thead className="bg-gray-200">
+        <thead className="bg-gray-200 text-black">
           <tr>
             <th className="px-4 py-3 text-left ">Batting</th>
             <th className="px-2 py-1 " />
@@ -195,7 +195,7 @@ const ScoreCard = () => {
         </thead>
         <tbody>
           {data.batsmen.map((batsman, index) =>
-            <tr key={index} className="text-center border-b">
+            <tr key={index} className="text-center text-black border-b">
               <td className="px-4 py-1 text-[13px] text-left">
                 {batsman.name}
               </td>
@@ -233,7 +233,7 @@ const ScoreCard = () => {
       {/* Bowling Table */}
       {/* <h2 className="text-xl font-semibold mb-2">Bowling</h2> */}
       <table className="table-auto w-full border-collapse bg-white mb-6">
-        <thead className="bg-gray-200">
+        <thead className="bg-gray-200 text-black">
           <tr>
             <th className="px-4 py-3 text-left ">Bowler</th>
             <th className="px-2 py-1 text-center">O</th>
@@ -247,7 +247,7 @@ const ScoreCard = () => {
         </thead>
         <tbody>
           {data.bowlers.map((bowler, index) =>
-            <tr key={index} className="text-center border-b">
+            <tr key={index} className="text-center text-black border-b">
               <td className="px-4 py-1 text-left text-[13px] ">
                 {bowler.name}
               </td>
@@ -293,7 +293,7 @@ const ScoreCard = () => {
       {/* math details  */}
 
       <div className=" bg-gray-100  mt-16 ">
-        <table className="w-full border border-gray-300 bg-white ">
+        <table className="w-full border border-gray-300 text-black bg-white ">
           <tbody>
             <tr className="border-b">
               <td>
@@ -332,7 +332,7 @@ const ScoreCard = () => {
                 Competition
               </td>
               <td className="px-4 py-1 text-left text-[13px]">
-                ICC Women's Championship
+                ICC Women&apos;s Championship
               </td>
             </tr>
             <tr className="border-b">
