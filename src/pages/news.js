@@ -13,6 +13,7 @@ import { hashQueryKey, useQuery } from "react-query";
 import reactQuery from "../config/reactQueryConfig";
 import { getNews } from "../api/api";
 import Breadcrumb from "../components/common/Breadcrumb.jsx";
+import SquareImage from "../components/news/TestSquare.jsx";
 // import Resizer from 'react-image-file-resizer';
 
 
@@ -71,14 +72,25 @@ const HomeOne = ({ allPosts }) => {
                                         className={`grid ${index === 0 ? 'grid-cols-1 my-8' : 'grid-cols-3 my-5'}`}
                                     >
 
-
                                         <div className={index === 0 ? "w-full h-96 overflow-hidden" : "col-span-1"}>
-                                            <img
+                                            <SquareImage
                                                 src={process.env.NEXT_PUBLIC_IMGPATH + news.image}
-                                                alt={news.title}
+                                                size={index === 0 ? "w--full" : 300}
                                                 className={index === 0 ? "w-full h-full object-cover mx-auto p-2" : "w-full"}
                                             />
                                         </div>
+
+                                        {/* old code  */}
+                                        {/* <div className={index === 0 ? "w-full h-96 overflow-hidden" : "col-span-1"}> */}
+                                        {/* <img
+                                                src={process.env.NEXT_PUBLIC_IMGPATH + news.image}
+                                                alt={news.title}
+                                                className={index === 0 ? "w-full h-full object-cover mx-auto p-2" : "w-full"}
+                                            /> */}
+                                        {/* <SquareImage src={process.env.NEXT_PUBLIC_IMGPATH + news.image} size={300} /> */}
+                                        {/* </div> */}
+
+
                                         <div className={index === 0 ? "col-span-1 px-4 text-center" : "col-span-2 px-4"}>
                                             <div className={index === 0 ? "hidden" : "p-2 text-center bg-[#0a1b4a] mb-2 text-xl w-24 text-white"} >{type}</div>
                                             <h3
