@@ -6,7 +6,7 @@ const LiveScore = () => {
       <>
       <div className="border border-gray-300 mt-16  w-full">
         
-      <table className="table-auto w-full text-left text-xl">
+      <table className="table-auto w-full text-black text-left text-xl">
         <thead className="bg-gray-200  ">
           <tr>
             <th className="p-2">Batters</th>
