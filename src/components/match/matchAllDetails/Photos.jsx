@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React from "react";
 
 const fakePhotosData = [
@@ -46,10 +47,12 @@ const Photos = () => {
         >
           {/* Image */}
           <div className="w-full">
-            <img
+            <Image
               src={photo.image}
               alt={photo.title}
               className="w-full object-contain"
+              height={1280}
+              width={1900}
             />
           </div>
           {/* Details */}

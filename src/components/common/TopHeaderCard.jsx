@@ -14,7 +14,7 @@ const TopHeaderCard = ({ data }) => {
                             whiteSpace: 'nowrap'
                         }}>
                             <strong style={{
-                                color: data.ms == 'live' ? 'red' : 'normal'
+                                color: data.ms == 'live' ? 'red' : 'norm al'
                             }}>
                                 {data.ms.toUpperCase()}
                             </strong> . {data.matchType.toUpperCase()} . { new Date(data.dateTimeGMT).toLocaleDateString("en-US", { month: "short", day: "numeric" }).toUpperCase()}
@@ -22,11 +22,11 @@ const TopHeaderCard = ({ data }) => {
                         <div className="row">
                             <div className="col-5">
                                 <div className="overflow-hidden mb-1">
-                                    <img src={data.t1img} className="rounded float-start ml-2 mr-2" width={28} height={20} alt={(data.t1).match(/\[([^\]]+)\]/)[1]} />
+                                    <img src={data?.t1img} className="rounded float-start ml-2 mr-2" width={28} height={20} alt={(data.t1).match(/\[([^\]]+)\]/)[1]} />
                                     <strong className="fs-5">{(data.t1).match(/\[([^\]]+)\]/)[1]}</strong>
                                 </div>
                                 <div className="overflow-hidden mt-1">
-                                    <img src={data.t2img} className="rounded float-start ml-2 mr-2" width={28} height={20} alt={data.t2.substring(0, 1)} />
+                                    <img src={data?.t2img} className="rounded float-start ml-2 mr-2" width={28} height={20} alt={data.t2.substring(0, 1)} />
                                     <strong className="fs-5">
                                         {
                                             (data.t2).match(/\[([^\]]+)\]/) ? (data.t2).match(/\[([^\]]+)\]/)[1] : data.t2.substring(0, 3).toUpperCase()
