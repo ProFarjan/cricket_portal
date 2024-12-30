@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Nav, Tab } from "react-bootstrap";
 import ScoreCard from "./ScoreCard";
 import LiveScore from "./LiveScore";
+import Over from "./Over";
+import Photos from "./Photos";
 import NewsCard from "./NewsCard";
 import TableCard from "./TableCard";
 import Commentary from "./Commentary";
+import Summary from "./Summary";
+
 
 const Table = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -18,7 +22,7 @@ const Table = () => {
   }
 
   return (
-    <div>
+    <>
       <Tab.Container defaultActiveKey="Scorecard">
         <Nav className="custom-nav bg-white p-2 border-b border-r border-l">
           <div className="flex text-[13px]">
@@ -34,9 +38,9 @@ const Table = () => {
             <Nav.Item>
               <Nav.Link eventKey="Commentary">Commentary</Nav.Link>
             </Nav.Item>
-            <Nav.Item>
+            {/* <Nav.Item>
               <Nav.Link eventKey="Performance">Performance</Nav.Link>
-            </Nav.Item>
+            </Nav.Item> */}
             <Nav.Item>
               <Nav.Link eventKey="Squads">Squads</Nav.Link>
             </Nav.Item>
@@ -54,7 +58,6 @@ const Table = () => {
             </Nav.Item>
           </div>
         </Nav>
-
         <Tab.Content>
           <Tab.Pane eventKey="Live">
             <LiveScore />
@@ -68,17 +71,17 @@ const Table = () => {
           <Tab.Pane eventKey="Commentary">
             <Commentary />
           </Tab.Pane>
-          <Tab.Pane eventKey="Performance">
+          {/* <Tab.Pane eventKey="Performance">
             <h1>Performance</h1>
-          </Tab.Pane>
+          </Tab.Pane> */}
           <Tab.Pane eventKey="Squads">
             <h1>Squads</h1>
           </Tab.Pane>
           <Tab.Pane eventKey="Photo">
-            <h1>Photo</h1>
+            <Photos />
           </Tab.Pane>
           <Tab.Pane eventKey="Overs">
-            <h1>Overs</h1>
+            <Over />
           </Tab.Pane>
           <Tab.Pane eventKey="Table">
             <TableCard />
@@ -88,7 +91,7 @@ const Table = () => {
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
-    </div>
+    </>
   );
 };
 
