@@ -4,6 +4,7 @@ import ScoreCard from "./ScoreCard";
 import LiveScore from "./LiveScore";
 import NewsCard from "./NewsCard";
 import TableCard from "./TableCard";
+import Summary from "./Summary";
 import Commentary from "./Commentary";
 
 const Table = () => {
