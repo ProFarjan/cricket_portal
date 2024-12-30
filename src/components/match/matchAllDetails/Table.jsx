@@ -60,7 +60,7 @@ const Table = () => {
             <LiveScore />
           </Tab.Pane>
           <Tab.Pane eventKey="Summary">
-            <Summary />
+            <summary />
           </Tab.Pane>
           <Tab.Pane eventKey="Scorecard">
             <ScoreCard />
