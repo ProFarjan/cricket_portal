@@ -6,7 +6,7 @@ import Over from "./Over";
 import Photos from "./Photos";
 import NewsCard from "./NewsCard";
 import TableCard from "./TableCard";
-import Summary from "./Summary";
+// import Summary from "./Summary";
 import Commentary from "./Commentary";
 import Summary from "./Summary";
 import Squard from "./Squard";
