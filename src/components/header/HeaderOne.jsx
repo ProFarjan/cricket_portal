@@ -195,7 +195,7 @@ const HeaderOne = () => {
                       )
                     }
                   </ul>
-                  <Slider {...settings} className="mb-4">
+                  <Slider {...settings} className="mb-3">
                     {hasData(series) &&
                       series.map((data) => {
                         return <TopHeaderCard key={slugify(data.series)} data={data} />

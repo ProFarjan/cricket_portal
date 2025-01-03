@@ -46,6 +46,7 @@ const MatchCoverage = () => {
 
     }
   }, [series_list]);
+  console.log(series_list)
 
   return (
     <div className="recent-news-wrapper mt-3 section-gap p-t-xs-15">
@@ -64,7 +65,7 @@ const MatchCoverage = () => {
             <div className="row">
 
               <div className="col-lg-12 mb-4">
-                <h3 className="fs-2 p-0 m-0 mb-4">Recent Matches</h3>
+                <h3 className="fs-2 p-0 m-0 mb-4">Recent ‍Series</h3>
                 <Nav variant="underline">
                   {hasData(series_list) &&
                     series_list.slice(0, 5).map((data) =>

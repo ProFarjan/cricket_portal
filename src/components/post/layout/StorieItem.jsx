@@ -36,7 +36,7 @@ const StoriesList = ({ data, postSizeMd, postBgDark }) => {
         <div className="post-metas">
           <ul className="list-inline">
             <li>
-              <span>By</span>
+            <span className="font-bold text-2xl">&bull;</span>
               <Link href={`/post/${slugify(data.title)}?id=${data.id}&type=Stories`}>
                 <a className="post-author">{data?.created_by_user}</a>
               </Link>

@@ -21,15 +21,34 @@ const TopHeaderCard = ({ data }) => {
                         </h5>
                         <div className="row">
                             <div className="col-5">
-                                <div className="overflow-hidden mb-1">
-                                    <img src={data.t1img} className="rounded float-start ml-2 mr-2" width={28} height={20} alt={(data.t1).match(/\[([^\]]+)\]/)[1]} />
-                                    <strong className="fs-5">{(data.t1).match(/\[([^\]]+)\]/)[1]}</strong>
+                                <div className="overflow-hidden flex items-center mb-3">
+                                <div>
+                                        {data.t1img ? (
+                                            <img 
+                                                src={data.t1img} 
+                                                className="rounded float-start ml-2 mr-2" 
+                                                width={22} 
+                                                height={14} 
+                                                alt={data.t1.match(/\[([^\]]+)\]/) ? data.t1.match(/\[([^\]]+)\]/)[1] : data.t1.substring(0, 3).toUpperCase()} 
+                                            />
+                                        ) : (
+                                            <img className="w-[22px] h-[22px] mr-2" src="/images/cricketBall.png" alt="" />
+                                        )}
                                 </div>
-                                <div className="overflow-hidden mt-1">
-                                    <img src={data.t2img} className="rounded float-start ml-2 mr-2" width={28} height={20} alt={data.t2.substring(0, 1)} />
+                                    <strong className="fs-5">{(data.t1).match(/\[([^\]]+)\]/) ? (data.t1)?.match(/\[([^\]]+)\]/)[1] : data.t1.substring(0, 3).toUpperCase()}</strong>
+                                </div>
+                                <div className="overflow-hidden flex items-center  mt-1">
+                                    <div>
+                                                    {data.t1img ? (
+                                                        <img src={data.t2img} className="rounded float-start ml-2 mr-2" width={22} height={14} alt={data.t2.substring(0, 1)} />
+                                                    ) : (
+                                                        <img className="w-[22px] h-[22px] mr-2" src="/images/cricketBall.png" alt="" />
+                                                    )}
+                                    </div>
+                                    
                                     <strong className="fs-5">
                                         {
-                                            (data.t2).match(/\[([^\]]+)\]/) ? (data.t2).match(/\[([^\]]+)\]/)[1] : data.t2.substring(0, 3).toUpperCase()
+                                            (data.t2).match(/\[([^\]]+)\]/) ? (data.t2)?.match(/\[([^\]]+)\]/)[1] : data.t2.substring(0, 3).toUpperCase()
                                         }
                                     </strong>
                                 </div>
