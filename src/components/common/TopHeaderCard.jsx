@@ -22,8 +22,8 @@ const TopHeaderCard = ({ data }) => {
                         <div className="row">
                             <div className="col-5">
                                 <div className="overflow-hidden mb-1">
-                                    <img src={data?.t1img} className="rounded float-start ml-2 mr-2" width={28} height={20} alt={(data.t1).match(/\[([^\]]+)\]/)[1]} />
-                                    <strong className="fs-5">{(data.t1).match(/\[([^\]]+)\]/)[1]}</strong>
+                                    <img src={data?.t1img} className="rounded float-start ml-2 mr-2" width={28} height={20} alt={(data.t1).match(/\[([^\]]+)\]/) ? (data.t1).match(/\[([^\]]+)\]/)[1] : data.t1.substring(0, 3).toUpperCase()} />
+                                    <strong className="fs-5">{(data.t1).match(/\[([^\]]+)\]/) ? (data.t1).match(/\[([^\]]+)\]/)[1] : data.t1.substring(0, 3).toUpperCase()}</strong>
                                 </div>
                                 <div className="overflow-hidden mt-1">
                                     <img src={data?.t2img} className="rounded float-start ml-2 mr-2" width={28} height={20} alt={data.t2.substring(0, 1)} />
