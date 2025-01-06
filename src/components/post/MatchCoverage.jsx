@@ -65,13 +65,13 @@ const MatchCoverage = () => {
             <div className="row">
 
               <div className="col-lg-12 mb-4">
-                <h3 className="fs-2 p-0 m-0 mb-4">Recent ‍Series</h3>
+                <h3 className="fs-2 p-0 m-0 mb-4">Recent Series</h3>
                 <Nav variant="underline">
                   {hasData(series_list) &&
                     series_list.slice(0, 5).map((data) =>
                       <Nav.Item key={data.series_id}>
                         <Nav.Link eventKey={data.series_id}>
-                          <h4 className="fs-4 m-0 p-0">{data.name}</h4>
+                          <h4 className="fs-4 m-0 p-0 ">{data.name}</h4>
                           <p className="fs-6 m-0 p-0 lh-sm">{data.start_date}</p>
                         </Nav.Link>
                       </Nav.Item>

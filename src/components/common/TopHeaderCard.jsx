@@ -3,7 +3,7 @@ import { slugify } from "../../utils";
 
 const TopHeaderCard = ({ data }) => {
     return (
-        <div className="card">
+        <div className="card w-[300px]">
             <Link href={{
                 pathname: `/series/${slugify(data.series)	}`,
                 query: { series_id: slugify(data.series), match_id: data.id }
