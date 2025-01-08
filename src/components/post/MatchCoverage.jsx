@@ -59,7 +59,7 @@ const MatchCoverage = () => {
 
     }
   }, [series_list]);
-  console.log(series_list)
+
 
   return (
     <div className="recent-news-wrapper mt-3 section-gap p-t-xs-15">
@@ -91,7 +91,7 @@ const MatchCoverage = () => {
                           >
                             <Nav.Item>
                               <Nav.Link>
-                                <p className='text-xl'>{data.name} ({data.total})</p>
+                                <p className='text-xl border-r text-blue-600 border-blue-600 '><span className=' mr-4'>{data.name} ({data.total})</span></p>
                               </Nav.Link>
                             </Nav.Item>
                           </li>
