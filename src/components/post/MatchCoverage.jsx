@@ -4,21 +4,34 @@ import { Tab, Nav } from "react-bootstrap";
 import Link from "next/link";
 import SectionTitle from "../elements/SectionTitle";
 import ArticlesList from "./layout/StoriesList";
-import { getSeriesList, getSeriesWiseData } from "../../api/api";
+import { getSeriesList, getSeriesWiseData, getTopMetches } from "../../api/api";
 import reactQuery from "../../config/reactQueryConfig";
 import { hasData, shortTxt } from "../../helpers/helper";
 import PostLayoutThree from './layout/PostLayoutThree';
 import LeadNews from '../news/LeadNews';
+import { slugify } from '../../utils';
 
 const MatchCoverage = () => {
   const [key, setKey] = useState('');
   const [seriesData, setSeriesData] = useState({});
+
+   const {
+      data: topMenu,
+      error,
+      isLoading
+    } = useQuery('series-metches', getTopMetches, reactQuery);
 
   const {
     data: series_list,
     error: error_series,
     isLoading: isLoading_series
   } = useQuery('series-list', getSeriesList, reactQuery);
+
+  const loadMatchData = (series_id) => (event) => {
+    event.preventDefault();
+    const mySeriesData = topMenu.data.filter((s_match) => slugify(s_match.series) == series_id);
+    setSeriesData(mySeriesData)
+  }
 
   const handleSelect = (eventKey) => {
     setKey(eventKey);
@@ -66,17 +79,25 @@ const MatchCoverage = () => {
 
               <div className="col-lg-12 mb-4">
                 <h3 className="fs-2 p-0 m-0 mb-4">Recent Series</h3>
-                <Nav variant="underline">
-                  {hasData(series_list) &&
-                    series_list.slice(0, 5).map((data) =>
-                      <Nav.Item key={data.series_id}>
-                        <Nav.Link eventKey={data.series_id}>
-                          <h4 className="fs-4 m-0 p-0 ">{data.name}</h4>
-                          <p className="fs-6 m-0 p-0 lh-sm">{data.start_date}</p>
-                        </Nav.Link>
-                      </Nav.Item>
-                    )}
-                </Nav>
+                <div className="overflow-x-auto mb-3 whitespace-nowrap scrollbar-hide">
+                    <ul className="flex space-x-4">
+                    
+                      {hasData(topMenu) &&
+                        topMenu?.series?.map((data, index) => (
+                          <li
+                            key={slugify(data.name)}
+                            className="inline-block cursor-pointer text-white"
+                            onClick={loadMatchData(slugify(data.name))}
+                          >
+                            <Nav.Item>
+                              <Nav.Link>
+                                <p className='text-xl'>{data.name} ({data.total})</p>
+                              </Nav.Link>
+                            </Nav.Item>
+                          </li>
+                        ))}
+                    </ul>
+                    </div>
               </div>
 
               <div className='row'>
