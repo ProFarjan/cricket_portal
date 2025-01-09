@@ -91,7 +91,7 @@ const MatchCoverage = () => {
                           >
                             <Nav.Item>
                               <Nav.Link>
-                                <p className='text-xl border-r text-blue-600 border-blue-600 '><span className=' mr-4'>{data.name} ({data.total})</span></p>
+                                <p className='text-xl border-r  hover:text-blue-600 border-blue-600 '><span className=' mr-4'>{data.name} ({data.total})</span></p>
                               </Nav.Link>
                             </Nav.Item>
                           </li>

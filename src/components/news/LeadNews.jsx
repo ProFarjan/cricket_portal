@@ -10,7 +10,7 @@ const LeadNews = () => {
     getLeadNEws,
     reactQuery
   );
-  console.log(lead)
+  
 
   if (lead_isloading) return <div>Loading...</div>;
   if (lead_error) return <div>Error loading data.</div>;

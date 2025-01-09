@@ -14,7 +14,7 @@ const TopHeaderCard = ({ data }) => {
                             whiteSpace: 'nowrap'
                         }}>
                             <strong style={{
-                                color: data.ms == 'live' ? 'red' : 'normal'
+                                color: data.ms == 'live' ? 'red' : 'norm al'
                             }}>
                                 {data.ms.toUpperCase()}
                             </strong> . {data.matchType.toUpperCase()} . { new Date(data.dateTimeGMT).toLocaleDateString("en-US", { month: "short", day: "numeric" }).toUpperCase()}

@@ -1,6 +1,7 @@
 import React from 'react';
 import SummaryTable from './SummaryTable';
 import Commentary from './Commentary';
+import Image from 'next/image';
 
 const Summary = () => {
     const matchData = {
@@ -40,7 +41,7 @@ const Summary = () => {
         <>
             <div className='bg-[#e1f1fa] flex gap-2 mt-4 h-28 items-center rounded-xl '>
                 <p className='font-bold text-6xl text-[#02a8f5] mt-10 px-4 py-4'>105</p>
-                 <p className='text-black text-2xl mt-10'>Michael Bracewell and Mitchell's 105-run partnership is NZ's highest for the 6th wicket in T20Is, breaking the record of 85 between McCullum and Luke Ronchi</p>
+                 <p className='text-black text-2xl mt-10'>Michael Bracewell and Mitchell&apos;s 105-run partnership is NZ&apos;s highest for the 6th wicket in T20Is, breaking the record of 85 between McCullum and Luke Ronchi</p>
             </div>
             <div className='flex items-center gap-4 bg-white border p-[20px] rounded-2xl mt-4'>
               <div className="group relative w-[500px] h-[300px] overflow-hidden rounded-2xl">
@@ -52,6 +53,9 @@ const Summary = () => {
               </div>
 
 
+                <div>
+                    <Image height={300} width={500} className='w-[500px] h-[300px] rounded-2xl' src="/images/series-details/390508.6.webp" alt="" />
+                </div>
                 <div className='ml-10'>
                     <p className='text-5xl font-bold text-black'>Jacob Duffy the slayer <br /> as Sri Lanka suffer <br /> horror collapse</p>
                     <p className='text-2xl mt-[-14px]'>New Zealand fight back with bat and ball <br /> for eight-run win in series opener</p>
