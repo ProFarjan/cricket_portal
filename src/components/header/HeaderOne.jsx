@@ -183,8 +183,9 @@ const HeaderOne = () => {
                         </Nav.Link>
                       </Nav.Item>
                     </li>
+                    <Slider {...settings} >
                     {(hasData(topMenu) && (topMenu.status == 'success')) &&
-                      topMenu?.series?.slice(0, 4).map((data, index) =>
+                      topMenu?.series?.map((data, index) =>
                         <li key={slugify(data.name)} className="fs-5" onClick={loadMatchData(slugify(data.name))}>
                           <Nav.Item key={slugify(data.name)}>
                             <Nav.Link>
@@ -194,6 +195,7 @@ const HeaderOne = () => {
                         </li>
                       )
                     }
+                    </Slider>
                   </ul>
                   <Slider {...settings} className="mb-4">
                     {hasData(series) &&
