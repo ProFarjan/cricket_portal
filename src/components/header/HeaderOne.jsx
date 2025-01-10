@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useQuery } from 'react-query';
+import { useQuery } from "react-query";
 import Link from "next/link";
 import Image from "next/image";
 import MenuEditionData from "../../data/fake/MenuEditionData.json";
@@ -10,7 +10,7 @@ import TopHeaderCard from "../common/TopHeaderCard";
 import OffcanvasMenu from "./OffcanvasMenu";
 import Slider from "react-slick";
 import { hasData } from "../../helpers/helper";
-import { Nav } from 'react-bootstrap';
+import { Nav } from "react-bootstrap";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -60,7 +60,7 @@ const HeaderOne = () => {
 
   // Header Search
   const [searchshow, setSearchShow] = useState(false);
-  const [series, setSeriesData] = useState('');
+  const [series, setSeriesData] = useState("");
 
   const headerSearchShow = () => {
     setSearchShow(true);
@@ -72,15 +72,14 @@ const HeaderOne = () => {
   const {
     data: topMenu,
     error,
-    isLoading
-  } = useQuery('series-metches', getTopMetches, reactQuery);
+    isLoading,
+  } = useQuery("series-metches", getTopMetches, reactQuery);
 
   const {
     data: menus,
     error: menu_error,
-    isLoading: menu_isloading
-  } = useQuery('get-menus', getMenus, reactQuery);
-
+    isLoading: menu_isloading,
+  } = useQuery("get-menus", getMenus, reactQuery);
 
   // Mobile Menu Toggle
   const [mobileToggle, setMobileToggle] = useState(false);
@@ -113,31 +112,33 @@ const HeaderOne = () => {
     if (topMenu?.data) {
       setSeriesData(topMenu.data);
     }
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [topMenu]);
-
 
   const settings = {
     infinite: series?.length > 4,
     speed: 500,
     slidesToShow: Math.min(4, series.length || 4),
-    slidesToScroll: 1,    variableWidth: false,
-    centerMode: false
+    slidesToScroll: 1,
+    variableWidth: false,
+    centerMode: false,
   };
 
   const loadMatchData = (series_id) => (event) => {
     event.preventDefault();
-    const mySeriesData = topMenu.data.filter((s_match) => slugify(s_match.series) == series_id);
-    setSeriesData(mySeriesData)
-  }
+    const mySeriesData = topMenu.data.filter(
+      (s_match) => slugify(s_match.series) == series_id
+    );
+    setSeriesData(mySeriesData);
+  };
 
   const loadAllMatchData = () => (event) => {
     event.preventDefault();
-    setSeriesData(topMenu.data)
-  }
+    setSeriesData(topMenu.data);
+  };
 
   const handleScroll = () => {
     const position = window.scrollY;
@@ -163,14 +164,12 @@ const HeaderOne = () => {
     document.body.classList.toggle("dark", newTheme === "dark");
   };
 
-
   return (
-    
     <>
       <OffcanvasMenu ofcshow={show} ofcHandleClose={handleClose} />
 
       <header className="page-header">
-        {hasData(topMenu) && (topMenu.status == 'success') ?
+        {hasData(topMenu) && topMenu.status == "success" ? (
           <div className="header-top bg-primary-color">
             <div className="container">
               <div className="row align-items-center">
@@ -179,35 +178,45 @@ const HeaderOne = () => {
                     <li className="fs-5" onClick={loadAllMatchData()}>
                       <Nav.Item>
                         <Nav.Link>
-                          <strong>Matches ({topMenu?.data?.length ?? 0})</strong>
+                          <strong>
+                            Matches ({topMenu?.data?.length ?? 0})
+                          </strong>
                         </Nav.Link>
                       </Nav.Item>
                     </li>
-                    <Slider {...settings} >
-                    {(hasData(topMenu) && (topMenu.status == 'success')) &&
-                      topMenu?.series?.map((data, index) =>
-                        <li key={slugify(data.name)} className="fs-5" onClick={loadMatchData(slugify(data.name))}>
-                          <Nav.Item key={slugify(data.name)}>
-                            <Nav.Link>
-                              {data.name} ({data.total})
-                            </Nav.Link>
-                          </Nav.Item>
-                        </li>
-                      )
-                    }
-                    </Slider>
+                    {hasData(topMenu) &&
+                      topMenu.status == "success" &&
+                      topMenu?.series?.map((data, index) => (
+                          <li
+                            key={slugify(data.name)}
+                            className="fs-5"
+                            onClick={loadMatchData(slugify(data.name))}
+                          >
+                            <Nav.Item key={slugify(data.name)}>
+                              <Nav.Link>
+                                {data.name} ({data.total})
+                              </Nav.Link>
+                            </Nav.Item>
+                          </li> 
+                      ))}
                   </ul>
+
                   <Slider {...settings} className="mb-4">
                     {hasData(series) &&
                       series.map((data) => {
-                        return <TopHeaderCard key={slugify(data.series)} data={data} />
+                        return (
+                          <TopHeaderCard
+                            key={slugify(data.series)}
+                            data={data}
+                          />
+                        );
                       })}
                   </Slider>
                 </div>
               </div>
             </div>
           </div>
-          :
+        ) : (
           <div className="header-top bg-primary-color">
             <div className="container">
               <div className="row align-items-center p-4">
@@ -222,11 +231,16 @@ const HeaderOne = () => {
               </div>
             </div>
           </div>
-        }
-        <nav className={`navbar bg-secondary-color ${scrollPosition > 240 ? 'sticky-header' : ''}`}>
+        )}
+        <nav
+          className={`navbar bg-secondary-color ${
+            scrollPosition > 240 ? "sticky-header" : ""
+          }`}
+        >
           <div className="container">
             <div className="navbar-inner">
-              {(hasData(topMenu) && topMenu.status == 'success' || scrollPosition > 240) ?
+              {(hasData(topMenu) && topMenu.status == "success") ||
+              scrollPosition > 240 ? (
                 <div className="brand-logo-container">
                   <Link href="/">
                     <a>
@@ -239,25 +253,34 @@ const HeaderOne = () => {
                     </a>
                   </Link>
                 </div>
-                :
+              ) : (
                 <></>
-              }
+              )}
               <div className="main-nav-wrapper">
-                <ul className="main-navigation list-inline" ref={menuRef} style={{
-                  padding: (hasData(topMenu) && topMenu.status == 'success') ? '0 0 0 4.4rem' : '0'
-                }}>
+                <ul
+                  className="main-navigation list-inline"
+                  ref={menuRef}
+                  style={{
+                    padding:
+                      hasData(topMenu) && topMenu.status == "success"
+                        ? "0 0 0 4.4rem"
+                        : "0",
+                  }}
+                >
                   {hasData(menus) &&
                     menus.slice(0, 10).map((data, index) =>
-                      data.front_end_sub_menu && data.front_end_sub_menu.length > 0 ? (
+                      data.front_end_sub_menu &&
+                      data.front_end_sub_menu.length > 0 ? (
                         <li key={index}>
                           <Link href={`/${slugify(data.menu_title)}`}>
                             <a>{data.menu_title}</a>
-
                           </Link>
                           <ul className={`submenu`}>
                             {data.front_end_sub_menu.map((data, sub_index) => (
                               <li key={sub_index}>
-                                <Link href={`/sub-menu/${slugify(data.menu_title)}`}>
+                                <Link
+                                  href={`/sub-menu/${slugify(data.menu_title)}`}
+                                >
                                   <a>{data.menu_title}</a>
                                 </Link>
                               </li>
@@ -266,7 +289,7 @@ const HeaderOne = () => {
                         </li>
                       ) : (
                         <li key={index}>
-                          <Link href={data?.menu_url ?? '#'}>
+                          <Link href={data?.menu_url ?? "#"}>
                             <a>{data?.menu_title}</a>
                           </Link>
                         </li>
@@ -277,8 +300,9 @@ const HeaderOne = () => {
               <div className="navbar-extra-features ml-auto">
                 <form
                   action="#"
-                  className={`navbar-search ${searchshow ? "show-nav-search" : ""
-                    }`}
+                  className={`navbar-search ${
+                    searchshow ? "show-nav-search" : ""
+                  }`}
                 >
                   <div className="search-field">
                     <input
@@ -326,11 +350,11 @@ const HeaderOne = () => {
                 </ul>
                 <button className="nav-search-field-toggler ">
                   <i className="far fa-moon" />
-                </button> 
+                </button>
 
                 <button className="nav-search-field-toggler">
                   <i className="far fa-bell" />
-              </button>
+                </button>
                 <button className="nav-search-field-toggler">
                   <i className="far fa-bars" />
                 </button>
@@ -342,8 +366,9 @@ const HeaderOne = () => {
                 </button>
               </div>
               <div
-                className={`d-block d-lg-none ${mobileToggle ? "expanded" : ""
-                  }`}
+                className={`d-block d-lg-none ${
+                  mobileToggle ? "expanded" : ""
+                }`}
               >
                 <FloatingMenu />
               </div>
@@ -351,7 +376,6 @@ const HeaderOne = () => {
           </div>
         </nav>
       </header>
-
     </>
   );
 };
