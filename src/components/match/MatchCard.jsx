@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -8,13 +8,18 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-const MatchCard = () => {
-  const progressCircle = useRef(null);
-  const progressContent = useRef(null);
+const MatchCard = ({ matchdata }) => {
+  
+  // const progressCircle = useRef(null);
+  // const progressContent = useRef(null);
+
   // const onAutoplayTimeLeft = (s, time, progress) => {
   //   progressCircle.current.style.setProperty("--progress", 1 - progress);
   //   progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   // };
+
+  // 
+
   return (
     <div className="flex">
       <div className="w-[70%] border-r px-4">
@@ -22,29 +27,49 @@ const MatchCard = () => {
           <div className="flex  gap-3">
             <img
               className="w-12 h-12"
-              src="/images/Flag/pakistan.webp"
+              src={matchdata?.teamInfo?.[0].img || 'No pic'}
               alt=""
             />
-            <p className="text-2xl mt-2">Pakistan</p>
+            <p className="text-2xl mt-2 text-black font-bold">{matchdata?.teams?.[0] || 'No team available'}</p> 
           </div>
-          <div className="flex gap-2 p-4 mt-1">
-            <p className="text-2xl">(50/50 ov)</p>
-            <p className="text-black font-bold text-2xl">308/9</p>
+          <div className="flex gap-2 p-4 mt-5">
+            
+            <p>
+            {matchdata?.score?.slice(0,1).map((s, index) => (
+                <div key={index} className="flex">
+                    <p className="text-2xl">({s.o} ov)</p>
+                    <p className="text-black font-bold text-2xl">
+                        {s.r}/{s.w} 
+                    </p>
+                </div>
+            ))}
+            </p>
           </div>
         </div>
-        <div className="flex items-center justify-between mt-[-48px]">
+        <div className="flex items-center justify-between mt-[-90px]">
           <div className="flex gap-3">
-            <img className="w-12 h-12" src="/images/Flag/SA.webp" alt="" />
-            <p className="text-2xl mt-2">South Africa</p>
+            <img className="w-12 h-12" src={matchdata?.teamInfo?.[1].img || 'No pic'} alt="" />
+            <p className="text-2xl mt-2 text-black font-bold">{matchdata?.teams?.[1] || 'No team available'}</p>
+
           </div>
-          <div className="flex gap-2 p-4 mt-1 ">
-            <p className="text-2xl">(42/50 ov, T:308) </p>
-            <p className="text-black font-bold text-2xl">271</p>
+          <div className="flex gap-2 p-4 mt-4">
+            
+            <p>
+            {matchdata?.score?.slice(1,2).map((s, index) => (
+                <div key={index} className="flex">
+                    <p className="text-2xl">({s.o} ov)</p>
+                    <p className="text-black font-bold text-2xl">
+                        {s.r}/{s.w} 
+                    </p>
+                </div>
+            ))}
+            </p>
           </div>
         </div>
       </div>
-      <div className="w-[30%] h-72">
-        <Swiper
+      <div className="mx-auto flex items-center"><h1 className="text-xl ">No Data available</h1></div>
+      {/* <div className="w-[30%] h-72">
+        {/* <Swiper
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
@@ -127,8 +152,8 @@ const MatchCard = () => {
             </svg>
             <span ref={progressContent} />
           </div> */}
-        </Swiper>
-      </div>
+        {/* </Swiper> */} 
+      {/* </div> */} 
     </div>
   );
 };

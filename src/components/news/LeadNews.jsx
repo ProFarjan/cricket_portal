@@ -2,6 +2,7 @@ import React from "react";
 import { getLeadNEws } from "../../api/api";
 import { useQuery } from "react-query";
 import reactQuery from "../../config/reactQueryConfig";
+import Link from "next/link";
 
 const LeadNews = () => {
   const { data: lead, error: lead_error, isLoading: lead_isloading } = useQuery(
@@ -9,6 +10,7 @@ const LeadNews = () => {
     getLeadNEws,
     reactQuery
   );
+  
 
   if (lead_isloading) return <div>Loading...</div>;
   if (lead_error) return <div>Error loading data.</div>;
@@ -30,9 +32,11 @@ const LeadNews = () => {
               ) : (
                 <p>No user information available.</p>
               )}
-            <h1 className="text-white leading-[50px] text-6xl md:mt-[-12px] mt-[-40px] ">
-              {item.title}
-            </h1>
+            <Link href={`/post/${item?.series_match?.slug}?id=${item?.series_id}&type=match`}>
+                <h1 className="text-white cursor-pointer leading-[50px] text-6xl md:mt-[-12px] mt-[-40px] ">
+                  {item.title}
+                </h1>
+            </Link>
             <div className="text-white">
     
               {item?.user_info ? (
@@ -40,10 +44,11 @@ const LeadNews = () => {
                   <div className="flex gap-4">  
                     <img
                       className="w-10 bg-white rounded-full h-10 outline outline-offset-2 outline-gray-500 "
-                      src={`${process.env.NEXT_PUBLIC_IMGPATH}${item.user_info.profile_pic}`}
+                      src={`${process.env.NEXT_PUBLIC_IMGPATH}${item?.user_info?.profile_pic}`}
                       alt={item.title}
                     />
-                    <p className="text-white">{item.user_info.name}</p>
+                    <p className="text-white">{item?.user_info?.name}</p>
+                    
                 </div>
                 </>
 

@@ -32,7 +32,7 @@ const PostSectionTwo = () => {
                 <ExclusiveItem data={exclusives?.exclusive_expert_opinion} type="Expert Opinion" />
               )}
               {exclusives?.exclusive_expert_opinion && (
-                <ExclusiveItem data={exclusives?.exclusive_expert_opinion} type="Expert Opinion" />
+                <ExclusiveItem data={exclusives?.exclusive_expert_opinion} type="Expert Interview" />
               )}
             </div>
           </div>

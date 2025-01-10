@@ -175,7 +175,7 @@ const HeaderOne = () => {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-md-auto">
-                  <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
+                  {/* <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
                     <li className="fs-5" onClick={loadAllMatchData()}>
                       <Nav.Item>
                         <Nav.Link>
@@ -184,7 +184,7 @@ const HeaderOne = () => {
                       </Nav.Item>
                     </li>
                     {(hasData(topMenu) && (topMenu.status == 'success')) &&
-                      topMenu?.series?.slice(0, 4).map((data, index) =>
+                      topMenu?.series?.map((data, index) =>
                         <li key={slugify(data.name)} className="fs-5" onClick={loadMatchData(slugify(data.name))}>
                           <Nav.Item key={slugify(data.name)}>
                             <Nav.Link>
@@ -194,8 +194,41 @@ const HeaderOne = () => {
                         </li>
                       )
                     }
-                  </ul>
-                  <Slider {...settings} className="mb-4">
+                  </ul> */}
+
+
+                  {/* scroll var  */}
+                  
+                  <div className="flex gap-4">
+                    <li className="fs-5" onClick={loadAllMatchData()}>
+                      <Nav.Item>
+                        <Nav.Link>
+                          <strong>Matches({topMenu?.data?.length ?? 0})</strong>
+                        </Nav.Link>
+                      </Nav.Item>
+                    </li>
+                    <div className="overflow-x-auto mb-3 whitespace-nowrap scrollbar-hide">
+                    <ul className="flex space-x-4">
+                    
+                      {hasData(topMenu) &&
+                        topMenu?.series?.map((data, index) => (
+                          <li
+                            key={slugify(data.name)}
+                            className="inline-block cursor-pointer text-white"
+                            onClick={loadMatchData(slugify(data.name))}
+                          >
+                            <Nav.Item>
+                              <Nav.Link>
+                                {data.name} ({data.total})
+                              </Nav.Link>
+                            </Nav.Item>
+                          </li>
+                        ))}
+                    </ul>
+                    </div>
+                  </div>
+
+                  <Slider {...settings} className="mb-3">
                     {hasData(series) &&
                       series.map((data) => {
                         return <TopHeaderCard key={slugify(data.series)} data={data} />
