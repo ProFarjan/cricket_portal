@@ -6,6 +6,8 @@ const RecentNews = ({ news, news_isloading }) => {
     return <p>Loading...</p>;
   }
 
+
+
   // Format date utility
   const formatDate = (isoDate) => {
     const date = new Date(isoDate);

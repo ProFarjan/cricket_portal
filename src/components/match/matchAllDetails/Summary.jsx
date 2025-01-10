@@ -1,5 +1,6 @@
 import React from 'react';
 import SummaryTable from './SummaryTable';
+import Commentary from './Commentary';
 import Image from 'next/image';
 
 const Summary = () => {
@@ -43,6 +44,15 @@ const Summary = () => {
                  <p className='text-black text-2xl mt-10'>Michael Bracewell and Mitchell&apos;s 105-run partnership is NZ&apos;s highest for the 6th wicket in T20Is, breaking the record of 85 between McCullum and Luke Ronchi</p>
             </div>
             <div className='flex items-center gap-4 bg-white border p-[20px] rounded-2xl mt-4'>
+              <div className="group relative w-[500px] h-[300px] overflow-hidden rounded-2xl">
+                <img
+                    className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                    src="/images/series-details/390508.6.webp"
+                    alt=""
+                />
+              </div>
+
+
                 <div>
                     <Image height={300} width={500} className='w-[500px] h-[300px] rounded-2xl' src="/images/series-details/390508.6.webp" alt="" />
                 </div>
@@ -52,7 +62,8 @@ const Summary = () => {
                     <p className='text-xl mt-[-20px]'>28-Dec-2024 . Madushka Balasuriya </p>
                 </div>
             </div>
-            <SummaryTable  data={ matchData} /> 
+        <SummaryTable data={matchData} /> 
+        <Commentary/>
         </>
     );
 };

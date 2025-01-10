@@ -16,6 +16,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { slugify } from "../../utils";
 import { useTheme } from "next-themes";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const HeaderOne = () => {
   // Main Menu Toggle
@@ -126,6 +128,13 @@ const HeaderOne = () => {
     variableWidth: false,
     centerMode: false,
   };
+  const topSetting = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  };
 
   const loadMatchData = (series_id) => (event) => {
     event.preventDefault();
@@ -174,7 +183,25 @@ const HeaderOne = () => {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-md-auto">
-                  <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
+                  <div className="">
+                    <Slider {...topSetting}>
+                      {hasData(topMenu) &&
+                        topMenu?.series?.map((data, index) => (
+                          <li
+                            key={slugify(data.name)}
+                            className="inline-block cursor-pointer text-white"
+                            onClick={() => loadMatchData(slugify(data.name))}
+                          >
+                            <Nav.Item>
+                              <Nav.Link>
+                                {data.name} ({data.total})
+                              </Nav.Link>
+                            </Nav.Item>
+                          </li>
+                        ))}
+                    </Slider>
+                  </div>
+                  {/* <ul className="header-top-nav list-inline justify-content-center justify-content-md-start">
                     <li className="fs-5" onClick={loadAllMatchData()}>
                       <Nav.Item>
                         <Nav.Link>
@@ -187,21 +214,21 @@ const HeaderOne = () => {
                     {hasData(topMenu) &&
                       topMenu.status == "success" &&
                       topMenu?.series?.map((data, index) => (
-                          <li
-                            key={slugify(data.name)}
-                            className="fs-5"
-                            onClick={loadMatchData(slugify(data.name))}
-                          >
-                            <Nav.Item key={slugify(data.name)}>
-                              <Nav.Link>
-                                {data.name} ({data.total})
-                              </Nav.Link>
-                            </Nav.Item>
-                          </li> 
+                        <li
+                          key={slugify(data.name)}
+                          className="fs-5"
+                          onClick={loadMatchData(slugify(data.name))}
+                        >
+                          <Nav.Item key={slugify(data.name)}>
+                            <Nav.Link>
+                              {data.name} ({data.total})
+                            </Nav.Link>
+                          </Nav.Item>
+                        </li>
                       ))}
-                  </ul>
+                  </ul> */}
 
-                  <Slider {...settings} className="mb-4">
+                  <Slider {...settings} className="mb-3">
                     {hasData(series) &&
                       series.map((data) => {
                         return (

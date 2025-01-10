@@ -31,9 +31,9 @@ const Table = () => {
             <Nav.Item>
               <Nav.Link eventKey="Live">Live</Nav.Link>
             </Nav.Item>
-            <Nav.Item>
+            {/* <Nav.Item>
               <Nav.Link eventKey="Summary">Summary</Nav.Link>
-            </Nav.Item>
+            </Nav.Item> */}
             <Nav.Item>
               <Nav.Link eventKey="Scorecard">Scorecard</Nav.Link>
             </Nav.Item>
@@ -64,9 +64,9 @@ const Table = () => {
           <Tab.Pane eventKey="Live">
             <LiveScore />
           </Tab.Pane>
-          <Tab.Pane eventKey="Summary">
+          {/* <Tab.Pane eventKey="Summary">
             <Summary />
-          </Tab.Pane>
+          </Tab.Pane> */}
           <Tab.Pane eventKey="Scorecard">
             <ScoreCard />
           </Tab.Pane>

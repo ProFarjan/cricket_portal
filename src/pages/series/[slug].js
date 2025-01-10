@@ -9,16 +9,56 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import MatchCard from "../../components/match/MatchCard";
 import Table from "../../components/match/matchAllDetails/Table";
+import { useEffect, useState } from "react";
 
 const SeriesDetail = () => {
     const router = useRouter();
     const { slug, series_id, match_id } = router.query;
+    
 
+    const [match, setMatch] = useState([]);
+    const [loading, setLoading] = useState(false)
+    console.log(match)
+    
+    
+    useEffect(() => {
+
+        const fetchMatch = async () => {
+          setLoading(true);
+            try {
+              const response = await fetch(`https://api.cricapi.com/v1/match_info?apikey=a4403336-b4a2-4b90-a29a-3b1c8dd4aa1a&id=${match_id}`);
+              const data = await response.json();
+              setMatch(data?.data);
+              setLoading(false)
+            } catch (error) {
+              console.error("Error fetching products:", error);
+            }
+        };
+        fetchMatch();
+     },[match_id])
+      
+      if (loading) {
+        return <h1 className="text-xl">Loading ...</h1>
+    }
+    
+    const formatDate = (isoDate) => {
+        const date = new Date(isoDate);
+        const options = {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        };
+        const formattedDate = date.toLocaleString("en-US", options);
+        const [month, day, year] = formattedDate.split(" ");
+        return `${day.replace(",", "")}, ${month}, ${year}`;
+      };
+    
     // const {
     //     data: match,
     //     error,
     //     isLoading
     // } = useQuery('match-data', getMatchData)
+    // console.log(match)
 
     return (
         <>
@@ -34,8 +74,7 @@ const SeriesDetail = () => {
                                     <div className="card-header  h-28 flex justify-between items-center ">
                                         <div className="mt-5">
                                                 <h1 className="text-3xl p-2  text-gray-700">RESULT</h1>
-                                                <p className="text-2xl p-2 mt-[-24px] ">3rd ODI (D/N), Johannesburg, December 22, 2024, 
-                                                <span className="underline cursor-pointer hover:text-blue-600 ml-1">Pakistan tour of South Africa</span></p>
+                                            <p className="text-2xl p-2 mt-[-24px] "> {match?.name},<span className="ml-3">{formatDate(match?.date) }</span></p>
                                         </div>
                                         <div className="flex gap-2 ">
                                                 <FontAwesomeIcon className="w-4 cursor-pointer hover:text-blue-500" icon={faAngleLeft} /><span className="text-xl mr-4 cursor-pointer hover:text-blue-500" >Prev</span><span className="text-xl cursor-pointer hover:text-blue-500">Next</span>
@@ -43,7 +82,7 @@ const SeriesDetail = () => {
                                          </div>
                                     </div>
                                     <div className=" mr-4 ">
-                                        <MatchCard/>                      
+                                        <MatchCard matchdata={match} />                      
                                     </div>
                                 </div>
                             </div>
