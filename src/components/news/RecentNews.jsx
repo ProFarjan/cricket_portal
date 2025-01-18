@@ -24,7 +24,7 @@ const RecentNews = ({ news, news_isloading }) => {
   return (
     <div>
       <div>
-        {news?.news?.data.slice(0, 4).map((newsItem, index) => (
+        {news?.news?.data.slice(1, 5).map((newsItem, index) => (
           <div className="flex gap-4 my-4" key={index}>
             {/* News Image */}
             <img

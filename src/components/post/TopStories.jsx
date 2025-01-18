@@ -21,7 +21,7 @@ const TopStories = () => {
           <div className="card-body">
             <div className="row">
               {hasData(stories) &&
-                stories.slice(0, 8).map((data, index) => (
+                stories.slice(1, 8).map((data, index) => (
                   <div className="col-lg-6" key={data.id}>
                     <StorieItem data={data} key={index} />
                   </div>
