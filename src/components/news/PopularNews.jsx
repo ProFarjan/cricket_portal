@@ -19,7 +19,7 @@ const PopularNews = ({ news, news_isloading }) => {
   return (
     <div>
       <div>
-        {news?.popular?.data.slice(0, 4).map((newsItem, index) =>
+        {news?.popular?.data.slice(1, 5).map((newsItem, index) =>
           <div className="flex gap-3 my-4 " key={index}>
             {/* <img className="h-44   w-44" src="/images/recent.webp" /> */}
 
